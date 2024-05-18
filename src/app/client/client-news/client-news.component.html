@@ -1,0 +1,12 @@
+<div class="body-tintuc container" style="margin-left: 15%;">
+    <div class="tintuc-info" *ngFor="let item of news | paginate : { itemsPerPage: itemPerPage, currentPage: p };">
+       <a href="http://doanhnghiepvn.vn/cong-nghe/danh-gia-smartphone-chip-s660-ram-8-gb-gia-6-99-trieu-tai-viet-nam/2018112603315443" target="_blank">
+          <img [src]="item.avatar" src="img/tintuc/tintuc1.png">
+          <h2>{{item.title}}</h2>
+       </a>
+       <br>
+       <h5>{{item.newsTypeName}}</h5>
+    </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+ </div>

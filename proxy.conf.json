@@ -1,0 +1,8 @@
+{
+    "/api/**": {
+      "target": "https://mobilecity-service.up.railway.app",
+      "secure": false,
+      "logLevel":"debug",
+      "changeOrigin": true
+    }
+  }
