@@ -1,26 +1,51 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    
-    <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
-    <link rel="canonical" href="https://colorlib.com" />
-    <meta name="robots" content="nindex, nofollow" />
-  </head>
-  <body>
-    <div class="dashboard-main-wrapper">
+
+<head>
+  <title>Danh sách nhân viên | Quản trị Admin</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Main CSS-->
+  <!-- <link rel="stylesheet" type="text/css" href="css/main.css"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <!-- or -->
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <!-- Font-icon css-->
+  <link rel="stylesheet" type="text/css"
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+
+</head>
+
+<body onload="time()" class="app sidebar-mini rtl">
+  <!-- Navbar-->
+ 
+  <app-admin-header></app-admin-header>
+  <!-- Sidebar menu-->
+  <app-admin-sidebar></app-admin-sidebar>
+  <router-outlet></router-outlet>
+ 
+
+  <!-- Essential javascripts for application to work-->
+  <!-- <script src="./assets/js/jquery-3.2.1.min.js"></script>
+  <script src="./assets/js/popper.min.js"></script>
+  <script src="./assets/js/bootstrap.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+  <!-- <script src="./assets/src/jquery.table2excel.js"></script> -->
+  <!-- <script src="./assets/js/main.js"></script> -->
+  <!-- The javascript plugin to display page loading on top-->
+  <!-- <script src="./assets/js/plugins/pace.min.js"></script> -->
+  <!-- Page specific javascripts-->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script> -->
+  <!-- Data table plugin-->
+  <!-- <script type="text/javascript" src="./assets/js/plugins/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="./assets/js/plugins/dataTables.bootstrap.min.js"></script>
+  <script type="text/javascript">$('#sampleTable').DataTable();</script> -->
   
-     <app-admin-header></app-admin-header>
-     <app-admin-sidebar></app-admin-sidebar>
-      
-      <router-outlet></router-outlet>
-    </div>    
-   
-  
-  </body>
+</body>
+
 </html>

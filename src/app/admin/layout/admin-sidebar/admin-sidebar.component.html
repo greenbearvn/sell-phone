@@ -1,157 +1,44 @@
-<div class="nav-left-sidebar sidebar-dark">
-    <div
-      class="slimScrollDiv"
-      style="position: relative; overflow: hidden; width: auto; height: 100%"
-    >
-      <div class="menu-list" style="overflow: hidden; width: auto; height: 100%">
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav flex-column" >
-              <li class="nav-divider">Menu</li>
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  [title]="'Khóa học'"
-                  [routerLink]="['/admin/khoahoc/list']"
-                  >Quản lý khóa học
-                </a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  [title]="'Hóa đơn'"
-                  [routerLink]="['/admin/hoadon/list']"
-                  >Quản lý hóa đơn</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  [title]="'Bài kiểm tra'"
-                  [routerLink]="['/admin/test/list']"
-                  >Quản lý bài kiểm tra</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  [title]="'Hội thoại'"
-                  [routerLink]="['/admin/convention/list']"
-                >
-                  Quản lý hội thoại</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  [title]="'Người dùng'"
-                  [routerLink]="['/admin/nguoidung/list']"
-                  >Quản lý người dùng</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  [title]="'Bài đã kiểm tra'"
-                  [routerLink]="['/admin/tested/list']"
-                  >Quản lý bài đã kiểm tra</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  [title]="'Bình luận'"
-                  [routerLink]="['/admin/comment/list']"
-                  >Quản lý bình luận</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  [title]="'Cấp độ'"
-                  [routerLink]="['/admin/level/list']"
-                  >Quản lý cấp độ</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  [title]="'Bài viết'"
-                  [routerLink]="['/admin/blog/list']"
-                  >Quản lý bài viết</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  [title]="'Thể loại'"
-                  [routerLink]="['/admin/category/list']"
-                  >Quản lý thể loại</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  [title]="'Hồ sơ'"
-                  [routerLink]="['/admin/profile/list']"
-                  >Quản lý hồ sơ</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  [title]="'Hồ sơ'"
-                  [routerLink]="['/admin/collection/list']"
-                  >Quản lý bộ sưu tập</a
-                >
-              </li>
-            </ul>
-            
-          </div>
-        </nav>
-      </div>
-      <div
-        class="slimScrollBar"
-        style="
-          background: rgb(0, 0, 0);
-          width: 7px;
-          position: absolute;
-          top: -1px;
-          opacity: 0.4;
-          display: none;
-          border-radius: 7px;
-          z-index: 99;
-          right: 1px;
-          height: 782.8px;
-        "
-      ></div>
-      <div
-        class="slimScrollRail"
-        style="
-          width: 7px;
-          height: 100%;
-          position: absolute;
-          top: 0px;
-          display: none;
-          border-radius: 7px;
-          background: rgb(51, 51, 51);
-          opacity: 0.2;
-          z-index: 90;
-          right: 1px;
-        "
-      ></div>
+<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+<aside class="app-sidebar">
+  <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="/images/hay.jpg" width="50px"
+      alt="User Image">
+    <div>
+      <p class="app-sidebar__user-name"><b>Võ Trường</b></p>
+      <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
     </div>
   </div>
-  
+  <hr>
+  <ul class="app-menu">
+    <li><a class="app-menu__item haha" href="phan-mem-ban-hang.html"><i class='app-menu__icon bx bx-cart-alt'></i>
+        <span class="app-menu__label">POS Bán Hàng</span></a></li>
+    <li><a class="app-menu__item " href="index.html"><i class='app-menu__icon bx bx-tachometer'></i><span
+          class="app-menu__label">Bảng điều khiển</span></a></li>
+    <li><a class="app-menu__item active" href="table-data-table.html"><i class='app-menu__icon bx bx-id-card'></i>
+        <span class="app-menu__label">Quản lý nhân viên</span></a></li>
+    <li><a class="app-menu__item" href="#"><i class='app-menu__icon bx bx-user-voice'></i><span
+          class="app-menu__label">Quản lý khách hàng</span></a></li>
+    <li><a class="app-menu__item" [routerLink]="['/admin/product']"><i
+          class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a>
+    </li>
+    <li><a class="app-menu__item" [routerLink]="['/admin/news']"><i
+            class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý bài viết</span></a>
+      </li>
+      <li><a class="app-menu__item" [routerLink]="['/admin/category']"><i
+            class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý hãng điện thoại</span></a>
+      </li>
+    <li><a class="app-menu__item" href="table-data-oder.html"><i class='app-menu__icon bx bx-task'></i><span
+          class="app-menu__label">Quản lý đơn hàng</span></a></li>
+    <li><a class="app-menu__item" href="table-data-banned.html"><i class='app-menu__icon bx bx-run'></i><span
+          class="app-menu__label">Quản lý nội bộ
+        </span></a></li>
+    <li><a class="app-menu__item" href="table-data-money.html"><i class='app-menu__icon bx bx-dollar'></i><span
+          class="app-menu__label">Bảng kê lương</span></a></li>
+    <li><a class="app-menu__item" href="quan-ly-bao-cao.html"><i
+          class='app-menu__icon bx bx-pie-chart-alt-2'></i><span class="app-menu__label">Báo cáo doanh thu</span></a>
+    </li>
+    <li><a class="app-menu__item" href="page-calendar.html"><i class='app-menu__icon bx bx-calendar-check'></i><span
+          class="app-menu__label">Lịch công tác </span></a></li>
+    <li><a class="app-menu__item" href="#"><i class='app-menu__icon bx bx-cog'></i><span class="app-menu__label">Cài
+          đặt hệ thống</span></a></li>
+  </ul>
+</aside>
