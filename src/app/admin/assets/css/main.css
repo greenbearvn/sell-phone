@@ -2046,7 +2046,7 @@ select.form-control:focus::-ms-value {
 }
 
 .form-control-file,
-.form-control-range {
+ .form-control-range {
   display: block;
   width: 100%;
 }
@@ -2616,7 +2616,7 @@ fieldset:disabled a.btn {
 .btn-secondary {
   color: #FFF !important;
   background: rgb(0, 28, 64);
-border: none !important;
+  border: none !important;
   /* border-top-left-radius: 10px !important; */
   /* border-bottom-right-radius: 10px !important; */
   border-radius: .357rem;
@@ -15370,6 +15370,19 @@ be a descendant of the grid when it is being dragged.
 .swal-title{
   color: rgb(0, 0, 0);
 }
+
+
+.swal2-title {
+  color: rgb(0, 0, 0);
+}
+
+.swal2-html-container {
+  color: black !important;
+  text-align: center;
+  font-weight: 500;
+  font-size: 15px !important;
+}
+
 .haha{
     color: rgb(0, 28, 64) !important;
     background: #ffd43b !important;

@@ -6,7 +6,7 @@ import { AdminProductService } from 'src/app/services/admin/product/admin-produc
 import { ActivatedRoute } from '@angular/router';
 import { ToastService } from 'angular-toastify';
 import { AdminCategoryService } from 'src/app/services/admin/category/admin-category.service';
-import { AdminPromotionService } from'src/app/services/promotion/admin-promotion.service';
+import { AdminPromotionService } from 'src/app/services/promotion/admin-promotion.service';
 
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AdminProductOptionModalComponent } from '../admin-product-option-modal/admin-product-option-modal.component';
@@ -22,12 +22,12 @@ import Swal from 'sweetalert2';
   selector: 'app-admin-product-detail',
   templateUrl: './admin-product-detail.component.html',
   styleUrls: ['./admin-product-detail.component.css',
-  '../assets/css/main.css'
+    '../assets/css/main.css'
   ]
 })
 export class AdminProductDetailComponent {
 
-  product : Product = {
+  product: Product = {
     name: '',
     avatar: '',
     screenTechnology: '',
@@ -69,25 +69,24 @@ export class AdminProductDetailComponent {
     description: '',
     categoryId: '',
     promotionId: '',
-    promotionValue: '',
+    promotionValue: 0,
     status: ''
   };
 
-  token:any;
-  id:any;
-  promotions:any;
-  categories:any;
-  productOptions:any;
-
+  token: any;
+  id: any;
+  promotions: any;
+  categories: any;
+  productOptions: any;
 
   // paginate
   p: number = 1;
-  itemPerPage:number=10;
- 
+  itemPerPage: number = 10;
+
   formData: FormData;
 
   public Editor = ClassicEditor;
-  ckeditorData:any = '';
+  ckeditorData: any = '';
 
   constructor(
     private adminProductService: AdminProductService,
@@ -96,16 +95,14 @@ export class AdminProductDetailComponent {
     private toastService: ToastService,
     private adminCategoryService: AdminCategoryService,
     private adminPromotionService: AdminPromotionService,
-    private dialogService: DialogService, 
+    private dialogService: DialogService,
     private ref: DynamicDialogRef,
     private adminProductOptionService: AdminProductOptionService
-
-
   ) {
     this.formData = new FormData()
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.getToken();
     const routeParams = this.route.snapshot.paramMap;
     this.id = Number(routeParams.get('id'));
@@ -116,80 +113,91 @@ export class AdminProductDetailComponent {
     this.getProductOptions();
   }
 
-
   // modal
-  primngCloseModalBoxReloadApiShowInfo(productId:any,id:any,type:any) {
+  showModalBox(productId: any, id: any, type: any) {
     const dialogRef = this.dialogService.open(AdminProductOptionModalComponent, {
-      header:  type == 'create'? 'Thêm lựa chọn điện thoại' : 'Cập nhật lựa chọn điện thoại',
+      header: type == 'create' ? 'Thêm lựa chọn điện thoại' : 'Cập nhật lựa chọn điện thoại',
       modal: true,
       dismissableMask: true,
       width: '70%',
       data: {
         productId: productId,
-        id:id,
+        id: id,
         type: type
       }
     });
-  
+
     dialogRef.onClose.subscribe(() => {
       this.getProductOptions();
     });
   }
-    closeDialog(data:any) {
-      this.ref.close(data);
-      this.getProductOptions();
-    }
 
-
-
- 
-
-  getToken(){
-    this.token = this.cookieService.get('jwt_token');
-    
+  closeDialog(data: any) {
+    this.ref.close(data);
+    this.getProductOptions();
   }
 
-  detailProduct(){
-    this.adminProductService.detail(this.token,this.id).subscribe((data) => {
-      if(data.status === 'SUCCESS'){
-      
+  getToken() {
+    this.token = this.cookieService.get('jwt_token');
+
+  }
+
+  detailProduct() {
+    this.adminProductService.detail(this.token, this.id).subscribe((data) => {
+      if (data.status === 'SUCCESS') {
+
         this.product = data.data;
         console.log(this.product);
       }
     });
   }
 
-  updateProduct(){
-    this.adminProductService.updateProduct(this.token,this.id,this.formData).subscribe((data) => {
+  updateProduct() {
+    this.adminProductService.updateProduct(this.token, this.id, this.formData).subscribe((data) => {
       console.log(data)
-      if(data){
+      if (data) {
         this.toastService.success("Cập nhật thành công");
       }
     });
   }
-  getAllPromotion(){
+  getAllPromotion() {
     this.adminPromotionService.getAllPromotion(this.token).subscribe((data) => {
-      if(data.status === 'SUCCESS'){
-      
+      if (data.status === 'SUCCESS') {
         this.promotions = data.data;
       }
     });
   }
 
-  getAllCategory(){
+  getAllCategory() {
     this.adminCategoryService.getAllCategories(this.token).subscribe((data) => {
-      if(data.status === 'SUCCESS'){
-      
+      if (data.status === 'SUCCESS') {
+
         this.categories = data.data;
       }
     });
   }
 
   // product option get all
-  getProductOptions(){
-    this.adminProductOptionService.getProductOptionByProductId(this.token,this.id).subscribe((data) => {
-      if(data.status === 'SUCCESS'){
+  getProductOptions() {
+    this.adminProductOptionService.getProductOptionByProductId(this.token, this.id).subscribe((data) => {
+      if (data.status === 'SUCCESS') {
         this.productOptions = data.data;
+      }
+    });
+  }
+
+  confirmDeleteOption(id: any) {
+    Swal.fire({
+      title: 'Cảnh báo',
+      text: 'Bạn có chắc chắn là muốn xóa option này?',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Đồng ý',
+      cancelButtonText: 'Hủy bỏ',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.deleteProductOption(id);
       }
     });
   }
@@ -202,27 +210,6 @@ export class AdminProductDetailComponent {
       }
     });
   }
-
-
-
-  delete(id:any){
-
-    Swal.fire({
-      title: 'Bạn có chắc không?',
-      text: 'Một khi bạn xóa, bạn sẽ không thể khôi phục lại thông tin này!',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Có, xóa đi!',
-      cancelButtonText: 'Hủy',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.deleteProductOption(id);
-      }
-    });
-  }
-
 
   public onChange({ editor }: ChangeEvent) {
     this.ckeditorData = editor.getData();

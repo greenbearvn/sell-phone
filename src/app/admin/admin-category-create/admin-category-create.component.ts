@@ -12,15 +12,16 @@ import { CategoryReq } from 'src/app/dto/CategoryReq';
 @Component({
   selector: 'app-admin-category-create',
   templateUrl: './admin-category-create.component.html',
-  styleUrls: ['./admin-category-create.component.css','../assets/css/main.css']
+  styleUrls: ['./admin-category-create.component.css', '../assets/css/main.css']
 })
 export class AdminCategoryCreateComponent {
 
 
   formData: FormData;
-  token:any;
-  type:any;
-  id:any;
+  token: any;
+  type: any;
+  id: any;
+  imageUrl: any = '';
 
   object: CategoryReq = {
     name: '',
@@ -29,53 +30,67 @@ export class AdminCategoryCreateComponent {
   };
 
   public Editor = ClassicEditor;
-  ckeditorData:any = '';
+  ckeditorData: any = '';
 
   constructor(
-   
-    private adminCateoryService:AdminCategoryService,
+
+    private adminCateoryService: AdminCategoryService,
     private cookieService: CookieService,
     private toastService: ToastService
   ) {
-      this.formData = new FormData()
+    this.formData = new FormData()
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.getToken();
   }
 
-  getToken(){
+  getToken() {
     this.token = this.cookieService.get('jwt_token');
-  } 
+  }
+
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imageUrl = reader.result;
+      };
+      reader.readAsDataURL(file);
+    } else {
+      this.imageUrl = null;
+    }
+  }
 
   onSubmit(myForm: NgForm) {
-    this.formData = new FormData();
-    this.formData.append('name', myForm.value.title);
-  
-    const fileInput = document.getElementById('image') as HTMLInputElement;
-    if (fileInput.files && fileInput.files[0]) {
-      const file = fileInput.files[0];
-      this.formData.append('avatar', file);
-      console.log(file)
+    if (myForm.valid) {
+      this.formData = new FormData();
+      this.formData.append('name', myForm.value.name);
+
+      const fileInput = document.getElementById('uploadfile') as HTMLInputElement;
+      if (fileInput.files && fileInput.files[0]) {
+        const file = fileInput.files[0];
+        this.formData.append('avatar', file);
+        //console.log(file)
+      }
+      this.formData.append('description', this.ckeditorData);
+      //console.log(this.formData);
+      this.create();
     }
-    this.formData.append('description', this.ckeditorData);
+  }
 
-
-    console.log(this.formData);
-    this.create();
+  create() {
+    this.adminCateoryService.create(this.formData, this.token).subscribe((data: any) => {
+      if (data.status === 'SUCCESS') {
+        this.toastService.success("Thêm thành công!")
+      } else {
+        this.toastService.error("Đã xảy ra lỗi. Vui lòng thử lại.");
+      }
+    });
   }
 
   public onChange({ editor }: ChangeEvent) {
     this.ckeditorData = editor.getData();
-    console.log(this.ckeditorData);
-  }
-
-  create(){
-    this.adminCateoryService.create(this.formData,this.token).subscribe((data:any) => {
-      if(data.status === 'SUCCESS'){
-        this.toastService.success("Thêm hãng thành công!!!")
-      }
-    });
   }
 
 }
