@@ -77,7 +77,7 @@ export class AdminProductUpdateComponent {
   promotions: any;
   categories: any;
   productOptions: any;
-
+  imageUrl: any = '';
 
   // paginate
   p: number = 1;
@@ -140,12 +140,25 @@ export class AdminProductUpdateComponent {
     this.getProductOptions();
   }
 
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imageUrl = reader.result;
+      };
+      reader.readAsDataURL(file);
+    } else {
+      this.imageUrl = this.product.avatar;
+    }
+  }
+
   onSubmit(myForm: NgForm) {
     this.formData = new FormData();
     this.formData.append('name', myForm.value.name);
 
     // Assuming 'File' is an actual File object
-    const fileInput = document.getElementById('file-input') as HTMLInputElement;
+    const fileInput = document.getElementById('uploadfile') as HTMLInputElement;
     if (fileInput.files && fileInput.files[0]) {
       const file = fileInput.files[0];
       this.formData.append('avatar', file);
@@ -208,9 +221,8 @@ export class AdminProductUpdateComponent {
   detailProduct() {
     this.adminProductService.detail(this.token, this.id).subscribe((data) => {
       if (data.status === 'SUCCESS') {
-
-        this.product = data.data;
-        console.log(this.product);
+        this.product = data.data;        
+        this.imageUrl = this.product.avatar;
       }
     });
   }

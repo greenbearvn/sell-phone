@@ -20,8 +20,8 @@
 
                     <div class="form-group" id="myfileupload">
                        <label class="control-label">Ảnh hãng</label>
-                       <input class="form-control col-md-6" type="file" [(ngModel)]="object.avatar" id="uploadfile" name="ImageUpload" accept="image/*"
-                        (change)="onFileSelected($event)" style="height: auto;" #uploadfile="ngModel" required>
+                       <input class="form-control col-md-6" type="file" id="uploadfile" name="uploadfile" accept="image/*"
+                           (change)="onFileSelected($event)" style="height: auto;" required>
                   
                        <img [src]="imageUrl" alt="Ảnh xem trước" class="mt-2" width="auto" height="150" *ngIf="imageUrl">
                     </div>

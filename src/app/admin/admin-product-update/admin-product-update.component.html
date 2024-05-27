@@ -17,9 +17,13 @@
                      <label class="control-label">Tên sản phẩm<span class="text-danger">*</span></label>
                      <input class="form-control" type="text" [(ngModel)]="product.name" name="name" required>
                   </div>
+
                   <div class="form-group">
-                     <label class="control-label">Ảnh sản phẩm<span class="text-danger">*</span></label>                     
-                     <img class="ml-3" [src]="product.avatar" *ngIf="product.avatar !== ''" height="150" width="auto">
+                     <label class="control-label">Ảnh sản phẩm<span class="text-danger">*</span></label>  
+                     <input class="form-control col-md-6" type="file" id="uploadfile" name="uploadfile" accept="image/*"
+                        (change)="onFileSelected($event)" style="height: auto;">
+                     
+                     <img [src]="imageUrl" alt="Ảnh xem trước" class="mt-2" width="auto" height="150" *ngIf="imageUrl">                     
                   </div>
 
                   <div class="form-group">
@@ -332,10 +336,9 @@
                            <td>{{item.quantity}} </td>
                   
                            <td>
-                              <button class="btn btn-sm" [ngClass]="{'btn-excel': item.status, 'btn-delete pdf-file': !item.status}"
-                                 disabled>
-                                 {{ item.status ? 'Có' : 'Không' }}
-                              </button>
+                              <span class="badge" [ngClass]="{'bg-success': item.status, 'bg-danger': !item.status}">
+                                 {{ item.status ? 'Còn hàng' : 'Hết hàng' }}
+                               </span>
                            </td>
                   
                            <td>

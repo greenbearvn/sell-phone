@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient ,HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserReq } from 'src/app/dto/UserReq';
 
@@ -9,39 +9,53 @@ import { UserReq } from 'src/app/dto/UserReq';
 export class AdminUserService {
   constructor(private http: HttpClient) { }
 
-  getAll(token:any): Observable<any> {
+  getCurrent(token: any): Observable<any> {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });
-    return this.http.get('/api/v1/user/all',{ headers });
+    return this.http.get('/api/v1/user/my', { headers });
   }
 
-  
-  getDetail(id:any,token:any){
+  getAll(token: any): Observable<any> {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });
-    return this.http.get('/api/v1/user/'+id,{ headers });
+    return this.http.get('/api/v1/user/all', { headers });
   }
 
-  create(userReq:UserReq,token:any){
+
+  getDetail(id: any, token: any) {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });
-    return this.http.post('/api/v1/user',userReq,{ headers });
+    return this.http.get('/api/v1/user/' + id, { headers });
   }
 
-  delete(id:any,token:any){
+  // create(userReq: UserReq, token: any) {
+  //   const headers = new HttpHeaders({
+  //     Authorization: `Bearer ${token}`,
+  //   });
+  //   return this.http.post('/api/v1/user', userReq, { headers });
+  // }
+
+  delete(id: any, token: any) {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });
-    return this.http.delete('/api/v1/user/'+id,{ headers });
+    return this.http.delete('/api/v1/user/' + id, { headers });
   }
 
-  update(id:any,userReq:UserReq,token:any){
+  // update(id: any, userReq: UserReq, token: any) {
+  //   const headers = new HttpHeaders({
+  //     Authorization: `Bearer ${token}`,
+  //   });
+  //   return this.http.patch('/api/v1/user/' + id, userReq, { headers });
+  // }
+
+  updateByAdmin(id: any, userReq: UserReq, token: any) {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });
-    return this.http.patch('/api/v1/user/'+id,userReq,{ headers });
+    return this.http.patch('/api/v1/user/update/' + id, userReq, { headers });
   }
 }

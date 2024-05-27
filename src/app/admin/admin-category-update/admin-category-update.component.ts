@@ -58,6 +58,7 @@ export class AdminCategoryUpdateComponent {
       if (data.status === 'SUCCESS') {
         this.object = data.data;
         this.ckeditorData = this.object.description;
+
         this.imageUrl = this.object.avatar;
       }
     });

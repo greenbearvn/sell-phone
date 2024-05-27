@@ -14,16 +14,15 @@ import { AdminNewsTypeService } from 'src/app/services/admin/news/admin-news-typ
   selector: 'app-admin-news-create',
   templateUrl: './admin-news-create.component.html',
   styleUrls: ['./admin-news-create.component.css'
-  ,'../assets/css/main.css'
+    , '../assets/css/main.css'
   ]
 })
 export class AdminNewsCreateComponent {
-
-  newsType:any;
+  newsType: any;
   formData: FormData;
-  token:any;
-  type:any;
-
+  token: any;
+  type: any;
+  imageUrl: any = '';
 
   news: NewsReq = {
     title: '',
@@ -35,74 +34,79 @@ export class AdminNewsCreateComponent {
   };
 
   public Editor = ClassicEditor;
-  ckeditorData:any = '';
-  
+  ckeditorData: any = '';
 
   constructor(
     private adminNewsService: AdminNewsService,
     private cookieService: CookieService,
     private toastService: ToastService,
-  private adminNewsTypeService: AdminNewsTypeService) {
-      this.formData = new FormData()
+    private adminNewsTypeService: AdminNewsTypeService) {
+    this.formData = new FormData()
   }
 
   ngOnInit() {
-  
     this.getToken();
     this.getAdminNewsTypes();
+  }
 
-   }
+  getToken() {
+    this.token = this.cookieService.get('jwt_token');
+  }
 
-    getToken(){
-      this.token = this.cookieService.get('jwt_token');
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imageUrl = reader.result;
+      };
+      reader.readAsDataURL(file);
+    } else {
+      this.imageUrl = this.news.avatar;
     }
+  }
 
 
-    onSubmit(myForm: NgForm) {
-      this.formData = new FormData();
-      this.formData.append('title', myForm.value.title);
-    
-      const fileInput = document.getElementById('image') as HTMLInputElement;
-      if (fileInput.files && fileInput.files[0]) {
-        const file = fileInput.files[0];
-        this.formData.append('avatar', file);
-        console.log(file)
+  onSubmit(myForm: NgForm) {
+    this.formData = new FormData();
+    this.formData.append('title', myForm.value.title);
+
+    const fileInput = document.getElementById('uploadfile') as HTMLInputElement;
+    if (fileInput.files && fileInput.files[0]) {
+      const file = fileInput.files[0];
+      this.formData.append('avatar', file);
+      //console.log(file)
+    }
+    this.formData.append('summary', myForm.value.summary);
+    this.formData.append('content', this.ckeditorData);
+    this.formData.append('status', myForm.value.status);
+    this.formData.append('newsTypeId', myForm.value.newsTypeId);
+
+    this.create();
+  }
+
+
+  public onChange({ editor }: ChangeEvent) {
+    this.ckeditorData = editor.getData();
+    //console.log(this.ckeditorData);
+  }
+
+
+  create() {
+    this.adminNewsService.create(this.formData, this.token).subscribe((data: any) => {
+      if (data.status === 'SUCCESS') {
+        this.toastService.success("Thêm tin tức thành công!")
+
       }
-      this.formData.append('summary', myForm.value.summary);
-      this.formData.append('content', this.ckeditorData);
-      this.formData.append('status', myForm.value.status);
-      this.formData.append('newsTypeId', myForm.value.newsTypeId);
+    });
+  }
 
-      this.create();
-    }
-
- 
-    public onChange({ editor }: ChangeEvent) {
-      this.ckeditorData = editor.getData();
-      console.log(this.ckeditorData);
-    }
-
-
-    create(){
-      this.adminNewsService.create(this.formData,this.token).subscribe((data:any) => {
-
-        if(data.status === 'SUCCESS'){
-          
-          this.toastService.success("Thêm bài viết thành công!!!")
-  
-        }
-      });
-    }
-
-    getAdminNewsTypes(){
-      this.adminNewsTypeService.getAll(this.token).subscribe((data:any) => {
-
-        if(data.status === 'SUCCESS'){
-          
-          this.newsType = data.data;
-  
-        }
-      });
-    }
+  getAdminNewsTypes() {
+    this.adminNewsTypeService.getAll(this.token).subscribe((data: any) => {
+      if (data.status === 'SUCCESS') {
+        this.newsType = data.data;
+      }
+    });
+  }
 
 }

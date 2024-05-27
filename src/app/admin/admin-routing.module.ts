@@ -1,3 +1,4 @@
+import { AdminUserUpdateComponent } from './admin-user-update/admin-user-update.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
@@ -15,6 +16,7 @@ import { AdminNewsCreateComponent } from './admin-news-create/admin-news-create.
 import { AdminNewsUpdateComponent } from './admin-news-update/admin-news-update.component';
 import { AdminNewsDetailComponent } from './admin-news-detail/admin-news-detail.component';
 import { AdminCategoryDetailComponent } from './admin-category-detail/admin-category-detail.component';
+import { AdminUserDetailComponent } from './admin-user-detail/admin-user-detail.component';
 
 
 const routes: Routes = [
@@ -35,6 +37,9 @@ const routes: Routes = [
       { path:'category/update/:id', component: AdminCategoryUpdateComponent},
       { path:'category/detail/:id', component: AdminCategoryDetailComponent},
       { path:'user', component: AdminUserComponent},
+      // { path:'user/create', component: AdminUserDetailComponent},
+      { path:'user/update/:id', component: AdminUserUpdateComponent},
+      { path:'user/detail/:id', component: AdminUserDetailComponent},
     ]
   }
 ];

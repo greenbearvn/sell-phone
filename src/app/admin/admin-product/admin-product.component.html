@@ -72,9 +72,9 @@
                 <td>{{item.categoryName}} </td>
                 <td>{{item.promotionName}} </td>
                 <td> 
-                  <button class="btn btn-sm" [ngClass]="{'btn-excel': item.status, 'btn-delete': !item.status}" disabled>
-                    {{ item.status ? 'Có' : 'Không' }}
-                  </button>
+                  <span class="badge" [ngClass]="{'bg-success': item.status, 'bg-danger': !item.status}">
+                    {{ item.status ? 'Còn hàng' : 'Hết hàng' }}
+                  </span>
                 </td>
 
                 <td>                  

@@ -14,20 +14,20 @@
                 
                 <form class="row"  #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
                     <div class="form-group ">
-                       <label class="control-label">Tên hãng</label>
+                       <label class="control-label">Tên hãng<span class="text-danger">*</span></label>
                        <input class="form-control" type="text" [(ngModel)]="object.name" name="name" required>
                     </div>
 
                     <div class="form-group ">
-                       <label class="control-label">Ảnh hãng</label>
-                       <input class="form-control col-md-6" type="file" [(ngModel)]="object.avatar" id="uploadfile" name="ImageUpload" accept="image/*"
-                        (change)="onFileSelected($event)" style="height: auto;" #uploadfile="ngModel">
+                       <label class="control-label">Ảnh hãng<span class="text-danger">*</span></label>
+                       <input class="form-control col-md-6" type="file" id="uploadfile" name="uploadfile" accept="image/*"
+                           (change)="onFileSelected($event)" style="height: auto;">
                   
                        <img [src]="imageUrl" alt="Ảnh xem trước" class="mt-2" width="auto" height="150" *ngIf="imageUrl">
                     </div>                  
                     
                     <div class="form-group ">
-                       <label class="control-label">Mô tả</label>
+                       <label class="control-label">Mô tả<span class="text-danger">*</span></label>
                        <ckeditor
                            #editor
                            [editor]="Editor"                                                     

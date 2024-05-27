@@ -327,10 +327,10 @@
                            <td>{{item.newPrice}} </td>
                            <td>{{item.quantity}} </td>  
                                            
-                           <td> 
-                              <button class="btn btn-sm" [ngClass]="{'btn-excel': item.status, 'btn-delete pdf-file': !item.status}" disabled>
-                                {{ item.status ? 'Có' : 'Không' }}
-                              </button>
+                           <td>                              
+                              <span class="badge" [ngClass]="{'bg-success': item.status, 'bg-danger': !item.status}">
+                                 {{ item.status ? 'Còn hàng' : 'Hết hàng' }}
+                               </span>
                            </td>
 
                            <!-- <td>

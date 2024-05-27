@@ -15397,6 +15397,11 @@ be a descendant of the grid when it is being dragged.
 .btn-excel{
   color: #008c04 !important;
   background: #a2ecb5 !important;
+  /* Thêm dưới */
+  border-color: none;
+  border-radius: .357rem;
+  border: none;
+  font-weight: 600;
 }
 .swal-icon {
   width: 80px;
