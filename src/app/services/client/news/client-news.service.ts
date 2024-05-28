@@ -16,4 +16,11 @@ export class ClientNewsService {
     });
     return this.http.get('/api/v1/news/all',{ headers });
   }
+
+  getDetail(id:any): Observable<any> {
+    // const headers = new HttpHeaders({
+    //   Authorization: `Bearer ${token}`,
+    // });
+    return this.http.get('/api/v1/news/'+id);
+  }
 }

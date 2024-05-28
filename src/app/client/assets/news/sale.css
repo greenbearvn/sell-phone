@@ -1,0 +1,123 @@
+.news_list_body .title_sale {
+  height: 30px;
+  border-radius: 3px;
+  background: #f8f8f8;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  color: #444;
+  margin-top: 0;
+  padding-left: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+  position: relative;
+  margin-bottom: 20px;
+}
+.news_list_body .title_sale:before {
+  content: "";
+  /* background: url("../images/sale.svg") left no-repeat; */
+  height: 100%;
+  width: 38px;
+  position: absolute;
+  left: 0;
+}
+.news_list_body img {
+  width: 100%;
+  min-height: 80px;
+}
+.news_list_body .news-hot > div {
+  margin-right: 4px;
+  text-align: justify;
+}
+.news_list_body .title_recruitment {
+  margin-bottom: 5px;
+}
+.news_list_body .title_recruitment:before {
+  /* background: url("../images/recruitment.svg") left no-repeat; */
+}
+.news-sales {
+  margin-bottom: 20px;
+}
+.news-sales .title-news {
+  font-size: 14px;
+  line-height: 20px;
+  display: block;
+  max-height: 60px;
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+}
+.news-sales a .img1 {
+  margin-bottom: 20px;
+}
+.news-sales a .img2 {
+  margin-bottom: 15px;
+  height: 80px;
+  object-fit: cover;
+}
+.news-sales:nth-child(1) a {
+  -webkit-line-clamp: unset;
+}
+.news-sales:nth-child(1) .a-title {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+.news-recruitment a {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-gap: 40px;
+  padding: 10px 5px;
+  border-bottom: 1px solid #eeeeee;
+  font-size: 14px;
+  color: #444;
+  position: relative;
+  transition: 0.1s ease-in-out;
+}
+.news-recruitment a .gray {
+  color: #777;
+}
+.news-recruitment a span {
+  display: block;
+}
+.news-recruitment a span:nth-child(1) {
+  margin-bottom: 5px;
+}
+.news-recruitment a .title-news span:nth-child(1) {
+  line-height: 20px;
+  max-height: 20px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  transition: 0.1s ease-in-out;
+}
+.news-recruitment a:before {
+  content: "";
+  position: absolute;
+  left: -2.5px;
+  top: 16px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  height: 5px;
+  width: 5px;
+  background: #ff6700;
+}
+.news-recruitment a:hover .title-news span:nth-child(1) {
+  color: #ff6700;
+}
+@media (max-width: 769px) {
+  .news-sales {
+    width: 100%;
+  }
+  .news-sales a .img2 {
+    height: auto;
+  }
+}
+/*# sourceMappingURL=sale.css.map */

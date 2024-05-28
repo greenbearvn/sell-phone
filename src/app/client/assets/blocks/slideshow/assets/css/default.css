@@ -1,0 +1,243 @@
+#slideshow {
+    display: block;
+    position: relative;
+    height: 100%;
+}
+
+#slideshow .item {
+    text-align: center
+}
+
+#slideshow .carousel-inner {
+    height: calc(100% - 60px);
+}
+
+#slideshow .item img {
+    width: 100% !important;
+    height: 300px
+}
+
+#slideshow .carousel-indicators {
+    position: unset;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    background: #fff
+}
+
+#slideshow .carousel-indicators .o-item {
+    background-color: #fff;
+    cursor: pointer;
+    border-top: 4px solid transparent;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+}
+
+#slideshow .carousel-indicators .o-item:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 1px;
+    height: 30px;
+    background-color: #E5E5E5;
+    transform: translate(0, -50%)
+}
+
+#slideshow .carousel-indicators .o-item:last-child:after {
+    display: none
+}
+
+#slideshow .carousel-indicators .o-item:last-child p {
+    border-right: none
+}
+
+#slideshow .carousel-indicators .o-item .smr {
+    cursor: pointer;
+    margin: 0px;
+    text-align: center;
+    width: 100%;
+    padding: 7px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 30px;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+#slideshow .carousel-indicators .o-item .smr p {
+    margin-bottom: 0;
+    line-height: normal;
+}
+
+#slideshow .carousel-indicators .active {
+    position: relative;
+    border-top: 4px solid #FF6700;
+    background-color: #F8F8F8
+}
+
+#slideshow .carousel-indicators .active .smr {
+    font-family: "Semibold"
+}
+
+#slideshow .carousel-caption {
+    left: 0;
+    right: 0;
+    padding-bottom: 0;
+    text-align: left;
+    background: url(../images/bg_bottom.png);
+    padding: 12px 12px;
+    bottom: 0
+}
+
+#slideshow .carousel-caption h3 {
+    margin: 0
+}
+
+#slideshow .carousel-caption h3 span {
+    font-family: Myriad Pro semibold;
+    font-size: 18px;
+    line-height: 22px
+}
+
+#slideshow .carousel-inner>.item>img {
+    margin: 0 auto;
+    display: block;
+    line-height: 1
+}
+
+#slideshow .fa-chevron-left:before {
+    display: none;
+    height: 60px;
+    color: #fff;
+    width: 22px
+}
+
+#slideshow .fa-chevron-right:before {
+    display: none;
+    height: 60px;
+    color: #fff;
+    width: 22px
+}
+
+#slideshow .sub-carousel-inner {
+    overflow: hidden;
+    position: relative;
+    width: 100%
+}
+
+#slideshow .sub-carousel-inner>.item {
+    display: none;
+    position: relative;
+    -webkit-transition: .6s ease-in-out left;
+    transition: .6s ease-in-out left
+}
+
+#slideshow .sub-carousel-inner>.item>img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    line-height: 1
+}
+
+#slideshow .sub-carousel-inner>.item>a>img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    line-height: 1
+}
+
+#slideshow .sub-carousel-inner>.active {
+    display: block;
+    left: 0
+}
+
+#slideshow .sub-carousel-inner>.next {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 100%
+}
+
+#slideshow .sub-carousel-inner>.prev {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: -100%
+}
+
+#slideshow .sub-carousel-inner>.next.left {
+    left: 0
+}
+
+#slideshow .sub-carousel-inner>.prev.right {
+    left: 0
+}
+
+#slideshow .sub-carousel-inner>.active.left {
+    left: -100%
+}
+
+#slideshow .sub-carousel-inner>.active.right {
+    left: 100%
+}
+
+.list_slideshow .owl-dots {
+    margin-top: 15px;
+    text-align: center
+}
+
+.list_slideshow .owl-dots .owl-dot {
+    display: inline-block
+}
+
+.list_slideshow .owl-dots .owl-dot span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 1px;
+    text-indent: -999px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #ffffff9e;
+    margin-right: 5px
+}
+
+.list_slideshow .owl-dots .active span {
+    display: inline-block;
+    width: 20px;
+    height: 10px;
+    margin: 1px;
+    text-indent: -999px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 5px;
+    background-color: #F9920F
+}
+
+@media screen and (max-width: 768px) {
+    .list_slideshow .owl-dots {
+        /* margin-top: -21px;
+        left: 40%;
+        position: absolute */
+        margin-top: 10px;
+    }
+    .list_slideshow .owl-dots .owl-dot span{
+        background-color: #F9920F;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #slideshow .item img {
+        height: 142px
+    }
+}
+
+/* sourceMappingURL=default.css.map */

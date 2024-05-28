@@ -15,4 +15,29 @@ export class ClientDetailService {
     });
     return this.http.get('/api/v1/product/' + id,{ headers });
   }
+
+
+  getInforProductOptions(productId:any,option:any): Observable<any> {
+
+    let url = '/api/v1/product-option/search?productId=' + productId;
+
+    if(option.ram.data != null){
+      url += '&ram=' + option.ram.data;
+    }
+
+    if (option.rom && option.rom.data) {
+      url += '&rom=' + option.rom.data;
+    }
+    
+    if (option.color && option.color.data) {
+      url += '&color=' + encodeURIComponent(option.color.data);
+    }
+
+    return this.http.get(url);
+
+   
+
+  }
+
+
 }

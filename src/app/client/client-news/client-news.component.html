@@ -1,12 +1,66 @@
-<div class="body-tintuc container" style="margin-left: 15%;">
-    <div class="tintuc-info" *ngFor="let item of news | paginate : { itemsPerPage: itemPerPage, currentPage: p };">
-       <a href="http://doanhnghiepvn.vn/cong-nghe/danh-gia-smartphone-chip-s660-ram-8-gb-gia-6-99-trieu-tai-viet-nam/2018112603315443" target="_blank">
-          <img [src]="item.avatar" src="img/tintuc/tintuc1.png">
-          <h2>{{item.title}}</h2>
-       </a>
-       <br>
-       <h5>{{item.newsTypeName}}</h5>
-    </div>
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
-
- </div>
+<div class='breadcrumbs'>
+   <div class="container">
+      <div class="row">
+         <div class="col-xs-12">
+            <div class='breadcrumb blogs/all'   itemscope itemtype="https://schema.org/BreadcrumbList" >
+               <div class='breadcumbs-first flever_12 fl-left' itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" >
+                  <a itemprop="item" title='didongthongminh.vn' href="index.html" >
+                  <span itemprop="name" >Trang chủ</span>
+                  </a>
+                  <meta itemprop="position" content="1" />
+               </div>
+               <div class='breadcrumbs_sepa'><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+               <div class="fl-left" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                  <a itemprop="item" href="" title="Tin tức & Sự kiện">
+                  <span itemprop="name" >Tin tức & Sự kiện</span>
+                  </a>
+                  <meta itemprop="position" content="2" />
+               </div>
+               <div class="clear"></div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="body_container main_content">
+   <div class=" container">
+      
+      <div id="main_container" class="row">
+         <div class="col-md-9 col-sm-12 main-column  main-colum-left">
+            <div class="news-home clearfix">
+               <div class="list-news row">
+                  
+              
+                  <div class="col-sm-12 item-full" *ngFor="let item of news| paginate : { itemsPerPage: itemPerPage, currentPage: p }">
+                     <div class="item-news">
+                        <div class="row">
+                           <a class="item-images col-sm-4" [routerLink]="['/new/' +item.id]" >
+                              <img [src]="item.avatar">
+                           </a>
+                           <div class="col-sm-8">
+                              <a class="title title1" href="danh-gia-chi-tiet-redmi-k60-5g--danh-gia-that-sau-3-thang-su-dung.html">{{item.title}}</a>
+                              <div class="time-hits">
+                                 <span>
+                                 <i class="fa fa-calendar" aria-hidden="true"></i>
+                                 {{item.createdDate}}                             </span>
+                                 <span>
+                                 <i class="fa fa-eye" aria-hidden="true"></i>
+                                 {{item.view}}                                </span>
+                              </div>
+                              <p class="summary">{{item.summary}}</p>
+                           </div>
+                        </div>
+                     </div>
+                     
+                  </div>
+                
+               </div>
+            </div>
+           
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+           
+         </div>
+         
+      </div>
+   </div>
+</div>

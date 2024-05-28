@@ -1,0 +1,41 @@
+.news_list_body .title_product {
+    margin-bottom: 5px;
+}
+
+.news_list_body .title_product:before {
+    /* background: url("../images/phone.svg") left no-repeat; */
+}
+
+.item-news-product {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.item-news-product img {
+    height: 80px;
+    width: 80px;
+    object-fit: contain;
+}
+
+.item-news-product a {
+    display: grid;
+    grid-template-columns: 80px auto;
+    grid-gap: 10px;
+    font-size: 14px;
+    color: #444;
+}
+
+.item-news-product .content span {
+    display: block;
+    margin-bottom: 9px;
+    transition: 0.1s ease-in-out;
+}
+
+.item-news-product .content span:last-child {
+    margin-bottom: 0;
+    color: #FF6700;
+}
+
+.item-news-product a:hover span:nth-child(1) {
+    color: #FF6700;
+}

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule
  } from '@angular/common/http';
  import { CookieService } from 'ngx-cookie-service';
@@ -9,6 +10,9 @@ import { HttpClientModule
  import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
  import { MatDialogModule } from '@angular/material/dialog';
  import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
+ import { ClientHomeComponent } from './client/home/home.component';
+ import { ClientDetailComponent } from './client/client-detail/client-detail.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +24,7 @@ import { AdminRoutingModule } from './admin/admin-routing.module';
 import { ClientNavbarComponent } from './client/layouts/client-navbar/client-navbar.component';
 import { ClientHeaderComponent } from './client/layouts/client-header/client-header.component';
 import { ClientFooterComponent } from './client/layouts/client-footer/client-footer.component';
-import { ClientDetailComponent } from './client/client-detail/client-detail.component';
+
 import { CartComponent } from './client/cart/cart.component';
 import { AdminHeaderComponent } from './admin/layout/admin-header/admin-header.component';
 import { AdminFooterComponent } from './admin/layout/admin-footer/admin-footer.component';
@@ -53,6 +57,12 @@ import { AdminNewsUpdateComponent } from './admin/admin-news-update/admin-news-u
 import { AdminProductDetailComponent } from './admin/admin-product-detail/admin-product-detail.component';
 import { AdminNewsDetailComponent } from './admin/admin-news-detail/admin-news-detail.component';
 import { AdminCategoryDetailComponent } from './admin/admin-category-detail/admin-category-detail.component';
+import { DetailInforProductComponent } from './client/detail-infor-product/detail-infor-product.component';
+import { DetailNewsComponent } from './client/detail-news/detail-news.component';
+import { CategoryComponent } from './client/category/category.component';
+import { RegisterComponent } from './client/register/register.component';
+import { ForgotPasswordComponent } from './client/forgot-password/forgot-password.component';
+
 
 
 @NgModule({
@@ -89,7 +99,14 @@ import { AdminCategoryDetailComponent } from './admin/admin-category-detail/admi
     AdminNewsUpdateComponent,
     AdminProductDetailComponent,
     AdminNewsDetailComponent,
-    AdminCategoryDetailComponent
+    AdminCategoryDetailComponent,
+    ClientHomeComponent,
+    DetailInforProductComponent,
+    DetailNewsComponent,
+    CategoryComponent,
+    RegisterComponent,
+    ForgotPasswordComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -106,7 +123,8 @@ import { AdminCategoryDetailComponent } from './admin/admin-category-detail/admi
     ButtonModule,
     DialogModule,
     ConfirmDialogModule,
-    CKEditorModule
+    CKEditorModule,
+    CommonModule
   ],
   providers: [CookieService,ToastService,DialogService,DynamicDialogRef,ConfirmationService,MessageService],
   bootstrap: [AppComponent]
