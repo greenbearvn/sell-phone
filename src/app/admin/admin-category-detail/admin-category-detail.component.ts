@@ -13,13 +13,13 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-admin-category-detail',
   templateUrl: './admin-category-detail.component.html',
-  styleUrls: ['./admin-category-detail.component.css','../assets/css/main.css']
+  styleUrls: ['./admin-category-detail.component.css', '../assets/css/main.css']
 })
 export class AdminCategoryDetailComponent {
   formData: FormData;
-  token:any;
-  type:any;
-  id:any;
+  token: any;
+  type: any;
+  id: any;
 
   object: CategoryReq = {
     name: '',
@@ -28,19 +28,19 @@ export class AdminCategoryDetailComponent {
   };
 
   public Editor = ClassicEditor;
-  ckeditorData:any = '';
+  ckeditorData: any = '';
 
   constructor(
-   
-    private adminCateoryService:AdminCategoryService,
+
+    private adminCateoryService: AdminCategoryService,
     private cookieService: CookieService,
     private toastService: ToastService,
     private route: ActivatedRoute,
   ) {
-      this.formData = new FormData()
+    this.formData = new FormData()
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.getToken();
     const routeParams = this.route.snapshot.paramMap;
     this.id = Number(routeParams.get('id'));
@@ -48,9 +48,9 @@ export class AdminCategoryDetailComponent {
     this.detail();
   }
 
-  getToken(){
+  getToken() {
     this.token = this.cookieService.get('jwt_token');
-  } 
+  }
   detail() {
     this.adminCateoryService.getDetail(this.id, this.token).subscribe((data: any) => {
       if (data.status === 'SUCCESS') {
@@ -59,14 +59,5 @@ export class AdminCategoryDetailComponent {
       }
     });
   }
-
-  
-
-
-  public onChange({ editor }: ChangeEvent) {
-    this.ckeditorData = editor.getData();
-    console.log(this.ckeditorData);
-  }
-
 
 }

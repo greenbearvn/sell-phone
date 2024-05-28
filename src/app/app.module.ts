@@ -26,14 +26,13 @@ import { ClientHeaderComponent } from './client/layouts/client-header/client-hea
 import { ClientFooterComponent } from './client/layouts/client-footer/client-footer.component';
 
 import { CartComponent } from './client/cart/cart.component';
+
 import { AdminHeaderComponent } from './admin/layout/admin-header/admin-header.component';
 import { AdminFooterComponent } from './admin/layout/admin-footer/admin-footer.component';
 import { AdminSidebarComponent } from './admin/layout/admin-sidebar/admin-sidebar.component';
 import { LoginComponent } from './client/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ClientNewsComponent } from './client/client-news/client-news.component';
-
-
 import { AdminProductCreateComponent } from './admin/admin-product-create/admin-product-create.component';
 import { AdminProductUpdateComponent } from './admin/admin-product-update/admin-product-update.component';
 import { AdminProductOptionModalComponent } from './admin/admin-product-option-modal/admin-product-option-modal.component';
@@ -44,7 +43,6 @@ import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog'
 import { AdminNewsComponent } from './admin/admin-news/admin-news.component';
 import { AdminCateggoryComponent } from './admin/admin-categgory/admin-categgory.component';
 import { AdminUserComponent } from './admin/admin-user/admin-user.component';
-import { AdminUserModalComponent } from './admin/admin-user-modal/admin-user-modal.component';
 import { AdminOrderComponent } from './admin/admin-order/admin-order.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 
@@ -57,11 +55,15 @@ import { AdminNewsUpdateComponent } from './admin/admin-news-update/admin-news-u
 import { AdminProductDetailComponent } from './admin/admin-product-detail/admin-product-detail.component';
 import { AdminNewsDetailComponent } from './admin/admin-news-detail/admin-news-detail.component';
 import { AdminCategoryDetailComponent } from './admin/admin-category-detail/admin-category-detail.component';
+
 import { DetailInforProductComponent } from './client/detail-infor-product/detail-infor-product.component';
 import { DetailNewsComponent } from './client/detail-news/detail-news.component';
 import { CategoryComponent } from './client/category/category.component';
 import { RegisterComponent } from './client/register/register.component';
 import { ForgotPasswordComponent } from './client/forgot-password/forgot-password.component';
+
+import { AdminUserDetailComponent } from './admin/admin-user-detail/admin-user-detail.component';
+import { AdminUserUpdateComponent } from './admin/admin-user-update/admin-user-update.component';
 
 
 
@@ -81,16 +83,12 @@ import { ForgotPasswordComponent } from './client/forgot-password/forgot-passwor
     AdminSidebarComponent,
     LoginComponent,
     ClientNewsComponent,
-    // AdminProductComponent,
     AdminProductCreateComponent,
     AdminProductUpdateComponent,
     AdminProductOptionModalComponent,
     AdminNewsComponent,
-
     AdminCateggoryComponent,
-
     AdminUserComponent,
-    AdminUserModalComponent,
     AdminOrderComponent,
     AdminProductComponent,
     AdminCategoryUpdateComponent,
@@ -100,6 +98,7 @@ import { ForgotPasswordComponent } from './client/forgot-password/forgot-passwor
     AdminProductDetailComponent,
     AdminNewsDetailComponent,
     AdminCategoryDetailComponent,
+
     ClientHomeComponent,
     DetailInforProductComponent,
     DetailNewsComponent,
@@ -107,6 +106,8 @@ import { ForgotPasswordComponent } from './client/forgot-password/forgot-passwor
     RegisterComponent,
     ForgotPasswordComponent,
 
+    AdminUserDetailComponent,
+    AdminUserUpdateComponent
   ],
   imports: [
     BrowserModule,

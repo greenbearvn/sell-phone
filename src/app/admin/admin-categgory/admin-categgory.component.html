@@ -1,7 +1,7 @@
 <main class="app-content">
     <div class="app-title">
       <ul class="app-breadcrumb breadcrumb side">
-        <li class="breadcrumb-item active"><a href="#"><b>Danh sách hãng</b></a></li>
+        <li class="breadcrumb-item active"><b>Danh sách hãng</b></li>
       </ul>
       <div id="clock"></div>
     </div>
@@ -12,14 +12,14 @@
           <div class="tile-body">
   
             <div class="row element-button">
-              <div class="col-sm-2">
-  
-                <a class="btn btn-add btn-sm" [routerLink]="['/admin/category/create']" title="Thêm"><i class="fas fa-plus"></i>
-                  Thêm hãng mới</a>
-              </div>
-                 
+              <div class="col-sm-2">  
+                <a class="btn btn-add btn-sm" [routerLink]="['/admin/category/create']" title="Thêm">
+                  <i class="fas fa-plus"></i>
+                  Thêm mới
+                </a>
+              </div>                 
       
-              <div class="col-sm-2">
+              <!-- <div class="col-sm-2">
                 <a class="btn btn-delete btn-sm nhap-tu-file" type="button" title="Nhập" onclick="myFunction(this)"><i
                     class="fas fa-file-upload"></i> Tải từ file</a>
               </div>
@@ -43,41 +43,40 @@
               <div class="col-sm-2">
                 <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i
                     class="fas fa-trash-alt"></i> Xóa tất cả </a>
-              </div>
+              </div> -->
+
             </div>
             <table class="table table-hover table-bordered js-copytextarea" cellpadding="0" cellspacing="0" border="0"
               id="sampleTable">
               <thead>
-                <tr>
-                
-                  <th>STT </th>
-                  <th width="150">Tên Hãng</th>
-                  <th width="300">Ảnh</th>
-                  <th width="300">Mô tả</th>
-            
-               
-                
-                  <th width="200">Tính năng</th>
+                <tr>                
+                  <th>STT</th>
+                  <th>Tên</th>
+                  <th>Ảnh</th>
+                  <th>Mô tả</th>                      
+                  <th>Chức năng</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let item of list  | paginate : { itemsPerPage: itemPerPage, currentPage: p };let i = index">
+                <tr *ngFor="let item of list  | paginate : { itemsPerPage: itemPerPage, currentPage: p }; let i = index">
                  
-                  <td># {{i +1}}</td>
+                  <td>#{{ (p - 1) * itemPerPage + i + 1 }}</td>
                   <td>{{item.name}}</td>
-                  <td><img class="img-card-person" [src]="item.avatar" width="300" height="150" alt=""></td>
+                  <td><img class="" [src]="item.avatar" alt="{{item.name}}" width="auto" height="50px"></td>
                   <td>{{item.description}} </td>
                   
-                  
-                  <td class="table-td-center"><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                      (click)="delete(item.id)"><i class="fas fa-trash-alt"></i>
-                    </button>
-                    <a class="btn btn-primary btn-sm edit" title="Sửa" id="show-emp"
-                    [routerLink]="['/admin/category/update/'+item.id]"><i class="fas fa-edit"></i>
+                  <td class="table-td-center">                                 
+                    <a class="btn btn-excel btn-sm me-1" title="Xem" [routerLink]="['/admin/category/detail/'+item.id]">
+                      <i class="fas fa-eye"></i>
                     </a>
-                    <a class="btn btn-primary btn-sm eye" title="Sửa" id="show-emp" [routerLink]="['/admin/category/detail/'+item.id]"
-                   ><i class="fas fa-eye "></i>
+
+                    <a class="btn btn-primary btn-sm edit me-1" title="Sửa"
+                      [routerLink]="['/admin/category/update/' + item.id]"><i class="fas fa-edit"></i>
                     </a>
+
+                    <button class="btn btn-primary btn-sm trash" type="button" title="Xóa" (click)="confirmDeleteCat(item.id)"><i
+                      class="fas fa-trash-alt"></i>
+                  </button>
                   </td>
                 </tr>
               </tbody>

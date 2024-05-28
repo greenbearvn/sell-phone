@@ -1,0 +1,97 @@
+<main class="app-content">
+    <div class="app-title">
+       <ul class="app-breadcrumb breadcrumb">          
+          <li class="breadcrumb-item"><a [routerLink]="['/admin/user']">Người dùng</a></li>
+          <li class="breadcrumb-item">Cập nhật</li>
+       </ul>
+    </div>
+    <div class="row">
+      <lib-toastify-toast-container></lib-toastify-toast-container>
+       <div class="col-md-12">
+          <div class="tile">
+             <h3 class="tile-title">Người dùng</h3>
+             <div class="tile-body">
+                
+                <form class="row"  #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Tài khoản</label>
+                        <input class="form-control" type="text" [(ngModel)]="object.username" name="username" disabled>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Họ và tên</label>
+                        <input class="form-control" type="text" [(ngModel)]="object.fullName" name="fullName" disabled>
+                    </div>
+                    
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Giới tính</label>
+                        <select class="form-control" disabled name="gender" [(ngModel)]="object.gender">
+                            <option value="" disabled>-- Chọn giới tính --</option>
+                            <option value="true">Nam</option>
+                            <option value="false">Nữ</option>
+                        </select>
+                    </div>
+            
+                    <div class="form-group">
+                       <label class="control-label">Ảnh đai diện</label>
+                       <img class="ml-3" [src]="object.avatar" *ngIf="object.avatar !== ''" height="100" width="auto">
+                    </div>                   
+                    
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Số điện thoại</label>
+                        <input class="form-control" type="text" [(ngModel)]="object.phone" name="phone" disabled>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Email</label>
+                        <input class="form-control" type="text" [(ngModel)]="object.email" name="email" disabled>
+                    </div>                    
+                    
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Tài khoản hết hạn</label>
+                        <select class="form-control" name="accountNonExpired" [(ngModel)]="object.accountNonExpired">
+                            <option value="" disabled>-- Chọn thông tin --</option>
+                            <option value="false">Có</option>
+                            <option value="true">Không</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Tài khoản bị khóa</label>
+                        <select class="form-control" name="accountNonLocked" [(ngModel)]="object.accountNonLocked">
+                            <option value="" disabled>-- Chọn thông tin --</option>
+                            <option value="false">Có</option>
+                            <option value="true">Không</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Tình trạng</label>
+                        <select class="form-control" name="enabled" [(ngModel)]="object.enabled">
+                            <option value="" disabled>-- Chọn tình trạng --</option>
+                            <option value="true">Đang mở</option>
+                            <option value="false">Đang tắt</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Quyền</label>
+                        <select class="form-control" name="roleName" [(ngModel)]="object.roleName">
+                            <option value="" disabled>-- Chọn quyền --</option>
+                            <option value="ROLE_ADMIN">ADMIN</option>
+                            <option value="ROLE_USER">USER</option>
+                            <option value="ROLE_SUPPORT">SUPPORT</option>
+                        </select>
+                    </div>
+                    
+                    
+                    <div class="col-md-12 d-flex justify-content-center">
+                       <button class="btn btn-save me-3" type="submit">Lưu lại</button>
+                       <a class="btn btn-cancel" [routerLink]="['/admin/user']">Quay lại</a>
+                    </div>
+                 </form>
+             </div>
+          </div>
+       </div>
+    </div>
+ </main>

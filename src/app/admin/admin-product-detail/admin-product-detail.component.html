@@ -1,8 +1,8 @@
 <main class="app-content">
     <div class="app-title">
        <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item">Danh sách nhân viên</li>
-          <li class="breadcrumb-item"><a href="#">Thêm nhân viên</a></li>
+         <li class="breadcrumb-item"><a [routerLink]="['/admin/product']">Sản phẩm</a></li>
+         <li class="breadcrumb-item">Xem chi tiết</li>
        </ul>
     </div>
     <div class="row">
@@ -13,272 +13,348 @@
              <div class="tile-body">
                 
                 <form class="row" #myForm="ngForm" >
-                   <div class="form-group col-md-4">
-                      <label class="control-label">Tên sản phẩm</label>
-                      <input class="form-control" type="text" [(ngModel)]="product.name" name="name" disabled>
-                      <img [src]="product.avatar" width="200px" height="150px" alt="" srcset="">
+                  <div class="form-group">
+                     <label class="control-label">Tên sản phẩm</label>
+                     <input class="form-control" type="text" [(ngModel)]="product.name" name="name" disabled>
+                  </div>
+                  <div class="form-group">
+                     <label class="control-label">Ảnh sản phẩm</label>                     
+                     <img class="ml-3" [src]="product.avatar" *ngIf="product.avatar !== ''" height="150" width="auto">
+                  </div>
 
-                   </div>
-                   <div class="form-group col-md-4">
-                      <label class="control-label">Ảnh sản phẩm</label>
-                      <input type="file" name="file" id="file-input">
-                   </div>
-                   <div class="form-group col-md-4">
-                      <label class="control-label">Công nghệ màn hình</label>
-                      <input class="form-control" type="text" name="screenTechnology" [(ngModel)]="product.screenTechnology" disabled>
-                   </div>
-                   <div class="form-group  col-md-4">
-                      <label class="control-label">Độ phân giải màn hình</label>
-                      <input class="form-control" type="text" name="screenResolution" [(ngModel)]="product.screenResolution" disabled>
-                   </div>
-                   <div class="form-group col-md-4">
-                      <label class="control-label">Thông số màn hình</label>
-                      <input class="form-control" type="text" name="widescreen" [(ngModel)]="product.widescreen" disabled>
-                   </div>
-                   <div class="form-group  col-md-3">
-                      <label class="control-label">Độ sáng cao nhất</label>
-                      <input class="form-control" type="text" name="maximumBrightness" [(ngModel)]="product.maximumBrightness" disabled>
-                   </div>
-                   <div class="form-group col-md-3">
-                      <label class="control-label">Camera sau</label>
-                      <input class="form-control" type="text"  name="rearCamera" [(ngModel)]="product.rearCamera" disabled>
-                   </div>
-                   <div class="form-group col-md-3">
-                    <label class="control-label">Độ phân giải camera sau</label>
-                    <input class="form-control" type="text" name="rearCameraFeature" [(ngModel)]="product.rearCameraFeature" disabled>
-                 </div>
-                   <div class="form-group col-md-3">
-                      <label class="control-label">Kính màn hình</label>
-                      <input class="form-control" type="text" name="touchGlass" [(ngModel)]="product.touchGlass" disabled>
-                   </div>
-                   <div class="form-group col-md-3">
-                      <label class="control-label">Có đèn Flash</label>
-                      <select class="form-control" id="exampleSelect2" required  name="flashLight" [(ngModel)]="product.flashLight" disabled>
-                        <option>-- Chọn giới tính --</option>
+                  <div class="form-group">
+                     <h5>Màn hình</h5>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                     <label class="control-label">Công nghệ màn hình</label>
+                     <input class="form-control" type="text" name="screenTechnology"
+                        [(ngModel)]="product.screenTechnology" disabled>
+                  </div>
+                  <div class="form-group  col-md-6">
+                     <label class="control-label">Độ phân giải màn hình</label>
+                     <input class="form-control" type="text" name="screenResolution"
+                        [(ngModel)]="product.screenResolution" disabled>
+                  </div>
+                  <div class="form-group col-md-6">
+                     <label class="control-label">Thông số màn hình</label>
+                     <input class="form-control" type="text" name="widescreen" [(ngModel)]="product.widescreen" disabled>
+                  </div>
+                  <div class="form-group  col-md-6">
+                     <label class="control-label">Độ sáng cao nhất</label>
+                     <input class="form-control" type="text" name="maximumBrightness"
+                        [(ngModel)]="product.maximumBrightness" disabled>
+                  </div>
+
+                  <div class="form-group">
+                     <h5>Camera</h5>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                     <label class="control-label">Camera sau</label>
+                     <input class="form-control" type="text" name="rearCamera" [(ngModel)]="product.rearCamera"
+                        disabled>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                     <label class="control-label">Camera trước</label>
+                     <input class="form-control" type="text" name="frontCamera" [(ngModel)]="product.frontCamera"
+                        disabled>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                     <label class="control-label">Tính năng camera sau</label>
+                     <textarea class="form-control" type="text" name="rearCameraFeature"
+                        [(ngModel)]="product.rearCameraFeature" disabled></textarea>
+                  </div>                  
+
+                  <div class="form-group col-md-6">
+                     <label class="control-label">Tính năng camera trước</label>
+                     <textarea class="form-control" type="text" name="frontCameraFeature"
+                        [(ngModel)]="product.frontCameraFeature" disabled></textarea>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                     <label class="control-label">Mặt kính cảm ứng</label>
+                     <input class="form-control" type="text" name="touchGlass" [(ngModel)]="product.touchGlass"
+                        disabled>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                     <label class="control-label">Đèn Flash</label>
+                     <select class="form-control" id="exampleSelect2" disabled name="flashLight"
+                        [(ngModel)]="product.flashLight">
+                        <option value="" disabled>-- Đèn Flash --</option>
                         <option value="true">Có</option>
                         <option value="false">Không</option>
                      </select>
-                   </div>
-                   <div class="form-group col-md-3">
-                    <label class="control-label">Camera trước</label>
-                    <input class="form-control" type="text" name="frontCamera" [(ngModel)]="product.frontCamera" disabled>
-                 </div>
+                  </div>                 
 
-                 <div class="form-group col-md-3">
-                    <label class="control-label">Tính năng camera trước</label>
-                    <input class="form-control" type="text" name="frontCameraFeature" [(ngModel)]="product.frontCameraFeature" disabled>
-                 </div>
-
-                 <div class="form-group col-md-3">
-                     <label class="control-label">Hệ điều hành</label>
-                     <input class="form-control" type="text" name="operationSystem" [(ngModel)]="product.operationSystem" disabled>
+                  <div class="form-group">
+                     <h5>Hệ điều hành & CPU</h5>
                   </div>
 
-                  <div class="form-group col-md-3">
-                     <label class="control-label">CPU</label>
+                  <div class="form-group col-md-6">
+                     <label class="control-label">Hệ điều hành</label>
+                     <input class="form-control" type="text" name="operationSystem"
+                        [(ngModel)]="product.operationSystem" disabled>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                     <label class="control-label">Chip xử lý (CPU)</label>
                      <input class="form-control" type="text" name="cpu" [(ngModel)]="product.cpu" disabled>
                   </div>
 
-                  <div class="form-group col-md-3">
-                     <label class="control-label">Tốc độ xử lý CPU</label>
+                  <div class="form-group col-md-6">
+                     <label class="control-label">Tốc độ CPU</label>
                      <input class="form-control" type="text" name="cpuSpeed" [(ngModel)]="product.cpuSpeed" disabled>
                   </div>
-                  <div class="form-group col-md-3">
-                     <label class="control-label">Chip đồ họa</label>
-                     <input class="form-control" type="text" name="graphicChip" [(ngModel)]="product.graphicChip" disabled>
+                  <div class="form-group col-md-6">
+                     <label class="control-label">Chip đồ họa (GPU)</label>
+                     <input class="form-control" type="text" name="graphicChip" [(ngModel)]="product.graphicChip"
+                        disabled>
                   </div>
 
-                  <div class="form-group col-md-3">
-                     <label class="control-label">Mạng điện thoại</label>
-                     <input class="form-control" type="text" name="mobileNetwork" [(ngModel)]="product.mobileNetwork" disabled>
+                  <div class="form-group">
+                     <h5>Kết nối</h5>
                   </div>
-                  <div class="form-group col-md-3">
+
+                  <div class="form-group col-md-6">
+                     <label class="control-label">Mạng di động</label>
+                     <input class="form-control" type="text" name="mobileNetwork" [(ngModel)]="product.mobileNetwork"
+                        disabled>
+                  </div>
+
+                  <div class="form-group col-md-6">
                      <label class="control-label">SIM</label>
                      <input class="form-control" type="text" name="sim" [(ngModel)]="product.sim" disabled>
                   </div>
-                  <div class="form-group col-md-3">
+
+                  <div class="form-group col-md-6">
                      <label class="control-label">Wifi</label>
-                     <input class="form-control" type="text" name="wifi" [(ngModel)]="product.wifi" disabled>
+                     <textarea class="form-control" type="text" name="wifi" [(ngModel)]="product.wifi" disabled></textarea>
                   </div>
-                  <div class="form-group col-md-3">
+                  
+                  <div class="form-group col-md-6">
                      <label class="control-label">GPS</label>
-                     <input class="form-control" type="text" name="gps" [(ngModel)]="product.gps" disabled>
+                     <textarea class="form-control" type="text" name="gps" [(ngModel)]="product.gps" disabled></textarea>
                   </div>
+
                   <div class="form-group col-md-3">
                      <label class="control-label">BlueTooth</label>
                      <input class="form-control" type="text" name="bluetooth" [(ngModel)]="product.bluetooth" disabled>
                   </div>
                   <div class="form-group col-md-3">
                      <label class="control-label">Cổng sạc</label>
-                     <input class="form-control" type="text" name="chargingPort" [(ngModel)]="product.chargingPort" disabled>
+                     <input class="form-control" type="text" name="chargingPort" [(ngModel)]="product.chargingPort"
+                        disabled>
                   </div>
                   <div class="form-group col-md-3">
-                     <label class="control-label">Loại cổng tai nghe</label>
-                     <input class="form-control" type="text" name="headphoneJack" [(ngModel)]="product.headphoneJack" disabled>
+                     <label class="control-label">Jack tai nghe</label>
+                     <input class="form-control" type="text" name="headphoneJack" [(ngModel)]="product.headphoneJack"
+                        disabled>
                   </div>
                   <div class="form-group col-md-3">
-                     <label class="control-label">Tính năng khác</label>
+                     <label class="control-label">Kết nối khác</label>
                      <input class="form-control" type="text" name="otherPort" [(ngModel)]="product.otherPort" disabled>
                   </div>
-                  <div class="form-group col-md-3">
-                     <label class="control-label">Dung lượng pin </label>
-                     <input class="form-control" type="text" name="batteryCapacity" [(ngModel)]="product.batteryCapacity" disabled>
-                  </div>
-                  <div class="form-group col-md-3">
-                     <label class="control-label">Loại pin </label>
-                     <input class="form-control" type="text" name="batteryType" [(ngModel)]="product.batteryType" disabled>
+
+                  <div class="form-group">
+                     <h5>Pin & Sạc</h5>
                   </div>
 
-                  <div class="form-group col-md-3">
-                     <label class="control-label">Hỗ trợ sạc </label>
-                     <input class="form-control" type="text" name="maximumChargingSupport" [(ngModel)]="product.maximumChargingSupport" disabled>
-                  </div>
-                  <div class="form-group col-md-3">
-                     <label class="control-label">Công nghệ pin </label>
-                     <input class="form-control" type="text" name="batteryTechnology" [(ngModel)]="product.batteryTechnology" disabled>
+                  <div class="form-group col-md-4">
+                     <label class="control-label">Dung lượng pin</label>
+                     <input class="form-control" type="text" name="batteryCapacity"
+                        [(ngModel)]="product.batteryCapacity" disabled>
+                  </div>                  
+
+                  <div class="form-group col-md-4">
+                     <label class="control-label">Loại pin</label>
+                     <input class="form-control" type="text" name="batteryType" [(ngModel)]="product.batteryType"
+                        disabled>
                   </div>
 
-                  <div class="form-group col-md-3">
-                     <label class="control-label">Bảo mật nâng cao </label>
-                     <input class="form-control" type="text" name="advancedSecurity" [(ngModel)]="product.advancedSecurity" disabled>
+                  <div class="form-group col-md-4">
+                     <label class="control-label">Hỗ trợ sạc tối đa</label>
+                     <input class="form-control" type="text" name="maximumChargingSupport"
+                        [(ngModel)]="product.maximumChargingSupport" disabled>
                   </div>
-                  <div class="form-group col-md-3">
-                     <label class="control-label">Tính năng đặc biệt </label>
-                     <input class="form-control" type="text" name="specialFeature" [(ngModel)]="product.specialFeature" disabled>
+
+                  <div class="form-group col-md-4">
+                     <label class="control-label">Công nghệ pin</label>
+                     <textarea class="form-control" type="text" name="batteryTechnology"
+                        [(ngModel)]="product.batteryTechnology" disabled></textarea>
                   </div>
-                  <div class="form-group col-md-3">
-                     <label class="control-label">Chống nước </label>
-                     <input class="form-control" type="text" name="waterDustResistance" [(ngModel)]="product.waterDustResistance" disabled>
+
+                  <div class="form-group">
+                     <h5>Tiện ích</h5>
                   </div>
-                  <div class="form-group col-md-3">
-                     <label class="control-label">Ghi hình </label>
+
+                  <div class="form-group col-md-6">
+                     <label class="control-label">Bảo mật nâng cao</label>
+                     <input class="form-control" type="text" name="advancedSecurity"
+                        [(ngModel)]="product.advancedSecurity" disabled>
+                  </div>
+                  <div class="form-group col-md-6">
+                     <label class="control-label">Tính năng đặc biệt</label>
+                     <textarea class="form-control" type="text" name="specialFeature" [(ngModel)]="product.specialFeature"
+                        disabled></textarea>
+                  </div>
+                  <div class="form-group col-md-6">
+                     <label class="control-label">Kháng nước, bụi</label>
+                     <input class="form-control" type="text" name="waterDustResistance"
+                        [(ngModel)]="product.waterDustResistance" disabled>
+                  </div>
+                  <div class="form-group col-md-6">
+                     <label class="control-label">Ghi âm</label>
                      <input class="form-control" type="text" name="record" [(ngModel)]="product.record" disabled>
                   </div>
-                  <div class="form-group col-md-3">
-                     <label class="control-label">Hỗ trợ  quay phim </label>
-                     <input class="form-control" type="text" name="movieSupport" [(ngModel)]="product.movieSupport" disabled>
+                  <div class="form-group col-md-6">
+                     <label class="control-label">Xem phim</label>
+                     <textarea class="form-control" type="text" name="movieSupport" [(ngModel)]="product.movieSupport"
+                        disabled></textarea>
                   </div>
-                  <div class="form-group col-md-3">
-                     <label class="control-label">Hỗ trợ nhạc  </label>
-                     <input class="form-control" type="text" name="musicSupport" [(ngModel)]="product.musicSupport" disabled>
+                  <div class="form-group col-md-6">
+                     <label class="control-label">Nghe nhạc</label>
+                     <textarea class="form-control" type="text" name="musicSupport" [(ngModel)]="product.musicSupport"
+                        disabled></textarea>
                   </div>
-                  <div class="form-group col-md-3">
-                     <label class="control-label">Thiết kế  </label>
+
+                  <div class="form-group">
+                     <h5>Thông tin chung</h5>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                     <label class="control-label">Thiết kế</label>
                      <input class="form-control" type="text" name="design" [(ngModel)]="product.design" disabled>
                   </div>
-                  <div class="form-group col-md-3">
-                     <label class="control-label">Vỏ  </label>
+                  <div class="form-group col-md-6">
+                     <label class="control-label">Chất liệu</label>
                      <input class="form-control" type="text" name="material" [(ngModel)]="product.material" disabled>
                   </div>
-                  <div class="form-group col-md-3">
-                     <label class="control-label">Kích thước</label>
+                  <div class="form-group col-md-6">
+                     <label class="control-label">Kích thước, khối lượng</label>
                      <input class="form-control" type="text" name="size" [(ngModel)]="product.size" disabled>
                   </div>
-                  <div class="form-group col-md-3">
-                     <label class="control-label">Ngày phát hành</label>
-                     <input class="form-control" type="text" name="launchDate" [(ngModel)]="product.launchDate" disabled>
+                  <div class="form-group col-md-6">
+                     <label class="control-label">Thời điểm ra mắt</label>
+                     <input class="form-control" type="text" name="launchDate" [(ngModel)]="product.launchDate"
+                        disabled>
                   </div>
-                  <div class="form-group col-md-3">
-                     <label class="control-label">Mô tả</label>
-                     <ckeditor
-                     [editor]="Editor"
-             
-                     (change)="onChange($event)"
-                     data= {{ckeditorData}}
-                     tagName="description"
-                     
-                     >
-                     </ckeditor>
-                  </div>
+
                   <div class="form-group col-md-3">
                      <label class="control-label">Hãng</label>
-                     
-                     <select class="form-control" id="exampleSelect2" required name="categoryId" [(ngModel)]="product.categoryId" disabled>
-                        <option value="">-- Chọn Hãng --</option>
+                     <select class="form-control" id="exampleSelect2" disabled name="categoryId"
+                        [(ngModel)]="product.categoryId">
+                        <option value="" disabled>-- Chọn Hãng --</option>
                         <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
                      </select>
                   </div>
-                  
+
                   <div class="form-group col-md-3">
                      <label class="control-label">Loại khuyến mãi</label>
-               
-                     <select class="form-control" id="exampleSelect2" required name="promotionId" [(ngModel)]="product.promotionId" disabled>
-                        <option value="">-- Chọn Loại khuyến mãi --</option>
+                     <select class="form-control" id="exampleSelect2" disabled name="promotionId"
+                        [(ngModel)]="product.promotionId">
+                        <option value="" disabled>-- Chọn Loại khuyến mãi --</option>
                         <option *ngFor="let promotion of promotions" [value]="promotion.id">{{promotion.name}}</option>
                      </select>
                   </div>
+
                   <div class="form-group col-md-3">
                      <label class="control-label">Giá trị khuyến mãi</label>
-                     <input class="form-control" type="text" name="promotionValue" [(ngModel)]="product.promotionValue" disabled>
+                     <input class="form-control" type="number" name="promotionValue" [(ngModel)]="product.promotionValue"
+                        disabled>
                   </div>
+
                   <div class="form-group col-md-3">
                      <label class="control-label">Trạng thái</label>
-                     <select class="form-control" id="exampleSelect2" required  name="status" [(ngModel)]="product.status">
-                        <option>-- Chọn trạng thái --</option>
+                     <select class="form-control" id="exampleSelect2" disabled name="status"
+                        [(ngModel)]="product.status">
+                        <option value="" disabled>-- Chọn trạng thái --</option>
                         <option value="true">Có</option>
                         <option value="false">Không</option>
                      </select>
                   </div>
-                  <br>
-                  <div  style="display: block;">
-                     <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#exampleModalCenter" (click)="primngCloseModalBoxReloadApiShowInfo(id,0,'create')"><b><i
-                        class="fas fa-folder-plus"></i> Thêm loại lựa chọn</b></a>
-                  </div>
-                   <table class="table table-hover table-bordered js-copytextarea" cellpadding="0" cellspacing="0" border="0"
-                   id="sampleTable">
-                   <thead>
-                     <tr>
-                       
-                       <th>STT </th>
-                       <th width="200">Hình ảnh</th>
-                       <th width="150">RAM</th>
-                       <th width="200">Dung lượng lưu trữ</th>
-                       <th width="100">Màu</th>
-                       <th>Giá cũ</th>
-                       <th>Giá mới</th>
-                       <th>Số lượng</th>
-      
-                  
-                     </tr>
-                   </thead>
-                   <tbody>
-                     <tr *ngFor="let item of productOptions  | paginate : { itemsPerPage: itemPerPage, currentPage: p };let i = index">
-                 
-                       <td># {{i + 1 }}</td>
-                       <td><img [src]="item.image" width="150" height="150" alt="" srcset=""></td>
-                       <td>{{item.ram}} </td>
-                       <td>{{item.storageCapacity}} </td>
-                  
-                       <td>{{item.color}} </td>
-                       <td>{{item.price}} </td>
-                       <td>{{item.newPrice}} </td>
-                       <td>{{item.quantity}} </td>
-       
-       
-                       <td class="table-td-center">
-                        <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                        (click)="delete(item.id)" ><i class="fas fa-trash-alt"></i>
-                         </button> 
-                  
-                         <button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" (click)="primngCloseModalBoxReloadApiShowInfo(id,item.id,'edit')" ><i class="fas fa-edit"></i>
-                         </button>
-                       </td>
-                     </tr>
-                   </tbody>
-                 </table>
-                 <p-confirmDialog header="concec" ></p-confirmDialog>
 
-                 <pagination-controls (pageChange)="p = $event"></pagination-controls>
-                 <div style="display: flex; justify-content: flex-end;">
-                     <button class="btn btn-save" [routerLink]="['admin/product/update/' +id]"  type="submit" style="margin-right: 20px;">Cập nhật</button>
-                     <a class="btn btn-cancel" [routerLink]="['/admin/product']">Hủy bỏ</a> 
-                 </div>
+                  <div class="form-group col-md-12">
+                     <label class="control-label">Mô tả</label>
+                     <ckeditor 
+                        [editor]="Editor" 
+                        (change)="onChange($event)" 
+                        data={{product.description}}
+                        tagName="description" 
+                        [disabled]="true">         
+                     </ckeditor>
+                     <!-- <textarea class="form-control" [(ngModel)]="product.description" name="mota" id="mota" disabled></textarea> -->
+                  </div>                  
+
+                  <div class="form-group d-flex align-items-center">
+                     <h5 class="mb-0">Các option sản phẩm</h5>
+
+                     <!-- <div class="ml-auto">
+                        <a class="btn btn-add btn-sm" data-toggle="modal" data-target="#exampleModalCenter" (click)="showModalBox(id, 0, 'create')">
+                           <b><i class="fas fa-plus"></i> Thêm option</b>
+                        </a>
+                     </div> -->
+                  </div>        
+
+                  <table class="table table-hover table-bordered js-copytextarea" cellpadding="0" cellspacing="0" border="0"
+                     id="sampleTable">
+                     <thead>
+                        <tr>
+                           <th>STT</th>
+                           <th>Hình ảnh</th>
+                           <th>RAM</th>
+                           <th>Bộ nhớ trong</th>
+                           <th>Màu</th>
+                           <th>Giá cũ</th>
+                           <th>Giá mới</th>
+                           <th>Số lượng</th>
+                           <th>Trạng thái</th>
+                           <!-- <th>Hành động</th> -->
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr *ngFor="let item of productOptions  | paginate : { itemsPerPage: itemPerPage, currentPage: p };let i = index">
                   
-                </form>
-               
-             </div>
-         
-          
+                           <td>#{{ (p - 1) * itemPerPage + i + 1 }}</td>
+                           <td><img [src]="item.image" width="auto" height="100" alt="" srcset=""></td>
+                           <td>{{item.ram}}GB </td>
+                           <td>{{item.storageCapacity}}GB </td>                  
+                           <td>{{item.color}} </td>
+                           <td>{{item.price}} </td>
+                           <td>{{item.newPrice}} </td>
+                           <td>{{item.quantity}} </td>  
+                                           
+                           <td>                              
+                              <span class="badge" [ngClass]="{'bg-success': item.status, 'bg-danger': !item.status}">
+                                 {{ item.status ? 'Còn hàng' : 'Hết hàng' }}
+                               </span>
+                           </td>
+
+                           <!-- <td>
+                              <button class="btn btn-primary btn-sm edit me-1" type="button" title="Sửa" id="show-emp"
+                                 (click)="showModalBox(id,item.id,'edit')"><i class="fas fa-edit"></i>
+                              </button>
+                              
+                              <button class="btn btn-primary btn-sm trash" type="button" title="Xóa" (click)="confirmDeleteOption(item.id)"><i
+                                    class="fas fa-trash-alt"></i>
+                              </button>                              
+                           </td> -->
+                        </tr>
+                     </tbody>
+                  </table>
+                 <p-confirmDialog header="concec" ></p-confirmDialog>
+                 <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                 
+                  <div class="col-md-12 d-flex justify-content-center">
+                     <button class="btn btn-save me-3" [routerLink]="['/admin/product/update/' + id]" type="submit">Cập nhật</button>
+                     <a class="btn btn-cancel" [routerLink]="['/admin/product']">Quay lại</a>
+                  </div>
+
+                </form>               
+             </div>         
           </div>
        </div>
     </div>

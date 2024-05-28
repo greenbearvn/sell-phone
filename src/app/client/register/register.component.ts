@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserReq } from 'src/app/dto/UserReq';
 import { LoginServiceService } from 'src/app/services/client/login/login-service.service';
 import { ToastService } from 'angular-toastify';
+import { UserRegister } from 'src/app/dto/UserRegister';
 
 @Component({
   selector: 'app-register',
@@ -29,7 +30,7 @@ export class RegisterComponent {
   ) {}
 
   res: any;
-  userReq: UserReq = {
+  userReq: UserRegister = {
     phone: '',
     username: '',
     password: '',

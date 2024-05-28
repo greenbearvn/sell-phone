@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient ,HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LoginDTO } from 'src/app/dto/LoginDTO';
-import { UserReq } from 'src/app/dto/UserReq';
+import { UserRegister } from 'src/app/dto/UserRegister';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,7 @@ export class LoginServiceService {
     return this.http.get('/api/v1/user/all',{ headers });
   }
 
-  register(userReq:UserReq): Observable<any> {
+  register(userReq:any): Observable<any> {
    
     return this.http.post('/api/v1/user',userReq);
   }

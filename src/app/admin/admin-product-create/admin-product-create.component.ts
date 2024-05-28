@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Product } from 'src/app/models/Product';
 import { CookieService } from 'ngx-cookie-service';
+import { ToastService } from 'angular-toastify';
 import { AdminProductService } from 'src/app/services/admin/product/admin-product.service';
 import { AdminCategoryService } from 'src/app/services/admin/category/admin-category.service';
-import { AdminPromotionService } from'src/app/services/promotion/admin-promotion.service';
+import { AdminPromotionService } from 'src/app/services/promotion/admin-promotion.service';
 // import { MatDialog } from '@angular/material/dialog';
 import { AdminProductOptionModalComponent } from '../admin-product-option-modal/admin-product-option-modal.component';
 
@@ -18,11 +19,11 @@ import { ChangeEvent } from '@ckeditor/ckeditor5-angular/ckeditor.component';
   selector: 'app-admin-product-create',
   templateUrl: './admin-product-create.component.html',
   styleUrls: ['./admin-product-create.component.css',
-  '../assets/css/main.css'
+    '../assets/css/main.css'
   ],
 })
 export class AdminProductCreateComponent {
-  product : Product = {
+  product: Product = {
     name: '',
     avatar: '',
     screenTechnology: '',
@@ -64,33 +65,34 @@ export class AdminProductCreateComponent {
     description: '',
     categoryId: '',
     promotionId: '',
-    promotionValue: '',
+    promotionValue: 0,
     status: ''
   };
 
-  token:any;
+  token: any;
   formData: FormData;
-  promotions:any;
-  categories:any;
+  promotions: any;
+  categories: any;
+  imageUrl: any = '';
 
   public Editor = ClassicEditor;
-  ckeditorData:any = '';
- 
+  ckeditorData: any = '';
+
   constructor(
     private adminProductService: AdminProductService,
     private cookieService: CookieService,
     private adminCategoryService: AdminCategoryService,
     private adminPromotionService: AdminPromotionService,
-    private dialogService: DialogService, 
-    private ref: DynamicDialogRef
-    
+    private dialogService: DialogService,
+    private ref: DynamicDialogRef,
+    private toastService: ToastService
   ) {
     this.formData = new FormData()
   }
 
 
 
-  ngOnInit(){
+  ngOnInit() {
     this.getToken();
     this.getAllCategory();
     this.getAllPromotion();
@@ -99,7 +101,7 @@ export class AdminProductCreateComponent {
   onSubmit(myForm: NgForm) {
     this.formData = new FormData();
     this.formData.append('name', myForm.value.name);
-  
+
     // Assuming 'File' is an actual File object
     const fileInput = document.getElementById('file-input') as HTMLInputElement;
     if (fileInput.files && fileInput.files[0]) {
@@ -151,38 +153,55 @@ export class AdminProductCreateComponent {
     this.formData.append('promotionId', myForm.value.promotionId);
     this.formData.append('promotionValue', myForm.value.promotionValue);
     this.formData.append('status', myForm.value.status);
-    console.log(this.formData);
+    //console.log(this.formData);
 
     this.createProduct();
-   
+
   }
 
-  getToken(){
+  getToken() {
     this.token = this.cookieService.get('jwt_token');
   }
 
-  createProduct(){
-    this.adminProductService.createProduct(this.token,this.formData).subscribe((data) => {
-      if(data.status === 'SUCCESS'){
-      
-        console.log("Thanh cong");
-      }
-    });
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imageUrl = reader.result;
+      };
+      reader.readAsDataURL(file);
+    } else {
+      this.imageUrl = null;
+    }
   }
 
-  getAllPromotion(){
+  createProduct() {
+    this.adminProductService.createProduct(this.token, this.formData).subscribe((data) => {
+      if (data.status === 'SUCCESS') {
+        this.toastService.success("Thêm thành công!");
+      }
+    },
+      (error) => {
+        this.toastService.error("Đã xảy ra lỗi. Vui lòng thử lại.");
+        //console.error("Lỗi khi thêm sản phẩm:", error);
+      }
+    );
+  }
+
+  getAllPromotion() {
     this.adminPromotionService.getAllPromotion(this.token).subscribe((data) => {
-      if(data.status === 'SUCCESS'){
-      
+      if (data.status === 'SUCCESS') {
+
         this.promotions = data.data;
       }
     });
   }
 
-  getAllCategory(){
+  getAllCategory() {
     this.adminCategoryService.getAllCategories(this.token).subscribe((data) => {
-      if(data.status === 'SUCCESS'){
-      
+      if (data.status === 'SUCCESS') {
+
         this.categories = data.data;
       }
     });
@@ -190,8 +209,7 @@ export class AdminProductCreateComponent {
 
   public onChange({ editor }: ChangeEvent) {
     this.ckeditorData = editor.getData();
-    console.log(this.ckeditorData);
+    //console.log(this.ckeditorData);
   }
-  
 
 }

@@ -3,7 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { ToastService } from 'angular-toastify';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AdminUserService } from 'src/app/services/admin/user/admin-user.service';
-import { AdminUserModalComponent } from '../admin-user-modal/admin-user-modal.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-user',
@@ -30,26 +30,8 @@ export class AdminUserComponent {
     this.getList();
   }
 
-   getToken(){
+  getToken(){
     this.token = this.cookieService.get('jwt_token');
-  }
-
-
-  openModal( id:any,type:any) {
-    const dialogRef = this.dialogService.open(AdminUserModalComponent, {
-      header:  type == 'create'? 'Thêm ' : 'Cập nhật ',
-      modal: true,
-      dismissableMask: true,
-      width: '70%',
-      data: {
-        id: id,
-        type: type
-      }
-    });
-  
-    dialogRef.onClose.subscribe(() => {
-      this.getList();
-    });
   }
 
   getList(){
@@ -60,7 +42,23 @@ export class AdminUserComponent {
     });
   }
 
-  delete(id:any){
+  confirmDeleteUser(id: any) {
+    Swal.fire({
+      title: 'Cảnh báo',
+      text: 'Bạn có chắc chắn là muốn xóa người dùng này?',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Đồng ý',
+      cancelButtonText: 'Hủy bỏ',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.deleteUser(id);
+      }
+    });
+  }
+
+  deleteUser(id:any){
 
     this._userService.delete(id,this.token).subscribe((data:any) => {
       if(data.status === 'SUCCESS'){
@@ -70,5 +68,22 @@ export class AdminUserComponent {
     });
   }
 
+  getFriendlyRoleName(roleName: string): string {
+    const roleMap: { [key: string]: string } = {
+      'ROLE_ADMIN': 'ADMIN',
+      'ROLE_USER': 'USER',
+      'ROLE_SUPPORT': 'SUPPORT'
+    };
+    return roleMap[roleName] || roleName;
+  }
+  
+  getBadgeClass(roleName: string): string {
+    const classMap: { [key: string]: string } = {
+      'ROLE_ADMIN': 'bg-danger',
+      'ROLE_USER': 'bg-success',
+      'ROLE_SUPPORT': 'bg-info'
+    };
+    return classMap[roleName] || 'badge-default';
+  }
 
 }
