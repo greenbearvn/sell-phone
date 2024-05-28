@@ -93,7 +93,7 @@ export class CartComponent {
   calTotalMoney() {
     this.totalMoney = 0; // Initialize totalMoney to zero before summing up
     for (let i of this.cartItems) { // Use 'of' instead of 'in' to iterate over values
-      this.totalMoney += i.productOptionDto.newPrice * i.productOptionDto.quantity;
+      this.totalMoney += i.productOptionDto.newPrice * i.quantity;
     }
   }
   
