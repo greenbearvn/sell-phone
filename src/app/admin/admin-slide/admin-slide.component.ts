@@ -1,27 +1,25 @@
 import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { ToastService } from 'angular-toastify';
-import { AdminNewsService } from 'src/app/services/admin/news/admin-news.service';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import Swal from 'sweetalert2';
+import { AdminSlideService } from 'src/app/services/admin/slide/admin-slide.service';
 
 @Component({
-  selector: 'app-admin-news',
-  templateUrl: './admin-news.component.html',
-  styleUrls: ['./admin-news.component.css', '../assets/css/main.css'
-  ]
+  selector: 'app-admin-slide',
+  templateUrl: './admin-slide.component.html',
+  styleUrls: ['./admin-slide.component.css', '../assets/css/main.css']
 })
-export class AdminNewsComponent {
-
-  constructor(
-    private adminNewsService: AdminNewsService,
+export class AdminSlideComponent {
+  constructor(    
     private cookieService: CookieService,
     private toastService: ToastService,
     private dialogService: DialogService,
     private ref: DynamicDialogRef,
+    private adminSlideService: AdminSlideService,
   ) { }
 
-  news: any;
+  slides: any;
   token: any;
   p: number = 1;
   itemPerPage: number = 10;
@@ -29,7 +27,7 @@ export class AdminNewsComponent {
 
   ngOnInit() {
     this.getToken();
-    this.getNews();
+    this.getAllSlides();
   }
 
 
@@ -37,29 +35,29 @@ export class AdminNewsComponent {
     this.token = this.cookieService.get('jwt_token');
   }
 
-  getNews() {
-    this.adminNewsService.getNews(this.token).subscribe((data) => {
+  getAllSlides() {
+    this.adminSlideService.getAll(this.token).subscribe((data) => {
       if (data.status === 'SUCCESS') {
-        this.news = data.data;
+        this.slides = data.data;
       }
     });
   }
 
-  deleteNews(id: any) {
+  deleteSlide(id: any) {
 
-    this.adminNewsService.delete(id, this.token).subscribe((data: any) => {
+    this.adminSlideService.delete(id, this.token).subscribe((data: any) => {
       if (data.status === 'SUCCESS') {
         this.toastService.success("Xóa bài viết thành công!");
-        this.getNews();
+        this.getAllSlides();
       }
     });
   }
 
-  delete(id: any) {
+  confirmDelete(id: any) {
 
     Swal.fire({
       title: 'Cảnh báo',
-      text: 'Bạn có chắc chắn là muốn xóa tin tức này?',
+      text: 'Bạn có chắc chắn là muốn xóa banner này?',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
@@ -67,7 +65,7 @@ export class AdminNewsComponent {
       cancelButtonText: 'Hủy bỏ',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.deleteNews(id);
+        this.deleteSlide(id);
       }
     });
   }

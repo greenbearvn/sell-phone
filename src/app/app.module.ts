@@ -71,6 +71,8 @@ import { AdminOrderDetailComponent } from './admin/admin-order-detail/admin-orde
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { UserInforComponent } from './client/user-infor/user-infor.component';
 import { UserAddressComponent } from './client/user-address/user-address.component';
+import { AdminReportComponent } from './admin/admin-report/admin-report.component';
+import { AdminSlideComponent } from './admin/admin-slide/admin-slide.component';
 
 
 
@@ -117,7 +119,9 @@ import { UserAddressComponent } from './client/user-address/user-address.compone
     AdminOrderDetailComponent,
     AdminDashboardComponent,
     UserInforComponent,
-    UserAddressComponent
+    UserAddressComponent,
+    AdminReportComponent,
+    AdminSlideComponent
   ],
   imports: [
     BrowserModule,

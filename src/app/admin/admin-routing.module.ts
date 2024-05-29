@@ -21,6 +21,8 @@ import { AdminOrderComponent } from './admin-order/admin-order.component';
 import { AdminOrderUpdateComponent } from './admin-order-update/admin-order-update.component';
 import { AdminOrderDetailComponent } from './admin-order-detail/admin-order-detail.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminReportComponent } from './admin-report/admin-report.component';
+import { AdminSlideComponent } from './admin-slide/admin-slide.component';
 
 
 const routes: Routes = [
@@ -28,8 +30,9 @@ const routes: Routes = [
     path:'admin',
     component: AdminComponent,
     children:[
+      {path:'', component: AdminDashboardComponent},
       {path:'home', component: AdminDashboardComponent},
-
+      {path:'report', component: AdminReportComponent},
       {path:'product', component: AdminProductComponent},
       { path:'product/create', component: AdminProductCreateComponent},
       { path:'product/update/:id', component: AdminProductUpdateComponent},
@@ -50,6 +53,8 @@ const routes: Routes = [
       { path:'order', component: AdminOrderComponent},
       { path:'order/update/:id', component: AdminOrderUpdateComponent},
       { path:'order/detail/:id', component: AdminOrderDetailComponent},
+
+      { path:'slide', component: AdminSlideComponent},
     ]
   }
 ];

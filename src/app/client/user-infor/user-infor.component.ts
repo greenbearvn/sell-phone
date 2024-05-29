@@ -62,13 +62,13 @@ export class UserInforComponent {
   deleteBtn(){
 
     Swal.fire({
-      title: 'Bạn có chắc không?',
-      text: 'Một khi bạn xóa, bạn sẽ không thể khôi phục lại thông tin này!',
+      title: 'Bạn muốn đăng xuất?',
+      // text: 'Một khi bạn xóa, bạn sẽ không thể khôi phục lại thông tin này!',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Có, xóa đi!',
+      confirmButtonText: 'Đồng ý',
       cancelButtonText: 'Hủy',
     }).then((result) => {
       if (result.isConfirmed) {
