@@ -3,6 +3,7 @@ import { LoginServiceService } from 'src/app/services/client/login/login-service
 import { LoginDTO } from 'src/app/dto/LoginDTO';
 import { CookieService } from 'ngx-cookie-service';
 import { ToastService } from 'angular-toastify';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,8 @@ export class LoginComponent {
   constructor(
     private loginService: LoginServiceService,
     private cookieService: CookieService,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private router: Router
   ) { }
 
   loginData: LoginDTO = {
@@ -52,6 +54,7 @@ export class LoginComponent {
         this.token = this.data.data.accessToken;
         console.log(this.token);
         this.cookieService.set('jwt_token', this.token);
+        this.router.navigate(['/'])
       }
       else {
         this.toastService.error("Sai tài khoản hoặc mật khẩu");

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HomeService } from 'src/app/services/client/home/home.service';
 
 @Component({
   selector: 'app-category',
@@ -27,5 +28,22 @@ import { Component } from '@angular/core';
 ]
 })
 export class CategoryComponent {
+
+  constructor( private homeService: HomeService){
+
+  }
+  products:any;
+
+  ngOnInit() {
+    this.getAll();
+  }
+
+  getAll(){
+    this.homeService.getNewProducts().subscribe((data) => {
+      this.products = data.data;
+      console.log(this.products);
+
+    });
+  }
 
 }

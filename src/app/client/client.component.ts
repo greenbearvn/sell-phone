@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client',
@@ -33,4 +35,29 @@ import { Component } from '@angular/core';
 })
 export class ClientComponent {
 
+  token:any;
+
+  constructor(
+
+    private cookieService: CookieService,
+    private router: Router
+  ) { }
+
+  getToken():string{
+    this.token = this.cookieService.get('jwt_token'); 
+    return this.token;
+
+  }
+
+
+  checkLogin() {
+    const token = this.getToken(); // Assuming getToken() returns the token
+    console.log(token.length);
+  
+    if (token.length < 10) {
+      this.router.navigate(['/login']);
+    } else {
+      this.router.navigate(['/trang-ca-nhan']);
+    }
+  }
 }

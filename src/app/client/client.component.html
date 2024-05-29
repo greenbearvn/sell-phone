@@ -162,7 +162,7 @@
                      </a>
                   </div>
                   <div class="menu_center">
-                     <button class="cate-btn">
+                     <a class="cate-btn" [routerLink]="['/news']">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                            xmlns="http://www.w3.org/2000/svg">
                            <path d="M16.6666 0.833332H3.33325C1.95254 0.833332 0.833252 1.95262 0.833252 3.33333V16.6667C0.833252 18.0474 1.95254 19.1667 3.33325 19.1667H16.6666C18.0473 19.1667 19.1666 18.0474 19.1666 16.6667V3.33333C19.1666 1.95262 18.0473 0.833332 16.6666 0.833332Z"
@@ -180,12 +180,12 @@
                            <path d="M9.1665 14.1667H14.9998" stroke="white" stroke-linecap="round"
                               stroke-linejoin="round"/>
                         </svg>
-                        Danh mục
-                     </button>
+                        Xem tin tức
+                     </a>
                      <div class="address_pc">
                         <div class="dropdown select_city">
                            <button class="btn-drop" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                           <span class="title title-pc">Xem giá, tồn kho tại:</span>
+                        
                            <span class="title title-mb">Xem giá tại:</span>
                            <span class="click_drop">
                            Hà Nội            <i class="fa fa-caret-down"></i>
@@ -225,7 +225,7 @@
                      <a [routerLink]="['/cart']" class="cart_dd">
                      <span class="nbc">0</span>
                      </a>
-                     <a [routerLink]="['/login']"
+                     <a (click)="checkLogin()"
                         title="Thành viên - Đăng ký - Đăng nhập" class="member-btn">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                            xmlns="http://www.w3.org/2000/svg">
@@ -541,7 +541,7 @@
                         </ul>
                      </div>
                   </div>
-                  <div class="banner-site">
+                  <div class="banner-site" style="width: 100%;">
                      <div id="pav-slideShow">
                         <div class="hidden-xs">
                            <div id="slideshow" class="bannercontainer carousel slide lazy " data-interval="3000" data-ride="carousel">
@@ -698,40 +698,7 @@
                         </div>
                      </div>
                   </div>
-                  <div class="video-site">
-                     <div class="video_clip">
-                        <div class="item_video">
-                           <a href="https://www.youtube.com/watch?v=qGEffqTgfu0&amp;t=1s" class="video1 content_sl" rel="nofollow" target="_blank">
-                              <picture>
-                                 <source srcset="https://didongthongminh.vn/images/video/original/iphone-12-pro-max-cu_1702020091.jpg" type="image/webp">
-                                 <source srcset="https://didongthongminh.vn/images/video/resized/iphone-12-pro-max-cu_1702020091.jpg">
-                                 <img class="img-responsive img_cap dli" width="170" height="170" src="https://didongthongminh.vn/images/video/resized/iphone-12-pro-max-cu_1702020091.jpg" alt="iPhone 12 Pro Max cũ">
-                              </picture>
-                              <img class="icon_play" width="50" height="50" src="https://didongthongminh.vn/templates/default/images/play.svg" alt="play">
-                           </a>
-                        </div>
-                        <div class="item_video">
-                           <a href="https://www.youtube.com/watch?v=0IGh9t2bPgU" class="video1 content_sl" rel="nofollow" target="_blank">
-                              <picture>
-                                 <source srcset="https://didongthongminh.vn/images/video/original/thiet-ke-chua-co-ten-8_1712042850.jpg" type="image/webp">
-                                 <source srcset="https://didongthongminh.vn/images/video/resized/thiet-ke-chua-co-ten-8_1712042850.jpg">
-                                 <img class="img-responsive img_cap dli" width="170" height="170" src="https://didongthongminh.vn/images/video/resized/thiet-ke-chua-co-ten-8_1712042850.jpg" alt="Lua chon iphone cuoi nam">
-                              </picture>
-                              <img class="icon_play" width="50" height="50" src="https://didongthongminh.vn/templates/default/images/play.svg" alt="play">
-                           </a>
-                        </div>
-                        <div class="item_video">
-                           <a href="https://www.youtube.com/watch?v=G7toVxNaOQ4&amp;t=108s" class="video1 content_sl" rel="nofollow" target="_blank">
-                              <picture>
-                                 <source srcset="https://didongthongminh.vn/images/video/original/ip-14-390-x-210-px-3_1708937237.jpg" type="image/webp">
-                                 <source srcset="https://didongthongminh.vn/images/video/resized/ip-14-390-x-210-px-3_1708937237.jpg">
-                                 <img class="img-responsive img_cap dli" width="170" height="170" src="https://didongthongminh.vn/images/video/resized/ip-14-390-x-210-px-3_1708937237.jpg" alt="iPhone se 2020">
-                              </picture>
-                              <img class="icon_play" width="50" height="50" src="https://didongthongminh.vn/templates/default/images/play.svg" alt="play">
-                           </a>
-                        </div>
-                     </div>
-                  </div>
+                  
                </div>
             </div>
             <div class="menu-show-click_hover menu-show-click">
@@ -1042,62 +1009,7 @@
       <router-outlet></router-outlet>
     
       <footer id="footer">
-         <div class="seomenu">
-            <div class="container">
-               <!--<div class="bottom-nav">-->
-               <ul class="bottom-nav">
-                  <li class='  level0 first-item' >
-                     <a href='poco-x4-pro-5g-6gb128gb-chinh-hang.html' rel="follow">		Poco x4 Pro 	</a>
-                  </li>
-                  <li class='  level0menu-item' >
-                     <a href='iphone-cu-nguyen-ban.html' rel="follow">		iPhone cũ giá rẻ 	</a>
-                  </li>
-                  <li class='  level0menu-item' >
-                     <a href='iphone-11-series.html' rel="follow">		iPhone 11 cũ 	</a>
-                  </li>
-                  <li class='  level0menu-item' >
-                     <a href='iphone-12-pro-max-256gb-cu-99-dep-nhu-moi.html' rel="follow">		iPhone 12 Pro Max Cũ 256GB 	</a>
-                  </li>
-                  <li class='  level0menu-item' >
-                     <a href='xiaomi-redmi-note-11-pro-8gb-128gb-chinh-hang.html' rel="follow">		Redmi Note 11 Pro 	</a>
-                  </li>
-                  <li class='  level0menu-item' >
-                     <a href='iphone-14-series.html' rel="follow">		iPhone 14 chính hãng 	</a>
-                  </li>
-                  <li class='  level0menu-item' >
-                     <a href='samsung-galaxy-s22-ultra-8gb-128gb-chinh-hang.html' rel="follow">		Galaxy S22 Ultra 	</a>
-                  </li>
-                  <li class='  level0menu-item' >
-                     <a href='ipad-air.html' rel="follow">		iPad Air Siêu Rẻ 	</a>
-                  </li>
-                  <li class='  level0menu-item' >
-                     <a href='laptop-lg-gram-2021-16zd90p-gax54a5-16-inch.html' rel="follow">		Laptop LG Gram 2021 	</a>
-                  </li>
-                  <li class='  level0menu-item' >
-                     <a href='iphone-13-128gb-chinh-hang-vna.html' rel="follow">		iPhone 13 128GB 	</a>
-                  </li>
-                  <li class='  level0menu-item' >
-                     <a href='iphone-12-cu-qua-su-dung.html' rel="follow">		iPhone 12 cũ qua sử dụng 	</a>
-                  </li>
-                  <li class='  level0menu-item' >
-                     <a href='ipad-cu-gia-re.html' rel="follow">		iPad cũ 	</a>
-                  </li>
-                  <li class='  level0menu-item' >
-                     <a href='co-nen-mua-iphone-12-pro-max.html' rel="nofollow">		Có nên mua iPhone 12 Pro Max 2022 	</a>
-                  </li>
-                  <li class='  level0menu-item' >
-                     <a href='iphone.html' rel="follow">		iPhone 	</a>
-                  </li>
-                  <li class='  level0menu-item' >
-                     <a href='iphone-14-pro-max-chinh-hang-vna.html' rel="follow">		iPhone 14 Pro Max 	</a>
-                  </li>
-                  <li class='  level0menu-item' >
-                     <a href='xiaomi-redmi-note.html' rel="follow">		Xiaomi Redmi Note 	</a>
-                  </li>
-               </ul>
-               <!--</div>-->                    
-            </div>
-         </div>
+      
          <div class="container">
             <div class="hidden-xs hidden-sm">
                <div id="footer-ct" class="row">

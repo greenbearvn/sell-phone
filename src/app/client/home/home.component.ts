@@ -16,11 +16,12 @@ import { HomeService } from 'src/app/services/client/home/home.service';
   '../assets/blocks/video/assets/css/video.css',
   '../assets/libraries/jquery/owlcarousel/assets/owl.carousel.min.css',
   '../assets/libraries/jquery/owlcarousel/assets/owl.theme.default.min.css',
+  '../assets/blocks/search/assets/css/search_simple.css',
 
   '../assets/blocks/products_sale/assets/css/default.css',
   '../assets/blocks/mainmenu/assets/css/moby.min.css',
   '../assets/blocks/mainmenu/assets/css/menu_mobile.css',
-  '../assets/blocks/search/assets/css/search_simple.css',
+ 
   '../assets/blocks/mainmenu/assets/css/bottom_menu_mobile.css',
   '../assets/home/default.css',
   '../assets/home/default.scss',

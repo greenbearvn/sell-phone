@@ -10,6 +10,7 @@ import { DetailNewsComponent } from './detail-news/detail-news.component';
 import { CategoryComponent } from './category/category.component';
 import { RegisterComponent } from './register/register.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { UserInforComponent } from './user-infor/user-infor.component';
 
 
 const routes: Routes = [
@@ -18,14 +19,15 @@ const routes: Routes = [
     component: ClientComponent,
     children:[
       {path:'', component: ClientHomeComponent},
-      {path:'product-detail/:id', component: ClientDetailComponent},
+      {path:'dien-thoai/xem-chi-tiet/:id', component: ClientDetailComponent},
       {path:'cart', component: CartComponent},
       {path:'news', component: ClientNewsComponent},
       {path:'new/:id', component: DetailNewsComponent},
       {path:'login', component: LoginComponent},
-      {path:'category', component: CategoryComponent},
+      {path:'dien-thoai', component: CategoryComponent},
       {path:'register', component: RegisterComponent},
       {path:'forgot-password', component: ForgotPasswordComponent},
+      {path:'trang-ca-nhan', component: UserInforComponent},
     ]
   }
 ];
