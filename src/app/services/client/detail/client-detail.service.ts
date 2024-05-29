@@ -39,5 +39,11 @@ export class ClientDetailService {
 
   }
 
+  getRecommendProduct(categoryId:any): Observable<any> {
+  
+    return this.http.get('/api/v1/product/all?categoryId=' + categoryId);
+  }
+
+
 
 }

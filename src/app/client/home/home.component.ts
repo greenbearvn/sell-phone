@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HomeService } from 'src/app/services/client/home/home.service';
 
 
@@ -25,7 +25,10 @@ import { HomeService } from 'src/app/services/client/home/home.service';
   '../assets/blocks/mainmenu/assets/css/bottom_menu_mobile.css',
   '../assets/home/default.css',
   '../assets/home/default.scss',
-  '../assets/home/swiper-bundle.min.css'
+  '../assets/home/swiper-bundle.min.css',
+  '../assets/detail/modules/products/assets/css/product.css',
+
+  '../assets/detail/modules/products/assets/css/product.scss',
   ]
 })
 export class ClientHomeComponent {
@@ -44,13 +47,35 @@ export class ClientHomeComponent {
   minProduct:any;
   debitProducts:any;
 
+
+  images:any | undefined;
+
   ngOnInit(){
 
     this.getBestSale();
     this.getNewProducts();
     this.getMinProducts();
     this.getDebitProducts();
+    this.getSlide();
   }
+
+  getSlide(){
+    this.homeService.getSlide().subscribe((data) => {
+
+      if(data.status === "SUCCESS"){
+        this.images = data.data;
+
+        console.log(this.images);
+      
+      }
+      
+    });
+  }
+  onGalleriaValueChange(event: any) {
+    // Update the property value
+    this.images = event;
+  }
+
 
   getBestSale(){
     this.homeService.getSaleProduct().subscribe((data) => {
@@ -94,6 +119,14 @@ export class ClientHomeComponent {
 
       }
       
+    });
+  }
+  formatCurrencyVND(amount: number): string {
+    return amount.toLocaleString('vi-VN', {
+      style: 'currency',
+      currency: 'VND',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
     });
   }
 }

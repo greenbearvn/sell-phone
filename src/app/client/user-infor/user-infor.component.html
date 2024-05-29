@@ -39,11 +39,11 @@
                          </div>
                          <ul>
                             <li class="selected">
-                               <a href="https://didongthongminh.vn/trang-ca-nhan">
+                               <a [routerLink]="['/trang-ca-nhan']">
                                <i class="fa fa-user" aria-hidden="true"></i>
                                Thông tin tài khoản        </a>
                             </li>
-                            <li class="" >
+                            <!-- <li class="" >
                                <a href="https://didongthongminh.vn/quan-ly-don-hang">
                                <i class="fa fa-wpforms" aria-hidden="true"></i>
                                Quản lý đơn hàng        </a>
@@ -52,14 +52,14 @@
                                <a href="https://didongthongminh.vn/doi-mat-khau">
                                <i class="fa fa-lock" aria-hidden="true"></i>
                                Đổi mật khẩu        </a>
-                            </li>
+                            </li> -->
                             <li class="" >
-                               <a href="https://didongthongminh.vn/so-dia-chi">
+                               <a [routerLink]="['/dia-chi']">
                                <i class="fa fa-id-card-o" aria-hidden="true"></i>
                                Sổ địa chỉ        </a>
                             </li>
                             <li>
-                               <a href="https://didongthongminh.vn/dang-xuat">
+                               <a (click)="deleteBtn()">
                                <i class="fa fa-power-off" aria-hidden="true"></i>
                                Đăng xuất        </a>
                             </li>
@@ -72,15 +72,15 @@
                          <form action="" method="post" name="frmUser" id="frmUser" enctype="multipart/form-data">
                             <div class="box-user">
                                <label class="label-input" for="u_name">Họ và tên</label>
-                               <input type="text" name="u_name" id="u_name" value="hayqua1232" placeholder="Họ và tên" class="form-control">
+                               <input type="text" name="u_name" id="u_name" [value]="user.username" placeholder="Họ và tên" class="form-control">
                             </div>
                             <div class="box-user">
                                <label class="label-input" for="u_email">Email</label>
-                               <input type="text" name="u_email" id="u_email" value="hayqua1232@gmail.com" placeholder="Email" class="form-control" disabled readonly>
+                               <input type="text" name="u_email" id="u_email" [value]="user.email" placeholder="Email" class="form-control" disabled readonly>
                             </div>
                             <div class="box-user">
                                <label class="label-input" for="u_tel">Điện thoại</label>
-                               <input type="text" name="u_tel" id="u_tel" value="" placeholder="Điện thoại" class="form-control">
+                               <input type="text" name="u_tel" id="u_tel" [value]="user.phone" placeholder="Điện thoại" class="form-control">
                             </div>
                             <div class="box-user box-submit">
                                <a href="javascript:void(0)" class="submit-btn" onclick="checkUpdateUser()">Cập nhật</a>

@@ -28,4 +28,9 @@ export class HomeService {
 
     return this.http.get('/api/v1/product/all?promotionId='+ 4);
   }
+
+  getSlide(): Observable<any> {
+
+    return this.http.get('/api/v1/slide/all');
+  }
 }

@@ -11,6 +11,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { GalleriaModule } from 'primeng/galleria';
 
 import { ClientHomeComponent } from './client/home/home.component';
 import { ClientDetailComponent } from './client/client-detail/client-detail.component';
@@ -69,6 +70,7 @@ import { AdminOrderUpdateComponent } from './admin/admin-order-update/admin-orde
 import { AdminOrderDetailComponent } from './admin/admin-order-detail/admin-order-detail.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { UserInforComponent } from './client/user-infor/user-infor.component';
+import { UserAddressComponent } from './client/user-address/user-address.component';
 
 
 
@@ -114,7 +116,8 @@ import { UserInforComponent } from './client/user-infor/user-infor.component';
     AdminOrderUpdateComponent,
     AdminOrderDetailComponent,
     AdminDashboardComponent,
-    UserInforComponent
+    UserInforComponent,
+    UserAddressComponent
   ],
   imports: [
     BrowserModule,
@@ -132,7 +135,8 @@ import { UserInforComponent } from './client/user-infor/user-infor.component';
     DialogModule,
     ConfirmDialogModule,
     CKEditorModule,
-    CommonModule
+    CommonModule,
+    GalleriaModule
   ],
   providers: [CookieService, ToastService, DialogService, DynamicDialogRef, ConfirmationService, MessageService],
   bootstrap: [AppComponent]

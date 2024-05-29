@@ -47,14 +47,21 @@ export class LoginComponent {
 
   login() {
     console.log(this.loginData);
-    this.loginService.login(this.loginData).subscribe((data) => {
+    this.loginService.login(this.loginData).subscribe((data:any) => {
       this.data = data;
       if (this.data.status === "SUCCESS") {
         this.toastService.success("Đăng nhập thành công");
         this.token = this.data.data.accessToken;
         console.log(this.token);
         this.cookieService.set('jwt_token', this.token);
-        this.router.navigate(['/'])
+       
+
+        if(data.data.authorities[0]?.authority === "ROLE_ADMIN"){
+          this.router.navigate(['/admin/home'])
+        }
+        else{
+          this.router.navigate(['/'])
+        }
       }
       else {
         this.toastService.error("Sai tài khoản hoặc mật khẩu");

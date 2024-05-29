@@ -70,6 +70,8 @@ export class ClientDetailComponent {
   idOptionChoosed:any = 0;
   quantity:any = 0;
 
+  recommendProducts:any;
+
 
 
   getToken(){
@@ -107,8 +109,8 @@ export class ClientDetailComponent {
       if(data.status === "SUCCESS"){
         this.product = data.data;
         this.options = data.data.productOptionDtos;
-        console.log(this.product)
-        console.log(this.options)
+       
+        this.getRecommendProduct();
 
         if(this.options.length > 0){
           this.oldPrice = this.options[0].oldPrice;
@@ -199,6 +201,18 @@ export class ClientDetailComponent {
   
   }
 
+  getRecommendProduct(){
+
+
+    this.clientDetailService.getRecommendProduct(this.product.categoryId).subscribe((data) => {
+
+      if(data.status === "SUCCESS"){
+        this.recommendProducts = data.data;
+      }
+      
+    });
+  }
+
   addCart(){
 
     console.log(this.idOptionChoosed)
@@ -240,6 +254,15 @@ export class ClientDetailComponent {
       );
     }
     
+  }
+
+  formatCurrencyVND(amount: number): string {
+    return amount.toLocaleString('vi-VN', {
+      style: 'currency',
+      currency: 'VND',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    });
   }
 
 }

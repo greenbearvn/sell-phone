@@ -37,4 +37,13 @@ export class CartService {
     return this.http.delete('/api/v1/cart/'+id,{headers});
   }
 
+
+  countItem(token:any): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http.delete('/api/v1/cart/items',{headers});
+  }
+
 }

@@ -26,4 +26,15 @@ export class LoginServiceService {
    
     return this.http.post('/api/v1/user',userReq);
   }
+
+  currentUser(token:any): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+   
+    return this.http.get('/api/v1/user/my',{ headers });
+  }
+
+ 
+
 }
