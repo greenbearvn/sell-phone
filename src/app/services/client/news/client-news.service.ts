@@ -14,7 +14,7 @@ export class ClientNewsService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });
-    return this.http.get('/api/v1/news/all',{ headers });
+    return this.http.get('/api/v1/news',{ headers });
   }
 
   getDetail(id:any): Observable<any> {

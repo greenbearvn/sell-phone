@@ -23,9 +23,6 @@ import { AdminHomeComponent } from './admin/home/home.component';
 import { ClientComponent } from './client/client.component';
 import { ClientRoutingModule } from './client/client-routing.module';
 import { AdminRoutingModule } from './admin/admin-routing.module';
-import { ClientNavbarComponent } from './client/layouts/client-navbar/client-navbar.component';
-import { ClientHeaderComponent } from './client/layouts/client-header/client-header.component';
-import { ClientFooterComponent } from './client/layouts/client-footer/client-footer.component';
 
 import { CartComponent } from './client/cart/cart.component';
 
@@ -82,9 +79,6 @@ import { AdminSlideComponent } from './admin/admin-slide/admin-slide.component';
     AdminComponent,
     AdminHomeComponent,
     ClientComponent,
-    ClientNavbarComponent,
-    ClientHeaderComponent,
-    ClientFooterComponent,
     ClientDetailComponent,
     CartComponent,
     AdminHeaderComponent,

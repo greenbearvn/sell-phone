@@ -4,14 +4,14 @@
          <div class="col-xs-12">
             <div class='breadcrumb blogs/all'   itemscope itemtype="https://schema.org/BreadcrumbList" >
                <div class='breadcumbs-first flever_12 fl-left' itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" >
-                  <a itemprop="item" title='didongthongminh.vn' href="index.html" >
+                  <a itemprop="item" title='Trang chủ' [routerLink]="['/']" >
                   <span itemprop="name" >Trang chủ</span>
                   </a>
                   <meta itemprop="position" content="1" />
                </div>
                <div class='breadcrumbs_sepa'><i class="fa fa-angle-right" aria-hidden="true"></i></div>
                <div class="fl-left" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                  <a itemprop="item" href="" title="Tin tức & Sự kiện">
+                  <a itemprop="item" [routerLink]="['/tin-tuc']" title="Tin tức & Sự kiện">
                   <span itemprop="name" >Tin tức & Sự kiện</span>
                   </a>
                   <meta itemprop="position" content="2" />
@@ -34,11 +34,11 @@
                   <div class="col-sm-12 item-full" *ngFor="let item of news| paginate : { itemsPerPage: itemPerPage, currentPage: p }">
                      <div class="item-news">
                         <div class="row">
-                           <a class="item-images col-sm-4" [routerLink]="['/new/' +item.id]" >
+                           <a class="item-images col-sm-4" [routerLink]="['/tin-tuc/' + item.id]" >
                               <img [src]="item.avatar">
                            </a>
                            <div class="col-sm-8">
-                              <a class="title title1" href="danh-gia-chi-tiet-redmi-k60-5g--danh-gia-that-sau-3-thang-su-dung.html">{{item.title}}</a>
+                              <a class="title title1" [routerLink]="['/tin-tuc/' + item.id]">{{item.title}}</a>
                               <div class="time-hits">
                                  <span>
                                  <i class="fa fa-calendar" aria-hidden="true"></i>

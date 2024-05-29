@@ -43,7 +43,7 @@ export class CartService {
       Authorization: `Bearer ${token}`,
     });
 
-    return this.http.delete('/api/v1/cart/items',{headers});
+    return this.http.get('/api/v1/cart/items',{headers});
   }
 
 }
