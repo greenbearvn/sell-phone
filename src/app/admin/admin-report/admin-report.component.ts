@@ -7,11 +7,11 @@ import { AdminOrderService } from 'src/app/services/admin/order/admin-order.serv
 import { AdminProductService } from 'src/app/services/admin/product/admin-product.service';
 
 @Component({
-  selector: 'app-admin-dashboard',
-  templateUrl: './admin-dashboard.component.html',
-  styleUrls: ['./admin-dashboard.component.css', '../assets/css/main.css']
+  selector: 'app-admin-report',
+  templateUrl: './admin-report.component.html',
+  styleUrls: ['./admin-report.component.css', '../assets/css/main.css']
 })
-export class AdminDashboardComponent {
+export class AdminReportComponent {
   token: any;
   users: any;
   orders: any;
@@ -62,14 +62,13 @@ export class AdminDashboardComponent {
     this.adminProductService.getProducts(this.token).subscribe((data: any) => {
       if (data.status === 'SUCCESS') {
         this.products = data.data;
-        
-        for (let i = 0; i < this.products.length; i++) {     
+
+        for (let i = 0; i < this.products.length; i++) {
           for (let j = 0; j < this.products[i].productOptionDtos.length; i++) {
-              this.productCount += this.products[i].productOptionDtos[j].quantity;
+            this.productCount += this.products[i].productOptionDtos[j].quantity;
           }
         }
       }
     });
   }
-
 }

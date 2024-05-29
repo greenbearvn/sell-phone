@@ -69,6 +69,8 @@ import { AdminOrderUpdateComponent } from './admin/admin-order-update/admin-orde
 import { AdminOrderDetailComponent } from './admin/admin-order-detail/admin-order-detail.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { UserInforComponent } from './client/user-infor/user-infor.component';
+import { AdminReportComponent } from './admin/admin-report/admin-report.component';
+import { AdminSlideComponent } from './admin/admin-slide/admin-slide.component';
 
 
 
@@ -114,7 +116,9 @@ import { UserInforComponent } from './client/user-infor/user-infor.component';
     AdminOrderUpdateComponent,
     AdminOrderDetailComponent,
     AdminDashboardComponent,
-    UserInforComponent
+    UserInforComponent,
+    AdminReportComponent,
+    AdminSlideComponent
   ],
   imports: [
     BrowserModule,
