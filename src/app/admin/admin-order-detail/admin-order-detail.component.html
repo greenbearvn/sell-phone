@@ -1,0 +1,86 @@
+<main class="app-content">
+    <div class="app-title">
+       <ul class="app-breadcrumb breadcrumb">
+          <li class="breadcrumb-item"><a [routerLink]="['/admin/order']">Đơn hàng</a></li>
+          <li class="breadcrumb-item">Xem chi tiết</li>
+       </ul>
+    </div>
+    <div class="row">
+       <lib-toastify-toast-container></lib-toastify-toast-container>
+       <div class="col-md-12">
+          <div class="tile">
+             <h3 class="tile-title">Đơn hàng</h3>
+             <div class="tile-body">
+ 
+                <form class="row" #myForm="ngForm">
+ 
+                   <div class="form-group col-md-4">
+                      <label class="control-label">Mã đơn hàng<span class="text-danger">*</span></label>
+                      <input class="form-control" type="text" [(ngModel)]="order.orderCode" name="orderCode" readonly>
+                   </div>
+
+                   <div class="form-group col-md-4">
+                     <label class="control-label">Tên khách hàng<span class="text-danger">*</span></label>
+                     <input class="form-control" type="text" [(ngModel)]="order.customerName" name="customerName" readonly>
+                  </div>
+
+                  <div class="form-group col-md-4">
+                     <label class="control-label">Số điện thoại<span class="text-danger">*</span></label>
+                     <input class="form-control" type="text" [(ngModel)]="order.phone" name="phone" readonly>
+                  </div>
+
+                  <div class="form-group col-md-12">
+                     <label class="control-label">Địa chỉ<span class="text-danger">*</span></label>
+                     <input class="form-control" type="text" [(ngModel)]="order.address" name="address" readonly>
+                  </div>
+
+                   <div class="form-group col-md-12">
+                     <label class="control-label">Chú thích<span class="text-danger">*</span></label>
+                     <textarea class="form-control" type="text" [(ngModel)]="order.note" name="note" readonly></textarea>
+                  </div>
+
+                  <div class="form-group col-md-3">
+                     <label class="control-label">Phí vận chuyển<span class="text-danger">*</span></label>
+                     <input class="form-control" type="text" [value]="formatCurrencyVND(order.shippingFee)" name="shippingFee" readonly>
+                  </div> 
+ 
+                   <div class="form-group col-md-3">
+                      <label class="control-label">Tổng tiền<span class="text-danger">*</span></label>
+                      <input class="form-control" type="text" [value]="formatCurrencyVND(order.netPriceTotal)" name="netPriceTotal" readonly>
+                   </div>
+
+                   <div class="form-group col-md-3">
+                     <label class="control-label">Hình thức thanh toán<span class="text-danger">*</span></label>
+                     <select [(ngModel)]="order.paymentTypeId" name="paymentTypeId" class="form-control" disabled>
+                        <option value="" disabled>-- Chọn loại thanh toán --</option>
+                        <option *ngFor="let item of paymentType" [value]="item.id">{{item.name}}</option>
+                     </select>
+                  </div>
+                   
+                   <div class="form-group col-md-3">
+                      <label class="control-label">Thanh toán<span class="text-danger">*</span></label>
+                      <select [(ngModel)]="order.paymentStatus" name="status" class="form-control" disabled>
+                         <option value="" disabled>-- Chọn trạng thái thanh tóan--</option>
+                         <option [value]="true">Đã thanh toán</option>
+                         <option [value]="false">Chưa thanh toán</option>
+                      </select>
+                   </div>
+                   
+                   <div class="form-group col-md-3">
+                     <label class="control-label">Trạng thái đơn hàng<span class="text-danger">*</span></label>
+                     <select [(ngModel)]="order.orderStatusId" name="orderStatusId" class="form-control" disabled>
+                        <option value="" disabled>-- Chọn trạng thái --</option>
+                        <option *ngFor="let item of orderStatus" [value]="item.id">{{item.name}}</option>
+                     </select>
+                  </div>
+ 
+                   <div class="col-md-12 d-flex justify-content-center">
+                      <button class="btn btn-save me-3" [routerLink]="['/admin/order/update/' + order.id]" type="submit">Cập nhật</button>
+                      <a class="btn btn-cancel" [routerLink]="['/admin/order']">Quay lại</a>
+                   </div>
+                </form>
+             </div>
+          </div>
+       </div>
+    </div>
+ </main>

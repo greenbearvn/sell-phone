@@ -22,14 +22,14 @@ import { Component } from '@angular/core';
     './assets/blocks/mainmenu/assets/css/bottom_menu_mobile.css',
 
     './assets/detail/templates/default/css/responsive.css',
-  './assets/detail/templates/default/css/theme.css',
+    './assets/detail/templates/default/css/theme.css',
 
-  './assets/detail/templates/default/css/bootstrap.min.css',
-  './assets/detail/modules/products/assets/css/product.css',
+    './assets/detail/templates/default/css/bootstrap.min.css',
+    './assets/detail/modules/products/assets/css/product.css',
 
 
-  './assets/detail/modules/products/assets/css/slide.css',
-]
+    './assets/detail/modules/products/assets/css/slide.css',
+  ]
 })
 export class ClientComponent {
 

@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule
- } from '@angular/common/http';
- import { CookieService } from 'ngx-cookie-service';
- import { NgxPaginationModule } from 'ngx-pagination';
- import { ToastService, AngularToastifyModule } from 'angular-toastify';
- import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
- import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
- import { MatDialogModule } from '@angular/material/dialog';
- import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import {
+  HttpClientModule
+} from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ToastService, AngularToastifyModule } from 'angular-toastify';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
- import { ClientHomeComponent } from './client/home/home.component';
- import { ClientDetailComponent } from './client/client-detail/client-detail.component';
+import { ClientHomeComponent } from './client/home/home.component';
+import { ClientDetailComponent } from './client/client-detail/client-detail.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -64,6 +65,9 @@ import { ForgotPasswordComponent } from './client/forgot-password/forgot-passwor
 
 import { AdminUserDetailComponent } from './admin/admin-user-detail/admin-user-detail.component';
 import { AdminUserUpdateComponent } from './admin/admin-user-update/admin-user-update.component';
+import { AdminOrderUpdateComponent } from './admin/admin-order-update/admin-order-update.component';
+import { AdminOrderDetailComponent } from './admin/admin-order-detail/admin-order-detail.component';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 
 
 
@@ -98,16 +102,17 @@ import { AdminUserUpdateComponent } from './admin/admin-user-update/admin-user-u
     AdminProductDetailComponent,
     AdminNewsDetailComponent,
     AdminCategoryDetailComponent,
-
     ClientHomeComponent,
     DetailInforProductComponent,
     DetailNewsComponent,
     CategoryComponent,
     RegisterComponent,
     ForgotPasswordComponent,
-
     AdminUserDetailComponent,
-    AdminUserUpdateComponent
+    AdminUserUpdateComponent,
+    AdminOrderUpdateComponent,
+    AdminOrderDetailComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -127,7 +132,7 @@ import { AdminUserUpdateComponent } from './admin/admin-user-update/admin-user-u
     CKEditorModule,
     CommonModule
   ],
-  providers: [CookieService,ToastService,DialogService,DynamicDialogRef,ConfirmationService,MessageService],
+  providers: [CookieService, ToastService, DialogService, DynamicDialogRef, ConfirmationService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -17,6 +17,10 @@ import { AdminNewsUpdateComponent } from './admin-news-update/admin-news-update.
 import { AdminNewsDetailComponent } from './admin-news-detail/admin-news-detail.component';
 import { AdminCategoryDetailComponent } from './admin-category-detail/admin-category-detail.component';
 import { AdminUserDetailComponent } from './admin-user-detail/admin-user-detail.component';
+import { AdminOrderComponent } from './admin-order/admin-order.component';
+import { AdminOrderUpdateComponent } from './admin-order-update/admin-order-update.component';
+import { AdminOrderDetailComponent } from './admin-order-detail/admin-order-detail.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 
 const routes: Routes = [
@@ -24,6 +28,8 @@ const routes: Routes = [
     path:'admin',
     component: AdminComponent,
     children:[
+      {path:'home', component: AdminDashboardComponent},
+
       {path:'product', component: AdminProductComponent},
       { path:'product/create', component: AdminProductCreateComponent},
       { path:'product/update/:id', component: AdminProductUpdateComponent},
@@ -40,6 +46,10 @@ const routes: Routes = [
       // { path:'user/create', component: AdminUserDetailComponent},
       { path:'user/update/:id', component: AdminUserUpdateComponent},
       { path:'user/detail/:id', component: AdminUserDetailComponent},
+
+      { path:'order', component: AdminOrderComponent},
+      { path:'order/update/:id', component: AdminOrderUpdateComponent},
+      { path:'order/detail/:id', component: AdminOrderDetailComponent},
     ]
   }
 ];

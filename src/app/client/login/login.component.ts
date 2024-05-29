@@ -8,20 +8,20 @@ import { ToastService } from 'angular-toastify';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css',
-  '../assets/templates/default/css/jquery.lazyloadxt.fadein.min.css',
-  '../assets/templates/default/css/font-awesome.min.css',
-  '../assets/templates/default/css/bootstraphome.css',
-  '../assets/modules/home/assets/css/swiper-bundle.min.css',
-  '../assets/modules/home/assets/css/default.css',
-  '../assets/blocks/mainmenu/assets/css/icon.css',
-  '../assets/blocks/slideshow/assets/css/default.css',
-  '../assets/blocks/video/assets/css/video.css',
-  '../assets/libraries/jquery/owlcarousel/assets/owl.carousel.min.css',
-  '../assets/libraries/jquery/owlcarousel/assets/owl.theme.default.min.css',
-'../assets/login/log.css',
-'../assets/login/log.scss']
+    '../assets/templates/default/css/jquery.lazyloadxt.fadein.min.css',
+    '../assets/templates/default/css/font-awesome.min.css',
+    '../assets/templates/default/css/bootstraphome.css',
+    '../assets/modules/home/assets/css/swiper-bundle.min.css',
+    '../assets/modules/home/assets/css/default.css',
+    '../assets/blocks/mainmenu/assets/css/icon.css',
+    '../assets/blocks/slideshow/assets/css/default.css',
+    '../assets/blocks/video/assets/css/video.css',
+    '../assets/libraries/jquery/owlcarousel/assets/owl.carousel.min.css',
+    '../assets/libraries/jquery/owlcarousel/assets/owl.theme.default.min.css',
+    '../assets/login/log.css',
+    '../assets/login/log.scss']
 })
-export class LoginComponent  {
+export class LoginComponent {
 
   constructor(
     private loginService: LoginServiceService,
@@ -29,39 +29,39 @@ export class LoginComponent  {
     private toastService: ToastService
   ) { }
 
-  loginData : LoginDTO ={
-    account : '',
-    password:''
+  loginData: LoginDTO = {
+    account: '',
+    password: ''
   }
 
-  data:any;
+  data: any;
 
-  token:any;
+  token: any;
 
-  ngOnInit(){
+  ngOnInit() {
     // console.log(this.token);
     // this.getAllUser();
   }
 
-  login(){
+  login() {
     console.log(this.loginData);
     this.loginService.login(this.loginData).subscribe((data) => {
       this.data = data;
-      if(this.data.status === "SUCCESS"){
-          this.toastService.success("Đăng nhập thành công");
-          this.token = this.data.data.accessToken;
-          console.log(this.token);
-          this.cookieService.set('jwt_token', this.token);
+      if (this.data.status === "SUCCESS") {
+        this.toastService.success("Đăng nhập thành công");
+        this.token = this.data.data.accessToken;
+        console.log(this.token);
+        this.cookieService.set('jwt_token', this.token);
       }
-      else{
+      else {
         this.toastService.error("Sai tài khoản hoặc mật khẩu");
         this.toastService.error("Đăng nhập không thành công!!!");
       }
-     
+
     });
   }
 
-  getToken(){
+  getToken() {
     this.token = this.cookieService.get('jwt_token');
     console.log(this.token);
   }
