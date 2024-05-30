@@ -15,14 +15,14 @@
             <tbody id="itemCard" style="border: 1">
               <tr *ngFor="let item of cartData">
                 <th class="product-name">
-                  {{ item.productOptionDto.productName }}
+                  {{ item.productOptionDto.productName | currency : "VND"}}
                 </th>
                 <th class="product-name">{{ item.quantity }}</th>
                 <th class="product-name">
-                    {{item.productOptionDto.newPrice}}
+                    {{item.productOptionDto.newPrice | currency : "VND"}}
                 </th>
                 <th class="product-name">
-                   {{ item.quantity * item.productOptionDto.newPrice}}
+                   {{ item.quantity * item.productOptionDto.newPrice | currency : "VND"}}
                 </th>
               </tr>
             </tbody>
@@ -152,7 +152,7 @@
           <div class="woocommerce">
             <div class="woocommerce-info hidden">
               Địa chỉ   
-                <select [(ngModel)]="addressChoice" >
+                <select [(ngModel)]="addressChoice" class="form-controll">
                     <option *ngFor="let item of address" [value]="item" >{{item.customerName}} -- {{item.phone}} -- {{item.address}}</option>
                 </select>
             </div>
