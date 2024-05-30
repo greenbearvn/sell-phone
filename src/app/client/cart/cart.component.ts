@@ -39,6 +39,8 @@ export class CartComponent {
   token: any;
   totalMoney: any;
 
+  cartMem: any;
+
   ngOnInit() {
     this.getToken();
     this.getCart();
@@ -61,8 +63,7 @@ export class CartComponent {
     });
   }
 
-  deleteBtn(id:any){
-
+  deleteBtn(id: any) {
     Swal.fire({
       title: 'Bạn có chắc không?',
       text: 'Một khi bạn xóa, bạn sẽ không thể khôi phục lại thông tin này!',
@@ -79,22 +80,48 @@ export class CartComponent {
     });
   }
 
-  deleteItem(id:any) {
-    this.cartService.delete(id,this.token).subscribe((data) => {
+  deleteItem(id: any) {
+    this.cartService.delete(id, this.token).subscribe((data) => {
       if (data.status === 'SUCCESS') {
         this.getCart();
-        this.toastService.success("Xóa thành công");
+        this.toastService.success('Xóa thành công');
       } else {
-        this.toastService.success("Xóa không thành công");
+        this.toastService.success('Xóa không thành công');
       }
     });
   }
 
   calTotalMoney() {
     this.totalMoney = 0; // Initialize totalMoney to zero before summing up
-    for (let i of this.cartItems) { // Use 'of' instead of 'in' to iterate over values
+    for (let i of this.cartItems) {
+      // Use 'of' instead of 'in' to iterate over values
       this.totalMoney += i.productOptionDto.newPrice * i.quantity;
     }
   }
-  
+
+  addItemMem(cartItem: any) {
+    let existingCartItems: any[] = [];
+    let cartData = localStorage.getItem('cart');
+    if (cartData !== null) {
+        existingCartItems = JSON.parse(cartData);
+    }
+
+    let itemExists = false;
+
+    for (let item of existingCartItems) {
+        if (item.id === cartItem.id) {
+            itemExists = true;
+            break;
+        }
+    }
+
+    if (!itemExists) {
+        existingCartItems.push(cartItem);
+        localStorage.setItem('cart', JSON.stringify(existingCartItems));
+        this.toastService.error("Sản phẩm đã được thêm vào thanh toán !!!");
+    } else {
+        this.toastService.error("Sản phẩm đã được thêm vào thanh toán !!!");
+    }
+}
+
 }

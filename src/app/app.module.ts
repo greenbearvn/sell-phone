@@ -70,6 +70,7 @@ import { UserInforComponent } from './client/user-infor/user-infor.component';
 import { UserAddressComponent } from './client/user-address/user-address.component';
 import { AdminReportComponent } from './admin/admin-report/admin-report.component';
 import { AdminSlideComponent } from './admin/admin-slide/admin-slide.component';
+import { PaymentComponent } from './client/payment/payment.component';
 
 
 
@@ -115,7 +116,8 @@ import { AdminSlideComponent } from './admin/admin-slide/admin-slide.component';
     UserInforComponent,
     UserAddressComponent,
     AdminReportComponent,
-    AdminSlideComponent
+    AdminSlideComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

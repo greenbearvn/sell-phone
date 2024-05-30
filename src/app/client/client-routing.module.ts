@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { UserInforComponent } from './user-infor/user-infor.component';
 import { UserAddressComponent } from './user-address/user-address.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
       {path:'forgot-password', component: ForgotPasswordComponent},
       {path:'trang-ca-nhan', component: UserInforComponent},
       {path:'dia-chi', component: UserAddressComponent},
+      {path:'thanh-toan', component: PaymentComponent},
     ]
   }
 ];

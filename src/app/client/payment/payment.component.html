@@ -1,0 +1,356 @@
+<div class="single-product-area" style="margin-top: 0px; padding: 20px">
+  <div class="container" style="margin-top: 0px">
+    <div class="row" style="margin-top: 0px">
+      <div class="col-md-4" style="width: 750px; margin-top: 0px">
+        <div id="order_review" style="position: relative; margin-top: 0px">
+          <table class="shop_table" style="border: 1; margin: 10px">
+            <thead>
+              <tr>
+                <th class="product-name">Tên sản phẩm</th>
+                <th class="product-name">Số lượng</th>
+                <th class="product-name">Đơn giá</th>
+                <th class="product-name">Thành tiền</th>
+              </tr>
+            </thead>
+            <tbody id="itemCard" style="border: 1">
+              <tr *ngFor="let item of cartData">
+                <th class="product-name">
+                  {{ item.productOptionDto.productName }}
+                </th>
+                <th class="product-name">{{ item.quantity }}</th>
+                <th class="product-name">
+                    {{item.productOptionDto.newPrice}}
+                </th>
+                <th class="product-name">
+                   {{ item.quantity * item.productOptionDto.newPrice}}
+                </th>
+              </tr>
+            </tbody>
+            <tfoot style="border: 1">
+              <tr class="shipping">
+                <th>Tổng tiền hàng</th>
+                <td colspan="3">
+                  <strong><span id="sum-total" class="amount"></span></strong>
+                  {{totalMoney}}
+                </td>
+              </tr>
+              <tr class="shipping">
+                <th>Phí giao hàng</th>
+                <td colspan="3">
+                  <strong><span id="ship-total" class="amount"></span></strong>
+                  0 VNĐ
+                </td>
+              </tr>
+              <tr class="order-total">
+                <th>Tổng tiền phải trả</th>
+                <td colspan="3">
+                  <strong><span id="amount" class="amount"></span></strong>
+                  {{totalMoney}}
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+          <div id="payment" style="padding: 0px; margin-top: 0px">
+            <ul class="payment_methods methods">
+              <li class="payment_method_cheque">
+                <input
+                  checked
+                  type="radio"
+                  data-order_button_text=""
+                  value="cheque"
+                  name="payment_method"
+                  class="input-radio"
+                  id="payment_on_delivery"
+                />
+                <i>Thanh toán khi nhận hàng</i>
+                <div class="payment_box payment_method_cheque">
+                  <p>
+                    Đơn hàng sẽ được giao cho người nhận. Người nhận sẽ kiểm tra
+                    hàng và thanh toán!
+                  </p>
+                </div>
+              </li>
+              <!-- <li class="payment_method_bacs">
+                              <input type="radio" data-order_button_text="" value="bacs"
+                                  name="payment_method" class="input-radio" id="payment_method_bacs">
+                              <i>Thẻ ngân hàng</i>
+                              <div class="payment_box payment_method_bacs">
+                                  <p>Thanh toán bằng thẻ ngân hàng nội địa.</p>
+                              </div>                                    
+                          </li> -->
+              <li class="payment_method_bacs">
+                <input
+                  type="radio"
+                  data-order_button_text=""
+                  value="bacs"
+                  name="payment_method"
+                  class="input-radio"
+                  id="payment_with_momo"
+                />
+                <i>Momo</i>
+                <img src="../assets/images/payment/mono.jpg" alt="" srcset="" />
+                <div class="payment_box payment_method_bacs">
+                  <p>Thanh toán trực tuyến qua ví điện tử Momo.</p>
+                </div>
+              </li>
+
+              <li class="payment_method_bacs">
+                <input
+                  type="radio"
+                  data-order_button_text=""
+                  value="bacs"
+                  name="payment_method"
+                  class="input-radio"
+                  id="payment_with_zalo"
+                />
+                <i>Zalopay</i>
+                <img src="../assets/images/payment/zalo.jpg" alt="" srcset="" />
+                <div class="payment_box payment_method_bacs">
+                  <p>Thanh toán trực tuyến qua Zalopay.</p>
+                </div>
+              </li>
+              <li class="payment_method_bacs">
+                <input
+                  type="radio"
+                  data-order_button_text=""
+                  value="bacs"
+                  name="payment_method"
+                  class="input-radio"
+                  id="payment_with_payos"
+                />
+                <i>PayOS</i>
+                <img
+                  src="../assets/images/payment/payos.jpg"
+                  alt=""
+                  srcset=""
+                />
+                <div class="payment_box payment_method_bacs">
+                  <p>Thanh toán trực tuyến qua PayOS.</p>
+                </div>
+              </li>
+            </ul>
+            <!-- <div class="form-row place-order">
+                          <button type="" value="Đặt hàng" id="order-payment">Đặt hàng</button>
+                      </div> -->
+            <div class="form-row place-order">
+              <button
+                type="button"
+                value="Đặt hàng"
+                id="order-payment"
+                class="btn btn-primary"
+                (click)="payment()"
+              >
+                Đặt hàng
+              </button>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8" style="width: 400px">
+        <div class="product-content-right">
+          <div class="woocommerce">
+            <div class="woocommerce-info hidden">
+              Địa chỉ   
+                <select [(ngModel)]="addressChoice" >
+                    <option *ngFor="let item of address" [value]="item" >{{item.customerName}} -- {{item.phone}} -- {{item.address}}</option>
+                </select>
+            </div>
+            <form id="login-form-wrap" class="login collapse" method="post">
+              <p class="form-row form-row-first">
+                <label for="username"
+                  >Tên tài khoản<span class="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  class="input-text"
+                />
+              </p>
+              <p class="form-row form-row-last">
+                <label for="password"
+                  >Mật khẩu <span class="required">*</span>
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="input-text"
+                />
+              </p>
+              <div class="clear"></div>
+              <p class="form-row">
+                <input
+                  type="submit"
+                  value="Login"
+                  name="login"
+                  class="button"
+                />
+                <label class="inline" for="rememberme"
+                  ><input
+                    type="checkbox"
+                    value="forever"
+                    id="rememberme"
+                    name="rememberme"
+                  />
+                  Lưu tài khoản
+                </label>
+              </p>
+              <p class="lost_password">
+                <a href="#">Quên mật khẩu?</a>
+              </p>
+              <div class="clear"></div>
+            </form>
+            <div id="showcoupon" class="woocommerce-info hidden">
+              Bạn có mã giảm giá?
+              <a
+                class="showcoupon"
+                data-toggle="collapse"
+                href="#coupon-collapse-wrap"
+                aria-expanded="false"
+                aria-controls="coupon-collapse-wrap"
+                >Nhấn để nhập mã giảm giá!</a
+              >
+            </div>
+            <form
+              id="coupon-collapse-wrap"
+              method="post"
+              class="checkout_coupon collapse"
+            >
+              <p class="form-row form-row-first">
+                <input
+                  type="text"
+                  value=""
+                  id="coupon_code"
+                  placeholder="Điền mã giảm giá tại đây....."
+                  class="input-text"
+                  name="coupon_code"
+                />
+              </p>
+              <p class="form-row form-row-last">
+                <input
+                  type="submit"
+                  value="Nhập mã"
+                  name="apply_coupon"
+                  class="button"
+                />
+              </p>
+              <div class="clear"></div>
+            </form>
+            <form
+              enctype="multipart/form-data"
+              action="#"
+              class="checkout"
+              method="post"
+              name="checkout"
+            >
+              <div id="customer_details" class="col2-set">
+                <div class="col-1">
+                  <div
+                    class="woocommerce-billing-fields"
+                    style="margin-top: 15px"
+                  >
+                    <p
+                      id="billing_last_name_field"
+                      class="form-row form-row-last validate-required"
+                    >
+                      <label class="" for="billing_last_name"
+                        >Họ và tên người nhận *<abbr
+                          title="required"
+                          class="required"
+                        ></abbr>
+                      </label>
+                      <input
+                        type="text"
+                        value=""
+                        placeholder=""
+                        id="name"
+                        name="billing_last_name"
+                        class="input-text"
+                        [(ngModel)]="infor.customerName"
+                      />
+                    </p>
+                    <div class="clear"></div>
+                    <p
+                      id="billing_address_1_field"
+                      class="form-row form-row-wide address-field validate-required"
+                    >
+                      <label class="" for="billing_address_1"
+                        >Địa chỉ nhận hàng *<abbr
+                          title="required"
+                          class="required"
+                        ></abbr>
+                      </label>
+                      <input
+                        type="text"
+                        value=""
+                        placeholder=""
+                        id="address"
+                        name="billing_address_1"
+                        class="input-text"
+                        [(ngModel)]="infor.address"
+                      />
+                    </p>
+                    <div class="clear"></div>
+                    <p
+                      id="billing_phone_field"
+                      class="form-row form-row-last validate-required validate-phone"
+                    >
+                      <label class="" for="billing_phone"
+                        >Số điện thoại *
+                        <abbr title="required" class="required"></abbr>
+                      </label>
+                      <input
+                        type="text"
+                        value=""
+                        placeholder=""
+                        id="phone"
+                        name="billing_phone"
+                        class="input-text"
+                        [(ngModel)]="infor.phone"
+                      />
+                    </p>
+                    <p
+                      id="billing_email_field"
+                      class="form-row form-row-first validate-required validate-email"
+                    >
+                      <label class="" for="billing_email"
+                        >Email <abbr title="required" class="required"></abbr>
+                      </label>
+                      <input
+                        type="text"
+                        value=""
+                        placeholder=""
+                        value=""
+                        id="email"
+                        name="billing_email"
+                        class="input-text"
+                      />
+                    </p>
+
+                    <div class="clear"></div>
+                    <p id="order_comments_field" class="form-row notes">
+                      <label class="" for="order_comments"
+                        >Chú thích đơn hàng</label
+                      >
+                      <textarea
+                        cols="5"
+                        rows="2"
+                        placeholder="Nhập yêu cầu đến chủ hàng hoặc shipper!"
+                        id="note"
+                        class="input-text"
+                        name="order_comments"
+                        [(ngModel)]="infor.note"
+                      ></textarea>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
