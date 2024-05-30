@@ -31,6 +31,6 @@ export class HomeService {
 
   getSlide(): Observable<any> {
 
-    return this.http.get('/api/v1/slide/all');
+    return this.http.get('/api/v1/slide');
   }
 }

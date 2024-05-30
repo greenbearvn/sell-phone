@@ -12,8 +12,6 @@
     type="application/ld+json">{"@context":"http://schema.org","@id":"https://didongthongminh.vn/#Organization","@type":"Organization","name":"Di Động Thông Minh","url":"https://didongthongminh.vn/","logo":{"@type":"ImageObject","url":"https://didongthongminh.vn/images/config/lg_1648528949.svg"},"contactPoint":[{"@type":"ContactPoint","telephone":"0855100001","contactType":"sales","areaServed":"VN","availableLanguage":null},{"@type":"ContactPoint","telephone":"0855100001","contactType":"technical support","areaServed":"VN","availableLanguage":["EN","VN"]},{"@type":"ContactPoint","telephone":"18006502","contactType":"customer support","areaServed":"VN","availableLanguage":["EN","VN"]}],"sameAs":["https://www.facebook.com/didongthongminh.vn/","https://www.youtube.com/c/dreview","https://www.tiktok.com/@didongthongminh"]}</script>
   <script
     type='application/ld+json'>{"@context":"https:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/didongthongminh.vn\/","name":"didongthongminh.vn","potentialAction":{"@type":"SearchAction","target":"https://didongthongminh.vn/tim-kiem/{search_term_string}","query-input":"required name=search_term_string"}}</script>
-  <link rel="alternate" type="application/rss+xml" title="didongthongminh.vn Feed"
-    href="https://didongthongminh.vn/rss.xml" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
   <!-- Google tag (gtag.js) -->
@@ -35,6 +33,17 @@
       }, { passive: true });
     })();
   </script>
+
+<script>
+  window.onload = function () {
+    setTimeout(function () {
+      var imgs = document.querySelectorAll(".img_org");
+      for (var i = 0; i < imgs.length; i++) {
+        imgs[i].classList.add("prdimg");
+      }
+    }, 100);
+  };
+</script>
   
   <script language="javascript" type="text/javascript"
     src="https://didongthongminh.vn/libraries/jquery/owlcarousel/owl.carousel.min.js?v=15.87"></script>
