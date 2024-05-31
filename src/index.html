@@ -7,16 +7,72 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link type='image/x-icon' href='https://didongthongminh.vn/images/favicon.ico' rel='icon' />
+
+  <link rel="stylesheet" type="text/css" media="screen"
+    href="https://didongthongminh.vn/templates/default/css/jquery.lazyloadxt.fadein.min.css?v=15.87" />
+  <link rel="stylesheet" type="text/css" media="screen"
+    href="https://didongthongminh.vn/templates/default/css/font-awesome.min.css?v=15.87" />
+  <link rel="stylesheet" type="text/css" media="screen"
+    href="https://didongthongminh.vn/templates/default/css/bootstraphome.css?v=15.87" />
+  <link rel="stylesheet" type="text/css" media="screen"
+    href="https://didongthongminh.vn/modules/home/assets/css/swiper-bundle.min.css?v=15.87" />
+  <link rel="stylesheet" type="text/css" media="screen"
+    href="https://didongthongminh.vn/modules/home/assets/css/default.css?v=15.87" />
+  <link rel="stylesheet" type="text/css" media="screen"
+    href="https://didongthongminh.vn/blocks/mainmenu/assets/css/icon.css?v=15.87" />
+  <link rel="stylesheet" type="text/css" media="screen"
+    href="https://didongthongminh.vn/blocks/slideshow/assets/css/default.css?v=15.87" />
+  <link rel="stylesheet" type="text/css" media="screen"
+    href="https://didongthongminh.vn/blocks/video/assets/css/video.css?v=15.87" />
+  <link rel="stylesheet" type="text/css" media="screen"
+    href="https://didongthongminh.vn/libraries/jquery/owlcarousel/assets/owl.carousel.min.css?v=15.87" />
+  <link rel="stylesheet" type="text/css" media="screen"
+    href="https://didongthongminh.vn/libraries/jquery/owlcarousel/assets/owl.theme.default.min.css?v=15.87" />
+  <link rel="stylesheet" type="text/css" media="screen"
+    href="https://didongthongminh.vn/blocks/products_sale/assets/css/default.css?v=15.87" />
+  <link rel="stylesheet" type="text/css" media="screen"
+    href="https://didongthongminh.vn/blocks/mainmenu/assets/css/moby.min.css?v=15.87" />
+  <link rel="stylesheet" type="text/css" media="screen"
+    href="https://didongthongminh.vn/blocks/mainmenu/assets/css/menu_mobile.css?v=15.87" />
+  <link rel="stylesheet" type="text/css" media="screen"
+    href="https://didongthongminh.vn/blocks/search/assets/css/search_simple.css?v=15.87" />
+  <link rel="stylesheet" type="text/css" media="screen"
+    href="https://didongthongminh.vn/blocks/mainmenu/assets/css/bottom_menu_mobile.css?v=15.87" />
+
 
   <script
     type="application/ld+json">{"@context":"http://schema.org","@id":"https://didongthongminh.vn/#Organization","@type":"Organization","name":"Di Động Thông Minh","url":"https://didongthongminh.vn/","logo":{"@type":"ImageObject","url":"https://didongthongminh.vn/images/config/lg_1648528949.svg"},"contactPoint":[{"@type":"ContactPoint","telephone":"0855100001","contactType":"sales","areaServed":"VN","availableLanguage":null},{"@type":"ContactPoint","telephone":"0855100001","contactType":"technical support","areaServed":"VN","availableLanguage":["EN","VN"]},{"@type":"ContactPoint","telephone":"18006502","contactType":"customer support","areaServed":"VN","availableLanguage":["EN","VN"]}],"sameAs":["https://www.facebook.com/didongthongminh.vn/","https://www.youtube.com/c/dreview","https://www.tiktok.com/@didongthongminh"]}</script>
   <script
     type='application/ld+json'>{"@context":"https:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/didongthongminh.vn\/","name":"didongthongminh.vn","potentialAction":{"@type":"SearchAction","target":"https://didongthongminh.vn/tim-kiem/{search_term_string}","query-input":"required name=search_term_string"}}</script>
+  <link rel="alternate" type="application/rss+xml" title="didongthongminh.vn Feed"
+    href="https://didongthongminh.vn/rss.xml" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <style>
+    @media (max-width: 1100px) {
+      .banner_new.hidden-xs.hidden-sm {
+        display: none !important;
+      }
+    }
+
+    .banners-home a:before {
+      content: "Hàng chất - giá tốt";
+    }
+
+    @media (min-width: 1100px) {
+      .product_image::before {
+        /*content: "Hàng chất - giá tốt" !important; */
+      }
+    }
+
+    .prdimg {
+      display: block !important;
+    }
+  </style>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?optimize=1&id=G-N8T79G5XFR"></script>
-
   <script>
     setTimeout(function () {
       window.dataLayer = window.dataLayer || [];
@@ -34,17 +90,17 @@
     })();
   </script>
 
-<script>
-  window.onload = function () {
-    setTimeout(function () {
-      var imgs = document.querySelectorAll(".img_org");
-      for (var i = 0; i < imgs.length; i++) {
-        imgs[i].classList.add("prdimg");
-      }
-    }, 100);
-  };
-</script>
-  
+  <script>
+    window.onload = function () {
+      setTimeout(function () {
+        var imgs = document.querySelectorAll(".img_org");
+        for (var i = 0; i < imgs.length; i++) {
+          imgs[i].classList.add("prdimg");
+        }
+      }, 100);
+    };
+  </script>
+
   <script language="javascript" type="text/javascript"
     src="https://didongthongminh.vn/libraries/jquery/owlcarousel/owl.carousel.min.js?v=15.87"></script>
   <script language="javascript" type="text/javascript"

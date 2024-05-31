@@ -1,61 +1,7 @@
-<!-- <head>
-  <link rel="stylesheet" type="text/css" media="screen"
-      href="https://didongthongminh.vn/templates/default/css/jquery.lazyloadxt.fadein.min.css?v=15.87" />
-   <link rel="stylesheet" type="text/css" media="screen"
-      href="https://didongthongminh.vn/templates/default/css/font-awesome.min.css?v=15.87" />
-   <link rel="stylesheet" type="text/css" media="screen"
-      href="https://didongthongminh.vn/templates/default/css/bootstraphome.css?v=15.87" />
-   <link rel="stylesheet" type="text/css" media="screen"
-      href="https://didongthongminh.vn/modules/home/assets/css/swiper-bundle.min.css?v=15.87" />
-   <link rel="stylesheet" type="text/css" media="screen"
-      href="https://didongthongminh.vn/modules/home/assets/css/default.css?v=15.87" />
-   <link rel="stylesheet" type="text/css" media="screen"
-      href="https://didongthongminh.vn/blocks/mainmenu/assets/css/icon.css?v=15.87" />
-   <link rel="stylesheet" type="text/css" media="screen"
-      href="https://didongthongminh.vn/blocks/slideshow/assets/css/default.css?v=15.87" />
-   <link rel="stylesheet" type="text/css" media="screen"
-      href="https://didongthongminh.vn/blocks/video/assets/css/video.css?v=15.87" />
-   <link rel="stylesheet" type="text/css" media="screen"
-      href="https://didongthongminh.vn/libraries/jquery/owlcarousel/assets/owl.carousel.min.css?v=15.87" />
-   <link rel="stylesheet" type="text/css" media="screen"
-      href="https://didongthongminh.vn/libraries/jquery/owlcarousel/assets/owl.theme.default.min.css?v=15.87" />
-   <link rel="stylesheet" type="text/css" media="screen"
-      href="https://didongthongminh.vn/blocks/products_sale/assets/css/default.css?v=15.87" />
-   <link rel="stylesheet" type="text/css" media="screen"
-      href="https://didongthongminh.vn/blocks/mainmenu/assets/css/moby.min.css?v=15.87" />
-   <link rel="stylesheet" type="text/css" media="screen"
-      href="https://didongthongminh.vn/blocks/mainmenu/assets/css/menu_mobile.css?v=15.87" />
-   <link rel="stylesheet" type="text/css" media="screen"
-      href="https://didongthongminh.vn/blocks/search/assets/css/search_simple.css?v=15.87" />
-   <link rel="stylesheet" type="text/css" media="screen"
-      href="https://didongthongminh.vn/blocks/mainmenu/assets/css/bottom_menu_mobile.css?v=15.87" />
-</head> -->
-
 <div class="body_container">
   <div class="container">
     <div id="main_container" class="row">
-      <div class="col-md-12 col-sm-12 main-column">
-        <style>
-          @media (max-width: 1100px) {
-            .banner_new.hidden-xs.hidden-sm {
-              display: none !important;
-            }
-          }
-
-          .banners-home a:before {
-            content: "Hàng chất - giá tốt";
-          }
-
-          @media (min-width: 1100px) {
-            .product_image::before {
-              /*content: "Hàng chất - giá tốt" !important; */
-            }
-          }
-
-          .prdimg {
-            display: block !important;
-          }
-        </style>
+      <div class="col-md-12 col-sm-12 main-column">        
 
         <div class="slide_banner" style="min-height: 190px">
           <div class="menu-site">
@@ -186,7 +132,7 @@
 
         <!--  -->
         <div id="products_news">
-
+          <!-- 1 -->
           <div id="products_menu_tabs">
             <div class="nav-tabs">
               <div class="item_tabs l_tab">
@@ -212,7 +158,7 @@
             <div id="box_product_9" class="products_item_content box_prd swiper productSwiper0">
 
               <div class=" list-slide swiper-wrapper">
-                <div class="item item-slide swiper-slide" *ngFor="let item of bestSale.slice(0, 6); let i = index">
+                <div class="item item-slide swiper-slide" *ngFor="let item of bestSale.slice(0, 5); let i = index">
 
                   <div class="col-sm-5ths ">
                     <div class="frame  cat_item">
@@ -347,36 +293,40 @@
                     </div>
                   </div>
                 </div>
-
-                <div class="sw-btn-next swiper-button-next0">
-                  <svg width="14" height="25" viewBox="0 0 14 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M1.67501 24.7063L13.8813 12.5L1.67501 0.293762L0.887505 1.08126L12.3063 12.5L0.887505 23.9188L1.67501 24.7063Z"
-                      fill="#444444" />
-                  </svg>
-                </div>
-                <div class="sw-btn-prev swiper-button-prev0">
-                  <svg width="14" height="25" viewBox="0 0 14 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M12.325 24.7063L0.118744 12.5L12.325 0.293762L13.1125 1.08126L1.69374 12.5L13.1125 23.9188L12.325 24.7063Z"
-                      fill="#444444" />
-                  </svg>
-                </div>
               </div>
-              <div class="cout_prd visible-xs">
-                <a [routerLink]="['/dien-thoai']">Xem tất cả iPhone <i class="fa fa-chevron-right"></i>
-                </a>
+
+              <div class="sw-btn-next swiper-button-next0">
+                <svg width="14" height="25" viewBox="0 0 14 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M1.67501 24.7063L13.8813 12.5L1.67501 0.293762L0.887505 1.08126L12.3063 12.5L0.887505 23.9188L1.67501 24.7063Z"
+                    fill="#444444" />
+                </svg>
+              </div>
+              <div class="sw-btn-prev swiper-button-prev0">
+                <svg width="14" height="25" viewBox="0 0 14 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12.325 24.7063L0.118744 12.5L12.325 0.293762L13.1125 1.08126L1.69374 12.5L13.1125 23.9188L12.325 24.7063Z"
+                    fill="#444444" />
+                </svg>
               </div>
             </div>
+            <div class="cout_prd visible-xs">
+              <a [routerLink]="['/dien-thoai']">Xem tất cả iPhone <i class="fa fa-chevron-right"></i>
+              </a>
+            </div>
           </div>
+
+          <div class="clear"></div>
+          <!-- 2 -->
 
           <div id="products_menu_tabs">
             <div class="nav-tabs">
 
               <div class="item_tabs l_tab">
-                <a href="" title="iPhone">
+                <a title="Điện thoại bán chạy nhất">
                   <h2>
-                    <!-- <img width="42" height="36" src="index.html" alt="icon"  > -->
+                    <img width="42" height="36" src="https://didongthongminh.vn/modules/home/assets/images/icon.svg"
+                      alt="icon" onerror="this.src='/modules/home/assets/images/icon.svg'">
                     <span>Điện thoại bán chạy nhất</span>
                   </h2>
                 </a>
@@ -392,15 +342,15 @@
             </div>
           </div>
 
-          <div id="products_item_list" class="mt5 list-cate list-cate0">
-            <div id="box_product_9" class="products_item_content box_prd swiper productSwiper0">
+          <div id="products_item_list" class="mt5 list-cate list-cate1">
+            <div id="box_product_10" class="products_item_content box_prd swiper productSwiper1">
 
               <div class="list-slide swiper-wrapper">
 
-                <div class="item item-slide swiper-slide" *ngFor="let item of bestSale.slice(0, 5)">
+                <!-- <div class="item item-slide swiper-slide"> -->
 
-                  <div class="col-sm-5ths">
-                    <div class="frame cat_item">
+                  <div class="col-sm-5ths swiper-slide" *ngFor="let item of bestSale.slice(0, 5); let i = index">
+                    <div class="frame" [ngClass]="i == 0 ? 'cat_item' : 'last-cat'">
                       <a [routerLink]="['/dien-thoai/xem-chi-tiet/' + item.id]">
                         <div class="frame_inner">
 
@@ -413,8 +363,8 @@
                           </div>
 
                           <div class="product_image sticky">
-                            <img width="210" height="210" class="img-responsive img_org prdimg lazy-loaded"
-                              [src]="item.avatar" alt="{{ item.name }}" />
+                            <img width="210" height="210" class="img-responsive img_org" [src]="item.avatar"
+                              alt="{{ item.name }}" />
 
                             <span class="is-gift"></span>
                           </div>
@@ -448,7 +398,22 @@
                       </a>
                     </div>
                   </div>
-                </div>
+                <!-- </div> -->
+              </div>
+
+              <div class="sw-btn-next swiper-button-next1">
+                <svg width="14" height="25" viewBox="0 0 14 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M1.67501 24.7063L13.8813 12.5L1.67501 0.293762L0.887505 1.08126L12.3063 12.5L0.887505 23.9188L1.67501 24.7063Z"
+                    fill="#444444" />
+                </svg>
+              </div>
+              <div class="sw-btn-prev swiper-button-prev1">
+                <svg width="14" height="25" viewBox="0 0 14 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12.325 24.7063L0.118744 12.5L12.325 0.293762L13.1125 1.08126L1.69374 12.5L13.1125 23.9188L12.325 24.7063Z"
+                    fill="#444444" />
+                </svg>
               </div>
             </div>
             <div class="cout_prd visible-xs">
@@ -458,13 +423,14 @@
           </div>
 
           <div class="clear"></div>
-
+          <!-- 3 -->
           <div id="products_menu_tabs">
             <div class="nav-tabs">
               <div class="item_tabs l_tab">
-                <a href="" title="iPhone">
+                <a title="Điện thoại mới ra mắt">
                   <h2>
-                    <!-- <img width="42" height="36" src="index.html" alt="icon"  > -->
+                    <img width="42" height="36" src="https://didongthongminh.vn/modules/home/assets/images/icon.svg"
+                      alt="icon" onerror="this.src='/modules/home/assets/images/icon.svg'">
                     <span>Điện thoại mới ra mắt</span>
                   </h2>
                 </a>
@@ -479,18 +445,19 @@
             </div>
           </div>
 
-          <div id="products_item_list" class="mt5 list-cate list-cate0">
-            <div id="box_product_9" class="products_item_content box_prd swiper productSwiper0">
+          <div id="products_item_list" class="mt5 list-cate list-cate2">
+            <div id="box_product_184" class="products_item_content box_prd swiper productSwiper2">
               <div class="list-slide swiper-wrapper">
-                <div class="item item-slide swiper-slide" *ngFor="let item of newProducts.slice(0, 5)">
-                  <div class="col-sm-5ths">
-                    <div class="frame cat_item">
+
+                <!-- <div class="item item-slide swiper-slide"> -->
+                  <div class="col-sm-5ths" *ngFor="let item of newProducts.slice(0, 10); let i = index">
+                    <div class="frame" [ngClass]="i == 0 ? 'cat_item' : 'last-cat'">
                       <a [routerLink]="[
                               '/dien-thoai/xem-chi-tiet/' + item.id
                             ]">
                         <div class="frame_inner">
                           <div class="product_image sticky">
-                            <img width="210" height="210" class="img-responsive img_org prdimg lazy-loaded"
+                            <img width="210" height="210" class="img-responsive img_org"
                               [src]="item.avatar" alt="{{ item.name }}" />
                             <span class="is-gift"></span>
                           </div>
@@ -500,9 +467,7 @@
                           <div class="frame_price">
                             <span class="price">
                               {{
-                              formatCurrencyVND(
-                              item.productOptionDtos[0]?.newPrice
-                              )
+                              formatCurrencyVND(item.productOptionDtos[0]?.newPrice )
                               }}
                             </span>
                             <span class="price_old">
@@ -529,7 +494,7 @@
                       </a>
                     </div>
                   </div>
-                </div>
+                <!-- </div> -->
               </div>
             </div>
             <div class="cout_prd visible-xs">
@@ -539,7 +504,7 @@
           </div>
 
           <div class="clear"></div>
-
+          <!-- 4 -->
           <div id="products_menu_tabs">
             <div class="nav-tabs">
               <div class="item_tabs l_tab">
@@ -560,12 +525,12 @@
             </div>
           </div>
 
-          <div id="products_item_list" class="mt5 list-cate list-cate0">
-            <div id="box_product_9" class="products_item_content box_prd swiper productSwiper0">
+          <div id="products_item_list" class="mt5 list-cate list-cate3">
+            <div id="box_product_3" class="products_item_content box_prd swiper productSwiper3">
               <div class="list-slide swiper-wrapper">
-                <div class="item item-slide swiper-slide" *ngFor="let item of minProduct">
-                  <div class="col-sm-5ths">
-                    <div class="frame cat_item">
+                <!-- <div class="item item-slide swiper-slide"> -->
+                  <div class="col-sm-5ths swiper-slide" *ngFor="let item of minProduct; let i = index">
+                    <div class="frame" [ngClass]="i == 0 ? 'cat_item' : 'last-cat'">
                       <a [routerLink]="[
                                 '/dien-thoai/xem-chi-tiet/' + item.id
                               ]">
@@ -610,7 +575,7 @@
                       </a>
                     </div>
                   </div>
-                </div>
+                <!-- </div> -->
               </div>
             </div>
             <div class="cout_prd visible-xs">
@@ -641,21 +606,16 @@
             </div>
           </div>
 
-          <div id="products_item_list" class="mt5 list-cate list-cate0">
-            <div id="box_product_9" class="products_item_content box_prd swiper productSwiper0">
+          <div id="products_item_list" class="mt5 list-cate list-cate4">
+            <div id="box_product_185" class="products_item_content box_prd swiper productSwiper4">
               <div class="list-slide swiper-wrapper">
-                <div class="item item-slide swiper-slide" *ngFor="
-                            let item of debitProducts.slice(0, 5);
-                            let i = index
-                          ">
-                  <div class="col-sm-5ths">
+                <!-- <div class="item item-slide swiper-slide" > -->
+                  <div class="col-sm-5ths swiper-slide" *ngFor="let item of debitProducts.slice(0, 5); let i = index">
                     <div class="frame cat_item">
-                      <a [routerLink]="[
-                                  '/dien-thoai/xem-chi-tiet/' + item.id
-                                ]">
+                      <a [routerLink]="['/dien-thoai/xem-chi-tiet/' + item.id]">
                         <div class="frame_inner">
                           <div class="product_image sticky">
-                            <img width="210" height="210" class="img-responsive img_org prdimg lazy-loaded"
+                            <img width="210" height="210" class="img-responsive"
                               [src]="item.avatar" alt="{{ item.name }}" />
                             <span class="is-gift"></span>
                           </div>
@@ -695,7 +655,7 @@
                       </a>
                     </div>
                   </div>
-                </div>
+                <!-- </div> -->
               </div>
             </div>
           </div>
