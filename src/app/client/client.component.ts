@@ -13,7 +13,7 @@ import { CartService } from '../services/client/cart/cart.service';
 export class ClientComponent {
   token: any;
 
-  countCartItem: any;
+  countCartItem = null;
 
   constructor(
     private cookieService: CookieService,
@@ -23,7 +23,9 @@ export class ClientComponent {
 
   ngOnInit() {
     this.getToken();
-    this.countItemCart();
+    if (this.token != null && this.token.length != 0) {
+      this.countItemCart();
+    }
   }
 
   getToken(): string {

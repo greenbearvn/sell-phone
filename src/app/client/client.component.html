@@ -149,8 +149,8 @@
                      Cửa hàng<br>
                      Gần bạn
                   </a>
-                  <a [routerLink]="['/cart']" class="cart_dd">
-                     <span class="nbc">{{countCartItem}}</span>
+                  <a [routerLink]="['/cart']" class="cart_dd" title="Giỏ hàng">
+                     <span *ngIf="countCartItem !== null && countCartItem !== ''" class="nbc">{{countCartItem}}</span>
                   </a>
                   <a (click)="checkLogin()" title="Thành viên - Đăng ký - Đăng nhập" class="member-btn">
                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
