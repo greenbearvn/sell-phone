@@ -15,25 +15,21 @@ import { CartService } from 'src/app/services/client/cart/cart.service';
   '../assets/templates/default/css/jquery.lazyloadxt.fadein.min.css',
   '../assets/templates/default/css/font-awesome.min.css',
   '../assets/detail/templates/default/css/bootstrap.min.css',
-
+  '../assets/modules/home/assets/css/default.css',
   '../assets/detail/modules/products/assets/css/lightgallery.min.css',
-
-
+  '../assets/home/default.css',
+  '../assets/home/default.scss',
+  '../assets/detail/modules/products/assets/css/product.css',
+  '../assets/detail/modules/products/assets/css/product.scss',
   '../assets/detail/templates/default/css/responsive.css',
   '../assets/detail/templates/default/css/theme.css',
-
-  '../assets/detail/templates/default/css/bootstrap.min.css',
-  '../assets/detail/modules/products/assets/css/product.css',
-
-  '../assets/detail/modules/products/assets/css/product.scss',
-  
+  '../assets/detail/templates/default/css/bootstrap.min.css', 
   '../assets/detail/modules/products/assets/css/slide.css',
   '../assets/detail/blocks/mainmenu/assets/css/moby.min.css',
-  '../assets/detail/blocks/mainmenu/assets/css/menu_mobile.css',
   '../assets/blocks/search/assets/css/search_simple.css',
   '../assets/detail/blocks/mainmenu/assets/css/icon.css',
   '../assets/detail/blocks/breadcrumbs/assets/css/breadcrumbs_simple.css',
-
+  '../assets/detail/plugins/comments/css/rating.css',
 
 ]
 })

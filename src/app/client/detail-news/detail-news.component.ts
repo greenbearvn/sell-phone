@@ -16,9 +16,9 @@ import { ActivatedRoute } from '@angular/router';
 
   '../assets/blocks/products_sale/assets/css/default.css',
   '../assets/blocks/mainmenu/assets/css/moby.min.css',
-  '../assets/blocks/mainmenu/assets/css/menu_mobile.css',
+
   '../assets/blocks/search/assets/css/search_simple.css',
-  '../assets/blocks/mainmenu/assets/css/bottom_menu_mobile.css',
+
   '../assets/news/breadcrumbs_simple.css',
   '../assets/news/home.css',
   '../assets/news/inline.css',

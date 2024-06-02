@@ -18,9 +18,9 @@ import { HomeService } from 'src/app/services/client/home/home.service';
 
   '../assets/blocks/products_sale/assets/css/default.css',
   '../assets/blocks/mainmenu/assets/css/moby.min.css',
-  '../assets/blocks/mainmenu/assets/css/menu_mobile.css',
+
   '../assets/blocks/search/assets/css/search_simple.css',
-  '../assets/blocks/mainmenu/assets/css/bottom_menu_mobile.css',
+
   '../assets/category/cat_1.css',
   '../assets/category/cat_1.scss',
   '../assets/category/products_filter_default.css',
