@@ -1,26 +1,22 @@
-
 <style>
-.moblur {
-  opacity: 0.6;
-}
+  .moblur {
+    opacity: 0.6;
+  }
 </style>
+
+
 <lib-toastify-toast-container></lib-toastify-toast-container>
+
+
 <div class="breadcrumbs">
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <div
-          class="breadcrumb xiaomi-redmi-note-13-pro-5g-8gb128gb-fullbox"
-          itemscope
-          itemtype="https://schema.org/BreadcrumbList"
-        >
-          <div
-            class="breadcumbs-first flever_12 fl-left"
-            itemprop="itemListElement"
-            itemscope
-            itemtype="https://schema.org/ListItem"
-          >
-            <a itemprop="item" title="didongthongminh.vn" href="index.html">
+        <div class="breadcrumb xiaomi-redmi-note-13-pro-5g-8gb128gb-fullbox" itemscope
+          itemtype="https://schema.org/BreadcrumbList">
+          <div class="breadcumbs-first flever_12 fl-left" itemprop="itemListElement" itemscope
+            itemtype="https://schema.org/ListItem">
+            <a itemprop="item" title="Trang chủ" [routerLink]="['/']">
               <span itemprop="name">Trang chủ</span>
             </a>
             <meta itemprop="position" content="1" />
@@ -28,12 +24,7 @@
           <div class="breadcrumbs_sepa">
             <i class="fa fa-angle-right" aria-hidden="true"></i>
           </div>
-          <div
-            class="fl-left"
-            itemprop="itemListElement"
-            itemscope
-            itemtype="https://schema.org/ListItem"
-          >
+          <div class="fl-left" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
             <a itemprop="item" [routerLink]="['/dien-thoai']" title="Điện thoại">
               <span itemprop="name">Điện thoại</span>
             </a>
@@ -42,13 +33,9 @@
           <div class="breadcrumbs_sepa">
             <i class="fa fa-angle-right" aria-hidden="true"></i>
           </div>
-          <div
-            class="fl-left"
-            itemprop="itemListElement"
-            itemscope
-            itemtype="https://schema.org/ListItem"
-          >
-            <a itemprop="item"  title="Xiaomi">
+          <div class="fl-left" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" title="{{product.categoryName}}" [routerLink]="['/dien-thoai']"
+              [queryParams]="{ categoryId: product.categoryId }">
               <span itemprop="name">{{product.categoryName}}</span>
             </a>
             <meta itemprop="position" content="3" />
@@ -56,22 +43,11 @@
           <div class="breadcrumbs_sepa">
             <i class="fa fa-angle-right" aria-hidden="true"></i>
           </div>
-       
-    
-          <div
-            class="fl-left"
-            itemprop="itemListElement"
-            itemscope
-            itemtype="https://schema.org/ListItem"
-          >
-            <a
-              itemprop="item"
-              href="index.html"
-              title="Xiaomi Redmi Note 13 Pro 5G 8GB/128GB Fullbox"
-            >
-              <span itemprop="name"
-                >{{ product.name}}</span
-              >
+
+
+          <div class="fl-left" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" title="{{product.name}}">
+              <span itemprop="name">{{ product.name}}</span>
             </a>
             <meta itemprop="position" content="6" />
           </div>
@@ -91,18 +67,8 @@
         <input type="hidden" id="discount_unit_sale" value="" />
         <input type="hidden" id="price_discount" value="" />
         <input type="hidden" id="discount" value="0" />
-        <input
-          type="hidden"
-          name="data_price_old"
-          id="data_price_old"
-          value="4990000"
-        />
-        <input
-          type="hidden"
-          name="data_price"
-          id="data_price"
-          value="4390000"
-        />
+        <input type="hidden" name="data_price_old" id="data_price_old" value="4990000" />
+        <input type="hidden" name="data_price" id="data_price" value="4390000" />
         <input type="hidden" name="vat" id="vat" value="1" />
         <div id="preloader">
           <div class="spinner"></div>
@@ -112,146 +78,72 @@
             <h1 class="pull-left">
               {{product.name}}
             </h1>
-            <span class="subtitle">Máy lướt đẹp như Mới</span>
+            <span class="installment"> {{product.promotionName}}</span>
+
             <div class="star-detail" data-rating="4.7"></div>
             <div class="total_rate">
               <span>Chưa có đánh giá</span>
             </div>
-            <span class="installment"> Trả góp 0% </span>
+
           </div>
           <section class="row details-top">
-            <aside
-              class="_picture col-sm-4"
-              id="picture"
-              width="390"
-              height="460"
-            >
-              <div
-                class="slide-image row-item"
-                style="height: 500px; overflow: hidden"
-              >
-                <ul
-                  id="imageGallery"
-                  height="446"
-                  width="446"
-                  style="overflow: hidden"
-                >
-                  <li
-                    class="color_rm"
-                    data-thumb="images/products/2024/05/06/resized/a3f0c2b0b2201b7e4231-copy.webp"
-                    data-src="images/products/2024/05/06/original/a3f0c2b0b2201b7e4231-copy.jpg"
-                  >
-                    <img
-                      class="img-responsive"
-                      width="445"
-                      height="445"
-                      src="images/products/2024/05/06/large/a3f0c2b0b2201b7e4231-copy.webp"
-                      [src]="product.avatar"
-                      alt=""
-                      title="images"
-                    />
+            <aside class="_picture col-sm-4" id="picture" width="390" height="460">
+              <div class="slide-image row-item" style="height: 500px; overflow: hidden">
+                <ul id="imageGallery" height="446" width="446" style="overflow: hidden">
+                  <li class="color_rm" data-thumb="images/products/2024/05/06/resized/a3f0c2b0b2201b7e4231-copy.webp"
+                    data-src="images/products/2024/05/06/original/a3f0c2b0b2201b7e4231-copy.jpg">
+                    <img class="img-responsive" width="445" height="445"
+                      src="images/products/2024/05/06/large/a3f0c2b0b2201b7e4231-copy.webp" [src]="product.avatar"
+                      alt="" title="images" />
                   </li>
-                  <li
-                    class="color_rm"
+                  <li class="color_rm"
                     data-thumb="upload_images/images/products/xiaomi-redmi/resized/xiaomi-redmi-note-13-pro_copy_copy.webp"
-                    data-src="upload_images/images/products/xiaomi-redmi/original/xiaomi-redmi-note-13-pro_copy_copy.jpg"
-                  >
-                    <img
-                      class="img-responsive"
-                      width="445"
-                      height="445"
+                    data-src="upload_images/images/products/xiaomi-redmi/original/xiaomi-redmi-note-13-pro_copy_copy.jpg">
+                    <img class="img-responsive" width="445" height="445"
                       src="upload_images/images/products/xiaomi-redmi/large/xiaomi-redmi-note-13-pro_copy_copy.webp"
-                      alt=""
-                      title="images"
-                    />
+                      alt="" title="images" />
                   </li>
-                  <li
-                    class="color_rm"
+                  <li class="color_rm"
                     data-thumb="upload_images/images/products/xiaomi-redmi/resized/thiet-ke-chua-co-ten-35_copy_copy.webp"
-                    data-src="upload_images/images/products/xiaomi-redmi/original/thiet-ke-chua-co-ten-35_copy_copy.jpg"
-                  >
-                    <img
-                      class="img-responsive"
-                      width="445"
-                      height="445"
+                    data-src="upload_images/images/products/xiaomi-redmi/original/thiet-ke-chua-co-ten-35_copy_copy.jpg">
+                    <img class="img-responsive" width="445" height="445"
                       src="upload_images/images/products/xiaomi-redmi/large/thiet-ke-chua-co-ten-35_copy_copy.webp"
-                      alt=""
-                      title="images"
-                    />
+                      alt="" title="images" />
                   </li>
-                  <li
-                    class="color_rm"
+                  <li class="color_rm"
                     data-thumb="upload_images/images/products/xiaomi-redmi/resized/thiet-ke-chua-co-ten-28_1695800903_1_copy_copy.webp"
-                    data-src="upload_images/images/products/xiaomi-redmi/original/thiet-ke-chua-co-ten-28_1695800903_1_copy_copy.jpg"
-                  >
-                    <img
-                      class="img-responsive"
-                      width="445"
-                      height="445"
+                    data-src="upload_images/images/products/xiaomi-redmi/original/thiet-ke-chua-co-ten-28_1695800903_1_copy_copy.jpg">
+                    <img class="img-responsive" width="445" height="445"
                       src="upload_images/images/products/xiaomi-redmi/large/thiet-ke-chua-co-ten-28_1695800903_1_copy_copy.webp"
-                      alt=""
-                      title="images"
-                    />
+                      alt="" title="images" />
                   </li>
-                  <li
-                    class="color_hide color_rm type-13078"
-                    data-color="color_rm type-13078"
+                  <li class="color_hide color_rm type-13078" data-color="color_rm type-13078"
                     data-thumb="images/products/2023/09/27/resized/thiet-ke-chua-co-ten-26_1695800931_copy_copy.webp"
-                    data-src="images/products/2023/09/27/original/thiet-ke-chua-co-ten-26_1695800931_copy_copy.jpg"
-                  >
-                    <img
-                      class="img-responsive"
-                      width="446"
-                      height="446"
-                      src="images/products/2023/09/27/large/thiet-ke-chua-co-ten-26_1695800931_copy_copy.webp"
-                      alt=""
-                      title="Xanh"
-                    />
+                    data-src="images/products/2023/09/27/original/thiet-ke-chua-co-ten-26_1695800931_copy_copy.jpg">
+                    <img class="img-responsive" width="446" height="446"
+                      src="images/products/2023/09/27/large/thiet-ke-chua-co-ten-26_1695800931_copy_copy.webp" alt=""
+                      title="Xanh" />
                   </li>
-                  <li
-                    class="color_hide color_rm type-13079"
-                    data-color="color_rm type-13079"
+                  <li class="color_hide color_rm type-13079" data-color="color_rm type-13079"
                     data-thumb="images/products/2023/10/11/resized/thiet-ke-chua-co-ten-2_1696994079_copy.webp"
-                    data-src="images/products/2023/10/11/original/thiet-ke-chua-co-ten-2_1696994079_copy.jpg"
-                  >
-                    <img
-                      class="img-responsive"
-                      width="446"
-                      height="446"
-                      src="images/products/2023/10/11/large/thiet-ke-chua-co-ten-2_1696994079_copy.webp"
-                      alt=""
-                      title="Tím"
-                    />
+                    data-src="images/products/2023/10/11/original/thiet-ke-chua-co-ten-2_1696994079_copy.jpg">
+                    <img class="img-responsive" width="446" height="446"
+                      src="images/products/2023/10/11/large/thiet-ke-chua-co-ten-2_1696994079_copy.webp" alt=""
+                      title="Tím" />
                   </li>
-                  <li
-                    class="color_hide color_rm type-13080"
-                    data-color="color_rm type-13080"
+                  <li class="color_hide color_rm type-13080" data-color="color_rm type-13080"
                     data-thumb="images/products/2023/10/11/resized/thiet-ke-chua-co-ten-3_1696994078_copy.webp"
-                    data-src="images/products/2023/10/11/original/thiet-ke-chua-co-ten-3_1696994078_copy.jpg"
-                  >
-                    <img
-                      class="img-responsive"
-                      width="446"
-                      height="446"
-                      src="images/products/2023/10/11/large/thiet-ke-chua-co-ten-3_1696994078_copy.webp"
-                      alt=""
-                      title="Trắng"
-                    />
+                    data-src="images/products/2023/10/11/original/thiet-ke-chua-co-ten-3_1696994078_copy.jpg">
+                    <img class="img-responsive" width="446" height="446"
+                      src="images/products/2023/10/11/large/thiet-ke-chua-co-ten-3_1696994078_copy.webp" alt=""
+                      title="Trắng" />
                   </li>
-                  <li
-                    class="color_hide color_rm type-13077"
-                    data-color="color_rm type-13077"
+                  <li class="color_hide color_rm type-13077" data-color="color_rm type-13077"
                     data-thumb="images/products/2023/09/27/resized/thiet-ke-chua-co-ten-34_1695801905_copy_copy.webp"
-                    data-src="images/products/2023/09/27/original/thiet-ke-chua-co-ten-34_1695801905_copy_copy.jpg"
-                  >
-                    <img
-                      class="img-responsive"
-                      width="446"
-                      height="446"
-                      src="images/products/2023/09/27/large/thiet-ke-chua-co-ten-34_1695801905_copy_copy.webp"
-                      alt=""
-                      title="Đen"
-                    />
+                    data-src="images/products/2023/09/27/original/thiet-ke-chua-co-ten-34_1695801905_copy_copy.jpg">
+                    <img class="img-responsive" width="446" height="446"
+                      src="images/products/2023/09/27/large/thiet-ke-chua-co-ten-34_1695801905_copy_copy.webp" alt=""
+                      title="Đen" />
                   </li>
                 </ul>
               </div>
@@ -259,88 +151,42 @@
                 <p>&nbsp;</p>
                 <script src="jquery-3.7.2.js"></script>
               </div>
-              <div class="standard_product">
-                <p>
-                  <meta charset="UTF-8" />
-                </p>
-                <ul>
-                  <li>
-                    Tình trạng: Hàng Fullbox phụ kiện Mới 100%; Máy lướt đẹp như
-                    Mới
-                  </li>
-                  <li>
-                    Bộ sản phẩm chuẩn: Thân máy, Sạc, Cable, Ốp lưng, Sách hướng
-                    dẫn, Cây lấy sim
-                  </li>
-                  <li>Bảo hành: 12 tháng, 1 đổi 1 30 ngày</li>
-                </ul>
-              </div>
 
               <div class="share_box">
-                <div
-                  class="item"
-                  onclick="coppy_text()"
-                  data-toggle="tooltip"
-                  data-placement="bottom"
-                  title="https://didongthongminh.vn/xiaomi-redmi-note-13-pro-5g-8gb128gb-fullbox"
-                >
+                <div class="item" onclick="coppy_text()" data-toggle="tooltip" data-placement="bottom"
+                  title="https://didongthongminh.vn/xiaomi-redmi-note-13-pro-5g-8gb128gb-fullbox">
                   <span class="border">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      fill="currentColor"
-                      class="bi bi-link-45deg"
-                      viewBox="0 0 16 16"
-                    >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                      class="bi bi-link-45deg" viewBox="0 0 16 16">
                       <path
-                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-                      />
+                        d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z" />
                       <path
-                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-                      />
+                        d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z" />
                     </svg>
                   </span>
                   <span>Sao chép đường dẫn</span>
-                  <input
-                    type="hidden"
-                    value="https://didongthongminh.vn/xiaomi-redmi-note-13-pro-5g-8gb128gb-fullbox"
-                    id="link_prd"
-                  />
+                  <input type="hidden" value="https://didongthongminh.vn/xiaomi-redmi-note-13-pro-5g-8gb128gb-fullbox"
+                    id="link_prd" />
                 </div>
-                <div
-                  class="item"
-                  onclick="coppy_nd()"
-                  data-toggle="tooltip"
-                  data-placement="bottom"
-                  title="Xiaomi Redmi Note 13 Pro 5G 8GB/128GB Fullbox + 4.390.000đ + Xiaomi Redmi Note 13 Pro 8GB/128GB - Snapdragon 7s Gen 2 - Màn hình AMOLED - Bảo hành 12 tháng - Giá tốt nhất thị trường - Click xem ngay tại Di Động Thông Minh + https://didongthongminh.vn/xiaomi-redmi-note-13-pro-5g-8gb128gb-fullbox"
-                >
+                <div class="item" onclick="coppy_nd()" data-toggle="tooltip" data-placement="bottom"
+                  title="Xiaomi Redmi Note 13 Pro 5G 8GB/128GB Fullbox + 4.390.000đ + Xiaomi Redmi Note 13 Pro 8GB/128GB - Snapdragon 7s Gen 2 - Màn hình AMOLED - Bảo hành 12 tháng - Giá tốt nhất thị trường - Click xem ngay tại Di Động Thông Minh + https://didongthongminh.vn/xiaomi-redmi-note-13-pro-5g-8gb128gb-fullbox">
                   <span class="border">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      fill="currentColor"
-                      class="bi bi-clipboard2"
-                      viewBox="0 0 16 16"
-                    >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                      class="bi bi-clipboard2" viewBox="0 0 16 16">
                       <path
-                        d="M3.5 2a.5.5 0 0 0-.5.5v12a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-12a.5.5 0 0 0-.5-.5H12a.5.5 0 0 1 0-1h.5A1.5 1.5 0 0 1 14 2.5v12a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-12A1.5 1.5 0 0 1 3.5 1H4a.5.5 0 0 1 0 1h-.5Z"
-                      />
+                        d="M3.5 2a.5.5 0 0 0-.5.5v12a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-12a.5.5 0 0 0-.5-.5H12a.5.5 0 0 1 0-1h.5A1.5 1.5 0 0 1 14 2.5v12a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-12A1.5 1.5 0 0 1 3.5 1H4a.5.5 0 0 1 0 1h-.5Z" />
                       <path
-                        d="M10 .5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5.5.5 0 0 1-.5.5.5.5 0 0 0-.5.5V2a.5.5 0 0 0 .5.5h5A.5.5 0 0 0 11 2v-.5a.5.5 0 0 0-.5-.5.5.5 0 0 1-.5-.5Z"
-                      />
+                        d="M10 .5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5.5.5 0 0 1-.5.5.5.5 0 0 0-.5.5V2a.5.5 0 0 0 .5.5h5A.5.5 0 0 0 11 2v-.5a.5.5 0 0 0-.5-.5.5.5 0 0 1-.5-.5Z" />
                     </svg>
                   </span>
                   <span>Sao chép thông tin</span>
-                  <input
-                    type="hidden"
+                  <input type="hidden"
                     value="Xiaomi Redmi Note 13 Pro 5G 8GB/128GB Fullbox + 4.390.000đ + Xiaomi Redmi Note 13 Pro 8GB/128GB - Snapdragon 7s Gen 2 - Màn hình AMOLED - Bảo hành 12 tháng - Giá tốt nhất thị trường - Click xem ngay tại Di Động Thông Minh + https://didongthongminh.vn/xiaomi-redmi-note-13-pro-5g-8gb128gb-fullbox"
-                    id="info"
-                  />
+                    id="info" />
                 </div>
               </div>
             </aside>
+
             <aside class="_extra col-sm-4" width="390" height="500">
               <div class="details_top1">
                 <div class="details_top">
@@ -358,37 +204,25 @@
                     </div>
                   </div>
                   <p class="top_prd">
-                    <span class="_price">{{newPrice | currency : "VND"}}  </span>
+                    <span class="_price">{{newPrice | currency : "VND"}} </span>
                     <span class="price_old"> {{oldPrice| currency : "VND"}} </span>
-                    
                   </p>
+
                   <div class="edit-price">
                     <div class="list_same">
-                      <div
-                        
-                        class="item_same"
-                        *ngFor="let item of uniqueOptions('ram');let i =index"
-                        (click)="addRam(i,item.ram)" 
-                        [ngClass]="{'active': option.ram.index ==i,'moblur': option.ram.index !=i}"
-              
-                      >
+                      <div class="item_same" *ngFor="let item of uniqueOptions('ram');let i =index"
+                        (click)="addRam(i,item.ram)"
+                        [ngClass]="{'active': option.ram.index ==i,'moblur': option.ram.index !=i}">
                         <span class="nick_name">{{ item.ram }} GB</span>
                       </div>
                     </div>
 
                     <!--                                                -->
                     <div class="products_type">
-                      <div
-                        data="products_type_item"
-                        name="products_type_title"
-                        name-item="Xanh"
+                      <div data="products_type_item" name="products_type_title" name-item="Xanh"
                         class="item_price products_type_item products_type_item_13078 products_type_click"
-                        *ngFor="let item of uniqueOptions('color');let i =index"
-                        (click)="addColor(i,item.color)"
-                        [ngClass]="{'active': option.color.index ==i,'moblur': option.color.index !=i}"
-                     
-                     
-                      >
+                        *ngFor="let item of uniqueOptions('color');let i =index" (click)="addColor(i,item.color)"
+                        [ngClass]="{'active': option.color.index ==i,'moblur': option.color.index !=i}">
                         <p>
                           <span>{{ item.color }}</span>
                         </p>
@@ -396,25 +230,25 @@
                     </div>
 
                     <div class="products_type">
-                      <div
-                        data="products_type_item"
-                        name="products_type_title"
-                        name-item="Xanh"
+                      <div data="products_type_item" name="products_type_title" name-item="Xanh"
                         class="item_price products_type_item products_type_item_13078 products_type_click"
                         *ngFor="let item of uniqueOptions('storageCapacity');let i =index"
                         (click)="addRom(i,item.storageCapacity)"
-                        [ngClass]="{'active': option.rom.index ==i,'moblur': option.rom.index !=i}"
-     
-                      
-                      >
+                        [ngClass]="{'active': option.rom.index ==i,'moblur': option.rom.index !=i}">
                         <p>
                           <span>{{ item.storageCapacity }} GB</span>
                         </p>
                       </div>
                     </div>
-                    <span> Số lượng: </span>
-                    <input type="text" class="form-control" style="width: 120px;margin-top: 20px;" [(ngModel)]="quantity">
+
+                    <div>
+                      <span> Số lượng: </span>
+                      <input type="text" class="form-control" style="width: 120px;margin-top: 20px;"
+                        [(ngModel)]="quantity">
+                    </div>
+
                   </div>
+
                   <div class="accessories" id="accessories">
                     <div class="title_km">Khuyến mại</div>
                     <p>
@@ -441,38 +275,25 @@
               </div>
               <div id="button-cart" class="row row5">
                 <div class="col-sm-12 col5">
-                  <a
-                    id="buy-now"
-                    (click)="addCart()"
-                    class="btn-buy btn mt10"
-                    data-toggle="modal"
-                  >
-                    Mua ngay 
+                  <a id="buy-now" (click)="addCart()" class="btn-buy btn mt10" data-toggle="modal">
+                    Mua ngay
                   </a>
                 </div>
                 <div class="col-sm-12 col5">
                   <input type="hidden" id="instalment" value="13078" />
                   <div class="row mg2">
                     <div class="col-md-6 col-xs-12 pd2">
-                      <a
-                        id="buy-pig1"
-                        href="javascript:void(0)"
+                      <a id="buy-pig1" href="javascript:void(0)"
                         onclick="instalment1('tra-gop/xiaomi-redmi-note-13-pro-5g-8gb128gb-fullbox.html')"
-                        class="btn-buy btn btn1 mt10"
-                        data-toggle="modal"
-                      >
+                        class="btn-buy btn btn1 mt10" data-toggle="modal">
                         Mua trả góp 0%
                         <span>Duyệt hồ sơ trong 5 phút</span>
                       </a>
                     </div>
                     <div class="col-md-6 col-xs-12 pd2">
-                      <a
-                        id="buy-pig1"
-                        href="javascript:void(0)"
+                      <a id="buy-pig1" href="javascript:void(0)"
                         onclick="instalment('tra-gop/xiaomi-redmi-note-13-pro-5g-8gb128gb-fullbox.html')"
-                        class="btn-buy btn btn1 mt10"
-                        data-toggle="modal"
-                      >
+                        class="btn-buy btn btn1 mt10" data-toggle="modal">
                         Trả góp qua thẻ
                         <span>Visa, Mastercard, JCB, Amex</span>
                       </a>
@@ -494,76 +315,49 @@
                   <li>Cài ROM quốc tế và phần mềm MIỄN PHÍ trọn đời máy</li>
                   <li>
                     12 tháng nếu lỗi từ NSX, trừ lỗi người dùng...
-                    <a href="chinh-sach-bao-hanh-di-dong-thong-minh.html"
-                      >Chi tiết</a
-                    >
+                    <a href="chinh-sach-bao-hanh-di-dong-thong-minh.html">Chi tiết</a>
                   </li>
                 </ul>
               </div>
-              <div id="related" class="related_mb">
-                <!--<h4 class="relate_title">Sản phẩm liên quan</h4>-->
-                <div class="msctrol">
-                  <div class="relate_products">
-                    <div class="_content item clearfix">
-                      <a
-                        href="xiaomi-redmi-note-13-pro-8gb-128gb.html"
-                        title="Xiaomi Redmi Note 13 Pro 5G 8GB/128GB "
-                      >
-                        <h3>Xiaomi Redmi Note 13 Pro 5G 8GB/128GB</h3>
-                        <p>Giá: <strong>5.090.000đ</strong></p>
-                      </a>
-                    </div>
-                    <div class="_content item clearfix">
-                      <a
-                        href="xiaomi-redmi-note-13-pro-12gb-512gb.html"
-                        title="Xiaomi Redmi Note 13 Pro 5G 12GB/512GB "
-                      >
-                        <h3>Xiaomi Redmi Note 13 Pro 5G 12GB/512GB</h3>
-                        <p>Giá: <strong>6.890.000đ</strong></p>
-                      </a>
-                    </div>
-                    <div class="_content item clearfix">
-                      <a
-                        href="xiaomi-redmi-note-13-pro-8gb-256g.html"
-                        title="Xiaomi Redmi Note 13 Pro 5G 8GB/256GB "
-                      >
-                        <h3>Xiaomi Redmi Note 13 Pro 5G 8GB/256GB</h3>
-                        <p>Giá: <strong>5.490.000đ</strong></p>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </aside>
           </section>
- 
+
           <section class="contentdetail row">
             <div class="col-sm-8 detail_botom">
               <div class="title_box">
-                <!-- <img data-src="modules/products/assets/images/danhgia.svg" alt="icon"
-                           class="img-responsive icon_cat" width="42" height="36"> -->
+                <img data-src="https://didongthongminh.vn/modules/products/assets/images/danhgia.svg" alt="icon"
+                  class="img-responsive icon_cat lazy-loaded" width="42" height="36"
+                  src="https://didongthongminh.vn/modules/products/assets/images/danhgia.svg">
                 <span>Bài viết đánh giá</span>
-                <div>
-                  {{product.description}}
-                </div>
               </div>
-             
+
+              <div class="boxdesc " id="boxdesc" style="height: 500px;" data-height="500">
+                <script type="text/javascript" src="templates/default/js/jquery.lazy.min.js"></script>
+                <script type="text/javascript" src="templates/default/js/jquery.lazy.youtube.min.js"></script>
+
+                {{product.description}}
+
+                <script>
+                  $(function () {
+                    $("iframe[data-src]").Lazy();
+                  });
+                </script>
+              </div>
+
+              <div class="clearfix"></div>
+              <a class="details_click clickmore" data-class="1" data-id='boxdesc'>Xem thêm</a>
               
-    
             </div>
+
+
             <div class="col-sm-4 left_bottom" id="thongso">
               <div class="_characteristic">
                 <div class="title_box">
-                  <!-- <img src="modules/products/assets/images/thongso.svg" alt="icon"
-                              class="img-responsive icon_cat"> -->
+                  <img src="https://didongthongminh.vn/modules/products/assets/images/thongso.svg" alt="icon"
+                    class="img-responsive icon_cat">
                   <span>Thông số kỹ thuật </span>
                 </div>
-                <table
-                  class="charactestic_table"
-                  border="0"
-                  cellpadding="5px"
-                  width="100%"
-                >
+                <table class="charactestic_table" border="0" cellpadding="5px" width="100%">
                   <!--			-->
                   <tr class="tr-1">
                     <td class="title_charactestic" width="40%">Độ phân giải</td>
@@ -638,72 +432,20 @@
                   <!--					-->
                   <!--					-->
                 </table>
-                <a
-                  id="load_more_charactestic"
-                  (click)="openModalDetailInfor()"
-                  data-toggle="modal"
-                >
+                <a id="load_more_charactestic" (click)="openModalDetailInfor()" data-toggle="modal">
                   <span>Xem cấu hình chi tiết</span>
                 </a>
-                
+
               </div>
-              <!--            <p style="margin-top: 30px"><img src="-->
-              <!--"-->
-              <!--                                             alt="image" style="width: 100%">-->
-              <div id="new_related" class="new_related_mb">
-                <div class="title_box">
-                  <!-- <img data-src="modules/products/assets/images/new.svg" alt="icon"
-                              class="img-responsive icon_cat" width="42" height="36"> -->
-                  <span>Tin tức </span>
-                </div>
-                <div class="relate_content">
-                  <div class="media-box clearfix">
-                    <a
-                      class="pull-left l_item"
-                      href="sieu-pham-redmi-note-13-pro.html"
-                    ></a>
-                    <div class="media-body">
-                      <!--                <p class="mgl smr_new">--><!--</p>-->
-                      <p class="bot_item">
-                        <span>01/12/2023</span>
-                        <span>772</span>
-                      </p>
-                    </div>
-                  </div>
-                  <div class="media-box clearfix">
-                    <a
-                      class="pull-left l_item"
-                      href="redmi-note-13-pro-ra-mat-voi-camera-200-mp-dimension-7200-ultra-gia-chua-toi-7-trieu.html"
-                    ></a>
-                    <div class="media-body">
-                      <h4 class="media-heading">
-                        <a
-                          href="redmi-note-13-pro-ra-mat-voi-camera-200-mp-dimension-7200-ultra-gia-chua-toi-7-trieu.html"
-                          title="Redmi Note 13 Pro+ ra mắt với camera 200 MP và chip Dimension 7200 Ultra, giá chưa tới 7 triệu"
-                          class="title_new"
-                          >Redmi Note 13 Pro+ ra mắt với camera 200 MP và
-                          chip...</a
-                        >
-                      </h4>
-                      <!--                <p class="mgl smr_new">--><!--</p>-->
-                      <p class="bot_item">
-                        <span>23/09/2023</span>
-                        <span>681</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--            <div id="accessories" class="accessories_mb">-->
-              <!--                -->
-              <!--            </div>-->
             </div>
             <div class="clearfix"></div>
+
             <div class="product-item mbm" id="same">
               <div class="box_productsame">
                 <div class="title_box">
-                  <!-- <img data-src="images/products/cat/original/dienthoai_1637510220.svg" alt="Điện thoại" class="img-responsive icon_cat"
-                              width="42" height="36"> -->
+                  <img data-src="https://didongthongminh.vn/images/products/cat/original/dienthoai_1637510220.svg"
+                    alt="Điện thoại" class="img-responsive icon_cat lazy-loaded" width="42" height="36"
+                    src="https://didongthongminh.vn/images/products/cat/original/dienthoai_1637510220.svg">
                   <span>Sản phẩm cùng phân khúc</span>
                 </div>
                 <div class="box_overflow">
@@ -712,13 +454,8 @@
                       <div class="frame">
                         <a [routerLink]="['/dien-thoai/xem-chi-tiet/'+item.id]">
                           <div class="product_image sticky">
-                            <img
-                            width="210"
-                            height="210"
-                            class="img-responsive img_org prdimg lazy-loaded"
-                            [src]="item.avatar"
-                            alt="{{ item.name }}"
-                          />
+                            <img width="210" height="210" class="img-responsive img_org prdimg lazy-loaded"
+                              [src]="item.avatar" alt="{{ item.name }}" />
                           </div>
                           <div class="frame_title">
                             <h3>
@@ -739,443 +476,15 @@
                         <p class="sosanh">So sánh</p>
                       </div>
                     </div>
-                   
+
                   </div>
                 </div>
               </div>
             </div>
           </section>
         </div>
-        <div class="footer-fixed hidden-lg hidden-md">
-          <a
-            id="buy-now"
-            href="#modal_buy_now"
-            data-toggle="modal"
-            class="footer-fixed1"
-          >
-            <!-- <img src="modules/products/assets/images/buy.svg" alt="icon"> -->
-            <span>Mua hàng</span>
-          </a>
-          <a href="#store_list">
-            <!-- <img src="modules/products/assets/images/shop.svg" alt="icon"> -->
-            <span>Điểm bán</span>
-          </a>
-          <a href="javascript:void(0)" id="modal_support">
-            <!-- <img src="modules/products/assets/images/didongthongminh.svg" alt="icon"> -->
-            <span>Liên hệ</span>
-          </a>
-          <a
-            id="buy-pig1"
-            href="javascript:void(0)"
-            class="footer-fixed4"
-            onclick="instalment('tra-gop/xiaomi-redmi-note-13-pro-5g-8gb128gb-fullbox.html')"
-            data-toggle="modal"
-          >
-            <!-- <img src="modules/products/assets/images/coin.svg" alt="icon"> -->
-            <span>Trả góp</span>
-          </a>
-          <a href="#thongso">
-            <!-- <img src="modules/products/assets/images/config.svg" alt="icon"> -->
-            <span>Thông số</span>
-          </a>
-          <a href="#boxdesc">
-            <!-- <img src="modules/products/assets/images/read.svg" alt="icon"> -->
-            <span>Review</span>
-          </a>
-          <a href="#same">
-            <!-- <img src="modules/products/assets/images/next.svg" height="24" alt="icon"> -->
-            <span>Cùng loại</span>
-          </a>
-        </div>
-        <!-- Modal HTML -->
-        <div id="modal_buy_now" class="modal fade">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-hidden="true"
-                >
-                  &times;
-                </button>
-              </div>
-              <div class="modal-body">
-                <!--                <form action="" novalidate="novalidate" name="eshopcart_info" method="post" class="form-group"-->
-                <!--                      id="eshopcart_info">-->
-                <div class="media-box">
-                  <div class="top_modal">
-                    <p class="name_prd">
-                      Xiaomi Redmi Note 13 Pro 5G 8GB/128GB Fullbox
-                    </p>
-                    <p class="price_prd">
-                      <span class="price_modal">{{newPrice | currency : "VND"}} </span>
-                      <span class="priceold_modal"> {{oldPrice| currency : "VND"}}</span>
-                    </p>
-                  </div>
-                  <p class="title_select">Chọn màu:</p>
-                  <div class="products_type">
-                    <div
-                      data="products_type_item"
-                      name="products_type_title"
-                      name-item="Xanh"
-                      products_type_id="13078"
-                      data-price-sub="4590000"
-                      class="item_price products_type_item products_type_item_13078 products_type_click active"
-                    >
-                      <div class="img_prd"></div>
-                      <div class="radiobox"></div>
-                      <p>Xanh</p>
-                    </div>
-                    <div
-                      data="products_type_item"
-                      name="products_type_title"
-                      name-item="Tím"
-                      products_type_id="13079"
-                      data-price-sub="4590000"
-                      class="item_price products_type_item products_type_item_13079 products_type_click"
-                    >
-                      <div class="img_prd"></div>
-                      <div class="radiobox"></div>
-                      <p>Tím</p>
-                    </div>
-                    <div
-                      data="products_type_item"
-                      name="products_type_title"
-                      name-item="Trắng"
-                      products_type_id="13080"
-                      data-price-sub="4590000"
-                      class="item_price products_type_item products_type_item_13080 products_type_click"
-                    >
-                      <div class="img_prd"></div>
-                      <div class="radiobox"></div>
-                      <p>Trắng</p>
-                    </div>
-                    <div
-                      data="products_type_item"
-                      name="products_type_title"
-                      name-item="Máy trần"
-                      products_type_id="13081"
-                      data-price-sub="4390000"
-                      class="item_price products_type_item products_type_item_13081 products_type_click"
-                    >
-                      <div class="img_prd"></div>
-                      <div class="radiobox"></div>
-                      <p>Máy trần</p>
-                    </div>
-                    <div
-                      data="products_type_item"
-                      name="products_type_title"
-                      name-item="Đen"
-                      products_type_id="13077"
-                      data-price-sub="4590000"
-                      class="item_price products_type_item products_type_item_13077 products_type_click"
-                    >
-                      <div class="img_prd"></div>
-                      <div class="radiobox"></div>
-                      <p>Đen</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="info">
-                  <div class="bound-input">
-                    <a
-                      class="btn btn-default"
-                      href="javascript: void(0)"
-                      onclick="order(67925, 0)"
-                      id="submitcart"
-                    >
-                      <span>Thêm vào giỏ hàng</span>
-                    </a>
-                    <a href="#" class="view_cart">Xem giỏ hàng</a>
-                  </div>
-                </div>
-                <!--                </form>-->
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal fade" id="myModal_contact" role="dialog">
-          <div class="modal-dialog size">
-            <div class="modal-content size1">
-              <div class="header-modal">
-                <div class="modal-header row">
-                  <div class="col-xs-10 col-sm-10 col-md-9">
-                    <h4 class="modal-title">Liên hệ sản phẩm</h4>
-                  </div>
-                  <div class="col-xs-2 col-sm-2 col-md-3">
-                    <button type="button" class="close" data-dismiss="modal">
-                      &times;
-                    </button>
-                  </div>
-                </div>
-                <div class="modal-body">
-                  <form
-                    class="form-horizontal"
-                    role="form"
-                    method="post"
-                    name="contact1111"
-                    action="index_module-products-view-product-task-save_contact.html"
-                  >
-                    <div class="form-group">
-                      <div class="col-sm-12">
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="name_contact"
-                          name="name_contact"
-                          placeholder="Họ tên*"
-                        />
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="col-sm-12">
-                        <input
-                          type="tel"
-                          class="form-control"
-                          id="phone_contact"
-                          name="phone_contact"
-                          placeholder="Điện thoại*"
-                        />
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="col-sm-12">
-                        <input
-                          type="email"
-                          class="form-control"
-                          id="email_contact"
-                          name="email_contact"
-                          placeholder="Email*"
-                        />
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="col-sm-12">
-                        <textarea
-                          rows="4"
-                          class="form-control"
-                          name="message_contact"
-                          id="note"
-                          placeholder="Ghi chú"
-                        ></textarea>
-                      </div>
-                    </div>
-                    <div class="form-group md_ft">
-                      <div class="col-md-8 col-sm-12 notemd">
-                        <!--                                                        <p class="note12">*Vui lòng điền đúng thông tin, chúng tôi sẽ liên-->
-                        <!--                                                            hệ qua email của bạn</p>-->
-                      </div>
-                      <div class="col-md-4 col-sm-12 sbm text-right">
-                        <a
-                          href="javascript:void(0)"
-                          title="GỬI"
-                          class="btn btn-info send1"
-                          id="btnn"
-                          >GỬI</a
-                        >
-                      </div>
-                    </div>
-                    <input
-                      type="hidden"
-                      id="id_sub_contact"
-                      name="id_sub_contact"
-                      value="13078"
-                    />
-                    <input
-                      type="hidden"
-                      name="name_prd"
-                      value="Xiaomi Redmi Note 13 Pro 5G 8GB/128GB Fullbox"
-                    />
-                    <input type="hidden" name="id_contact" value="67925" />
-                    <input
-                      type="hidden"
-                      name="return_url"
-                      value="https://didongthongminh.vn/xiaomi-redmi-note-13-pro-5g-8gb128gb-fullbox"
-                    />
-                    <input
-                      type="hidden"
-                      name="token"
-                      value="dc7f1173c6f195df099f392ef934409b9ea1cb9bc3629a3503662a206924e2084d5eac"
-                    />
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <input
-          type="hidden"
-          id="products_type_count"
-          name="products_type_count"
-          value="5"
-        />
-        <input
-          type="hidden"
-          value="https://didongthongminh.vn/xiaomi-redmi-note-13-pro-5g-8gb128gb-fullbox"
-          name="return"
-        />
-        <input type="hidden" name="id" value="67925" />
-        <input
-          type="hidden"
-          id="products_type_input"
-          name="products_type"
-          value="13078"
-        />
-        <input type="hidden" id="warranty_input" name="warranty" value="" />
-        <input type="hidden" name="quantity" id="quantity" value="1" />
-        <input type="hidden" id="id_sub" name="id_sub" value="13078" />
-        <input type="hidden" id="price_input" name="price" value="4590000" />
-        <input type="hidden" name="module" value="products" />
-        <input type="hidden" name="view" value="cart" />
-        <input type="hidden" name="task" value="buynow" id="task" />
-        <input type="hidden" value="0" id="type_curent" />
-        <!--<input type="hidden" value="--><!--" id='basic_price'/>-->
-        <input type="hidden" value="67925" name="product_id" id="product_id" />
-        <!--<input type="hidden" value="--><!--" name='store_is' id='store_is'/>-->
-        <input type="hidden" id="list_gift" name="list_gift" value="" />
-        <input type="hidden" name="id_aspect" id="id_aspect" value="" />
-        <script type="application/ld+json">
-          {
-            "@context": "https://schema.org/",
-            "@type": "Product",
-            "name": "Xiaomi Redmi Note 13 Pro 5G 8GB/128GB Fullbox",
-            "image": "https://didongthongminh.vn/images/products/2024/05/06/original/a3f0c2b0b2201b7e4231-copy.jpg",
-            "sku": "67925",
-            "description": "Xiaomi Redmi Note 13 Pro 8GB/128GB - Snapdragon 7s Gen 2 - Màn hình AMOLED - Bảo hành 12 tháng - Giá tốt nhất thị trường - Click xem ngay tại Di Động Thông Minh",
-            "mpn": "67925",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "5",
-              "reviewCount": "0"
-            },
-            "offers": {
-              "@type": "AggregateOffer",
-              "offerCount": "20",
-              "lowPrice": 4390000,
-              "highPrice": 4590000,
-              "priceCurrency": "VND",
-              "priceValidUntil": "2019-10-31",
-              "availability": "http://schema.org/InStock",
-              "itemCondition": "http://schema.org/NewCondition",
-              "url": "https://didongthongminh.vn/xiaomi-redmi-note-13-pro-5g-8gb128gb-fullbox"
-            },
-            "model": [
-              {
-                "@type": "ProductModel",
-                "name": "Xiaomi Redmi Note 13 Pro 5G 8GB/128GB Fullbox với ",
-                "image": "https://didongthongminh.vn/images/products/2024/05/06/original/a3f0c2b0b2201b7e4231-copy.jpg",
-                "sku": "W12157",
-                "mpn": "67925",
-                "description": "Xiaomi Redmi Note 13 Pro 8GB/128GB - Snapdragon 7s Gen 2 - Màn hình AMOLED - Bảo hành 12 tháng - Giá tốt nhất thị trường - Click xem ngay tại Di Động Thông Minh",
-                "offers": {
-                  "@type": "Offer",
-                  "price": 4590000,
-                  "name": "Xiaomi Redmi Note 13 Pro 5G 8GB/128GB Fullbox ",
-                  "availability": "InStock",
-                  "priceCurrency": "VND",
-                  "priceValidUntil": "2019-10-31",
-                  "url": "https://didongthongminh.vn/xiaomi-redmi-note-13-pro-5g-8gb128gb-fullbox"
-                },
-                "aggregateRating": {
-                  "@type": "AggregateRating",
-                  "ratingValue": "5",
-                  "reviewCount": "0"
-                }
-              },
-              {
-                "@type": "ProductModel",
-                "name": "Xiaomi Redmi Note 13 Pro 5G 8GB/128GB Fullbox với ",
-                "image": "https://didongthongminh.vn/images/products/2024/05/06/original/a3f0c2b0b2201b7e4231-copy.jpg",
-                "sku": "W12280",
-                "mpn": "67925",
-                "description": "Xiaomi Redmi Note 13 Pro 8GB/128GB - Snapdragon 7s Gen 2 - Màn hình AMOLED - Bảo hành 12 tháng - Giá tốt nhất thị trường - Click xem ngay tại Di Động Thông Minh",
-                "offers": {
-                  "@type": "Offer",
-                  "price": 4590000,
-                  "name": "Xiaomi Redmi Note 13 Pro 5G 8GB/128GB Fullbox ",
-                  "availability": "InStock",
-                  "priceCurrency": "VND",
-                  "priceValidUntil": "2019-10-31",
-                  "url": "https://didongthongminh.vn/xiaomi-redmi-note-13-pro-5g-8gb128gb-fullbox"
-                },
-                "aggregateRating": {
-                  "@type": "AggregateRating",
-                  "ratingValue": "5",
-                  "reviewCount": "0"
-                }
-              },
-              {
-                "@type": "ProductModel",
-                "name": "Xiaomi Redmi Note 13 Pro 5G 8GB/128GB Fullbox với ",
-                "image": "https://didongthongminh.vn/images/products/2024/05/06/original/a3f0c2b0b2201b7e4231-copy.jpg",
-                "sku": "W12156",
-                "mpn": "67925",
-                "description": "Xiaomi Redmi Note 13 Pro 8GB/128GB - Snapdragon 7s Gen 2 - Màn hình AMOLED - Bảo hành 12 tháng - Giá tốt nhất thị trường - Click xem ngay tại Di Động Thông Minh",
-                "offers": {
-                  "@type": "Offer",
-                  "price": 4590000,
-                  "name": "Xiaomi Redmi Note 13 Pro 5G 8GB/128GB Fullbox ",
-                  "availability": "InStock",
-                  "priceCurrency": "VND",
-                  "priceValidUntil": "2019-10-31",
-                  "url": "https://didongthongminh.vn/xiaomi-redmi-note-13-pro-5g-8gb128gb-fullbox"
-                },
-                "aggregateRating": {
-                  "@type": "AggregateRating",
-                  "ratingValue": "5",
-                  "reviewCount": "0"
-                }
-              },
-              {
-                "@type": "ProductModel",
-                "name": "Xiaomi Redmi Note 13 Pro 5G 8GB/128GB Fullbox với ",
-                "image": "https://didongthongminh.vn/images/products/2024/05/06/original/a3f0c2b0b2201b7e4231-copy.jpg",
-                "sku": "W13017",
-                "mpn": "67925",
-                "description": "Xiaomi Redmi Note 13 Pro 8GB/128GB - Snapdragon 7s Gen 2 - Màn hình AMOLED - Bảo hành 12 tháng - Giá tốt nhất thị trường - Click xem ngay tại Di Động Thông Minh",
-                "offers": {
-                  "@type": "Offer",
-                  "price": 4390000,
-                  "name": "Xiaomi Redmi Note 13 Pro 5G 8GB/128GB Fullbox ",
-                  "availability": "InStock",
-                  "priceCurrency": "VND",
-                  "priceValidUntil": "2019-10-31",
-                  "url": "https://didongthongminh.vn/xiaomi-redmi-note-13-pro-5g-8gb128gb-fullbox"
-                },
-                "aggregateRating": {
-                  "@type": "AggregateRating",
-                  "ratingValue": "5",
-                  "reviewCount": "0"
-                }
-              },
-              {
-                "@type": "ProductModel",
-                "name": "Xiaomi Redmi Note 13 Pro 5G 8GB/128GB Fullbox với ",
-                "image": "https://didongthongminh.vn/images/products/2024/05/06/original/a3f0c2b0b2201b7e4231-copy.jpg",
-                "sku": "W12155",
-                "mpn": "67925",
-                "description": "Xiaomi Redmi Note 13 Pro 8GB/128GB - Snapdragon 7s Gen 2 - Màn hình AMOLED - Bảo hành 12 tháng - Giá tốt nhất thị trường - Click xem ngay tại Di Động Thông Minh",
-                "offers": {
-                  "@type": "Offer",
-                  "price": 4590000,
-                  "name": "Xiaomi Redmi Note 13 Pro 5G 8GB/128GB Fullbox ",
-                  "availability": "InStock",
-                  "priceCurrency": "VND",
-                  "priceValidUntil": "2019-10-31",
-                  "url": "https://didongthongminh.vn/xiaomi-redmi-note-13-pro-5g-8gb128gb-fullbox"
-                },
-                "aggregateRating": {
-                  "@type": "AggregateRating",
-                  "ratingValue": "5",
-                  "reviewCount": "0"
-                }
-              }
-            ],
-            "url": "https://didongthongminh.vn/xiaomi-redmi-note-13-pro-5g-8gb128gb-fullbox"
-          }
-        </script>
+
+
         <script>
           window.lazyLoadOptions = {};
           window.addEventListener(
@@ -1207,8 +516,8 @@
                 iframe.setAttribute(
                   "src",
                   "https://www.youtube.com/embed/" +
-                    this.dataset.embed +
-                    "?rel=0&showinfo=0&autoplay=1"
+                  this.dataset.embed +
+                  "?rel=0&showinfo=0&autoplay=1"
                 );
                 this.innerHTML = "";
                 this.appendChild(iframe);

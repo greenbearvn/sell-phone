@@ -1,7 +1,7 @@
 <div class="body_container">
   <div class="container">
     <div id="main_container" class="row">
-      <div class="col-md-12 col-sm-12 main-column">        
+      <div class="col-md-12 col-sm-12 main-column">
 
         <div class="slide_banner" style="min-height: 190px">
           <div class="menu-site">
@@ -50,28 +50,17 @@
           <div class="banner-site" style="width: 100%">
             <div id="pav-slideShow">
               <div class="hidden-xs">
-                <div id="slideshow" class="bannercontainer carousel slide lazy" data-interval="3000"
-                  data-ride="carousel">
-                  <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                      <a href="iphone-12-pro-max-cu-dep-128gb.html">
-                        <picture>
-                          <source srcset="
-                              https://didongthongminh.vn/images/slideshow/2024/02/24/original/banner-to%CC%82%CC%89ng-4_1708768679.jpg
-                            " type="image/webp" />
-                          <source srcset="
-                              https://didongthongminh.vn/images/slideshow/2024/02/24/original/banner-to%CC%82%CC%89ng-4_1708768679.jpg
-                            " />
-                          <img class="img-responsive"
-                            src="https://didongthongminh.vn/images/slideshow/2024/02/24/original/banner-to%CC%82%CC%89ng-4_1708768679.jpg"
-                            width="830" height="300" alt="iPhone 12 Pro Max" />
-                        </picture>
-                      </a>
-                    </div>
-                  </div>
+                <div class="bannercontainer">
+                  
+                  <carousel [interval]="5000" [noPause]="true" [noWrap]="false">
+                    <slide *ngFor="let image of images">
+                      <img [src]="image.avatar" alt="Image" style="display: block; width: 100%; height: 300px;">
+                    </slide>
+                  </carousel>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
 
@@ -114,15 +103,15 @@
         <div class="banners-home row row5">
           <div class="col-sm-6 col5">
             <a href="https://didongthongminh.vn/may-tinh-bang" title="iPhone năm mới 2024">
-              <img class="img-responsive img_org" style="display:contents;"
-                data-src="https://didongthongminh.vn/images/banners/resized/orange-and-blue-playful-summer-activity-presentation-3_1710742731.webp"
+              <img class="img-responsive img_org prdimg lazy-loaded"
+                src="https://didongthongminh.vn/images/banners/resized/orange-and-blue-playful-summer-activity-presentation-3_1710742731.webp"
                 width="590" height="120" onerror="this.style.display='none'" alt="iPhone năm mới 2024" />
             </a>
           </div>
           <div class="col-sm-6 col5">
             <a href="https://didongthongminh.vn/redmi" title="iPad cũ">
-              <img class="img-responsive img_org" style="display:contents;"
-                data-src="https://didongthongminh.vn/images/banners/resized/orange-and-blue-playful-summer-activity-presentation-1_1710742425.webp"
+              <img class="img-responsive img_org prdimg lazy-loaded" style="display:contents;"
+                src="https://didongthongminh.vn/images/banners/resized/orange-and-blue-playful-summer-activity-presentation-1_1710742425.webp"
                 width="590" height="120" onerror="this.style.display='none'" alt="iPad cũ" />
             </a>
           </div>
@@ -155,43 +144,42 @@
           </div>
 
           <div id="products_item_list" class="mt5 list-cate list-cate0">
-            <div id="box_product_9" class="products_item_content box_prd swiper productSwiper0">
+            <div id="box_product_184" class="products_item_content box_prd swiper productSwiper0">
 
               <div class=" list-slide swiper-wrapper">
-                <div class="item item-slide swiper-slide" *ngFor="let item of bestSale.slice(0, 5); let i = index">
+                <div class="item item-slide swiper-slide" *ngFor="let item of iphones.slice(0, 5); let i = index">
 
                   <div class="col-sm-5ths ">
                     <div class="frame  cat_item">
 
-                      <a [routerLink]="['/dien-thoai/xem-chi-tiet/' + bestSale[i*2].id]" title="{{bestSale[i*2].name}}">
+                      <a [routerLink]="['/dien-thoai/xem-chi-tiet/' + iphones[i*2].id]" title="{{iphones[i*2].name}}">
                         <div class="frame_inner">
 
-                          <div class="discount" *ngIf="bestSale[i*2].promotionValue <= 100">
-                            -{{ bestSale[i*2].promotionValue }}%
+                          <div class="discount" *ngIf="iphones[i*2].promotionValue <= 100">
+                            -{{ iphones[i*2].promotionValue }}%
                           </div>
 
-                          <div class="discount" *ngIf="bestSale[i*2].promotionValue > 100">
-                            -{{formatCurrencyVND(bestSale[i*2].promotionValue)}}
+                          <div class="discount" *ngIf="iphones[i*2].promotionValue > 100">
+                            -{{formatCurrencyVND(iphones[i*2].promotionValue)}}
                           </div>
 
                           <div class="product_image sticky">
-                            <img width="210" height="210" class="img-responsive img_org"
-                              onerror="this.onerror=null;this.style.display='none';" [src]="bestSale[i*2].avatar"
-                              alt="{{ bestSale[i*2].name }}" />
+                            <img width="210" height="210" class="img-responsive img_org prdimg lazy-loaded"
+                              [src]="iphones[i*2].avatar" alt="{{ iphones[i*2].name }}" />
 
                             <span class="is-gift"></span>
                           </div>
 
                           <div class="frame_title">
-                            <h3>{{bestSale[i*2].name }}</h3>
+                            <h3>{{iphones[i*2].name }}</h3>
                           </div>
 
                           <div class="frame_price">
                             <span class="price">
-                              {{formatCurrencyVND(bestSale[i*2].productOptionDtos[0]?.newPrice)}}
+                              {{formatCurrencyVND(iphones[i*2].productOptionDtos[0]?.newPrice)}}
                             </span>
                             <span class="price_old">
-                              {{formatCurrencyVND(bestSale[i*2].productOptionDtos[0]?.price)}}
+                              {{formatCurrencyVND(iphones[i*2].productOptionDtos[0]?.price)}}
                             </span>
                             <div class="clearfix"></div>
                           </div>
@@ -199,7 +187,7 @@
                           <div class="button_bot">
                             <div>
                               <span class="green_cl bt_cl">
-                                {{bestSale[i*2].promotionName}}
+                                {{iphones[i*2].promotionName}}
                               </span>
                             </div>
                           </div>
@@ -233,38 +221,37 @@
                   <div class="col-sm-5ths ">
                     <div class="frame  last-cat">
 
-                      <a [routerLink]="['/dien-thoai/xem-chi-tiet/' + bestSale[i*2 + 1].id]"
-                        title="{{bestSale[i*2 + 1].name}}">
+                      <a [routerLink]="['/dien-thoai/xem-chi-tiet/' + iphones[i*2 + 1].id]"
+                        title="{{iphones[i*2 + 1].name}}">
                         <div class="frame_inner">
 
-                          <div class="discount" *ngIf="bestSale[i*2 + 1].promotionValue <= 100">
-                            -{{ bestSale[i*2 + 1].promotionValue }}%
+                          <div class="discount" *ngIf="iphones[i*2 + 1].promotionValue <= 100">
+                            -{{ iphones[i*2 + 1].promotionValue }}%
                           </div>
 
-                          <div class="discount" *ngIf="bestSale[i*2 + 1].promotionValue > 100">
-                            -{{formatCurrencyVND(bestSale[i*2 + 1].promotionValue)}}
+                          <div class="discount" *ngIf="iphones[i*2 + 1].promotionValue > 100">
+                            -{{formatCurrencyVND(iphones[i*2 + 1].promotionValue)}}
                           </div>
 
                           <div class="product_image sticky">
-                            <img width="210" height="210" class="img-responsive img_org"
-                              onerror="this.onerror=null;this.style.display='none';" [src]="bestSale[i*2 + 1].avatar"
-                              alt="{{ bestSale[i*2 + 1].name }}" />
+                            <img width="210" height="210" class="img-responsive img_org prdimg lazy-loaded"
+                              [src]="iphones[i*2 + 1].avatar" alt="{{ iphones[i*2 + 1].name }}" />
 
                             <span class="is-gift"></span>
                           </div>
                           <!-- <div class="discount">-33%</div> -->
 
                           <div class="frame_title">
-                            <h3>{{bestSale[i*2 + 1].name }}</h3>
+                            <h3>{{iphones[i*2 + 1].name }}</h3>
                           </div>
 
                           <div class="frame_price">
                             <span class="price">
-                              {{formatCurrencyVND(bestSale[i*2 + 1].productOptionDtos[0]?.newPrice)}}
+                              {{formatCurrencyVND(iphones[i*2 + 1].productOptionDtos[0]?.newPrice)}}
                             </span>
 
                             <span class="price_old">
-                              {{formatCurrencyVND(bestSale[i*2 + 1].productOptionDtos[0]?.price)}}
+                              {{formatCurrencyVND(iphones[i*2 + 1].productOptionDtos[0]?.price)}}
                             </span>
                             <div class="clearfix"></div>
                           </div>
@@ -272,7 +259,7 @@
                           <div class="button_bot">
                             <div>
                               <span class="green_cl bt_cl">
-                                {{bestSale[i*2 + 1].promotionName}}
+                                {{iphones[i*2 + 1].promotionName}}
                               </span>
                             </div>
                           </div>
@@ -343,14 +330,13 @@
           </div>
 
           <div id="products_item_list" class="mt5 list-cate list-cate1">
-            <div id="box_product_10" class="products_item_content box_prd swiper productSwiper1">
+            <div id="box_product_3" class="products_item_content box_prd swiper productSwiper1">
 
               <div class="list-slide swiper-wrapper">
 
-                <!-- <div class="item item-slide swiper-slide"> -->
-
-                  <div class="col-sm-5ths swiper-slide" *ngFor="let item of bestSale.slice(0, 5); let i = index">
-                    <div class="frame" [ngClass]="i == 0 ? 'cat_item' : 'last-cat'">
+                <div class="item item-slide swiper-slide" *ngFor="let item of bestSale.slice(0, 7); let i = index;">
+                  <div class="col-sm-5ths">
+                    <div class="frame cat_item">
                       <a [routerLink]="['/dien-thoai/xem-chi-tiet/' + item.id]">
                         <div class="frame_inner">
 
@@ -363,7 +349,7 @@
                           </div>
 
                           <div class="product_image sticky">
-                            <img width="210" height="210" class="img-responsive img_org" [src]="item.avatar"
+                            <img width="210" height="210" class="img-responsive img_org prdimg" [src]="item.avatar"
                               alt="{{ item.name }}" />
 
                             <span class="is-gift"></span>
@@ -382,7 +368,7 @@
                             </span>
                             <div class="clearfix"></div>
 
-                            <div class="button_bot" style="margin-top: 2px;">
+                            <div class="button_bot">
                               <div>
                                 <span class="green_cl bt_cl">
                                   {{item.promotionName}}
@@ -398,7 +384,7 @@
                       </a>
                     </div>
                   </div>
-                <!-- </div> -->
+                </div>
               </div>
 
               <div class="sw-btn-next swiper-button-next1">
@@ -449,18 +435,20 @@
             <div id="box_product_184" class="products_item_content box_prd swiper productSwiper2">
               <div class="list-slide swiper-wrapper">
 
-                <!-- <div class="item item-slide swiper-slide"> -->
-                  <div class="col-sm-5ths" *ngFor="let item of newProducts.slice(0, 10); let i = index">
-                    <div class="frame" [ngClass]="i == 0 ? 'cat_item' : 'last-cat'">
+                <div class="item item-slide swiper-slide" *ngFor="let item of newProducts.slice(0, 7); let i = index">
+                  <div class="col-sm-5ths ">
+                    <div class="frame cat_item">
                       <a [routerLink]="[
                               '/dien-thoai/xem-chi-tiet/' + item.id
                             ]">
                         <div class="frame_inner">
                           <div class="product_image sticky">
-                            <img width="210" height="210" class="img-responsive img_org"
+                            <img width="210" height="210" class="img-responsive img_org prdimg lazy-loaded"
                               [src]="item.avatar" alt="{{ item.name }}" />
+
                             <span class="is-gift"></span>
                           </div>
+
                           <div class="frame_title">
                             <h3>{{ item.name }}</h3>
                           </div>
@@ -494,7 +482,22 @@
                       </a>
                     </div>
                   </div>
-                <!-- </div> -->
+                </div>
+              </div>
+
+              <div class="sw-btn-next swiper-button-next2">
+                <svg width="14" height="25" viewBox="0 0 14 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M1.67501 24.7063L13.8813 12.5L1.67501 0.293762L0.887505 1.08126L12.3063 12.5L0.887505 23.9188L1.67501 24.7063Z"
+                    fill="#444444" />
+                </svg>
+              </div>
+              <div class="sw-btn-prev swiper-button-prev2">
+                <svg width="14" height="25" viewBox="0 0 14 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12.325 24.7063L0.118744 12.5L12.325 0.293762L13.1125 1.08126L1.69374 12.5L13.1125 23.9188L12.325 24.7063Z"
+                    fill="#444444" />
+                </svg>
               </div>
             </div>
             <div class="cout_prd visible-xs">
@@ -508,9 +511,10 @@
           <div id="products_menu_tabs">
             <div class="nav-tabs">
               <div class="item_tabs l_tab">
-                <a href="" title="iPhone">
+                <a title="Điện thoại giảm giá tốt nhất">
                   <h2>
-                    <!-- <img width="42" height="36" src="index.html" alt="icon"  > -->
+                    <img width="42" height="36"
+                      src="https://didongthongminh.vn/images/products/cat/original/dienthoai_1637814357.svg" alt="icon">
                     <span>Điện thoại giảm giá tốt nhất</span>
                   </h2>
                 </a>
@@ -526,14 +530,13 @@
           </div>
 
           <div id="products_item_list" class="mt5 list-cate list-cate3">
-            <div id="box_product_3" class="products_item_content box_prd swiper productSwiper3">
+            <div id="box_product_185" class="products_item_content box_prd swiper productSwiper3">
               <div class="list-slide swiper-wrapper">
-                <!-- <div class="item item-slide swiper-slide"> -->
-                  <div class="col-sm-5ths swiper-slide" *ngFor="let item of minProduct; let i = index">
-                    <div class="frame" [ngClass]="i == 0 ? 'cat_item' : 'last-cat'">
-                      <a [routerLink]="[
-                                '/dien-thoai/xem-chi-tiet/' + item.id
-                              ]">
+                <div class="item item-slide swiper-slide" *ngFor="let item of minProduct; let i = index">
+                  <div class="col-sm-5ths">
+                    <div class="frame cat_item">
+                      <a [routerLink]="['/dien-thoai/xem-chi-tiet/' + item.id]">
+
                         <div class="frame_inner">
                           <div class="product_image sticky">
                             <img width="210" height="210" class="img-responsive img_org prdimg lazy-loaded"
@@ -575,7 +578,22 @@
                       </a>
                     </div>
                   </div>
-                <!-- </div> -->
+                </div>
+              </div>
+
+              <div class="sw-btn-next swiper-button-next3">
+                <svg width="14" height="25" viewBox="0 0 14 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M1.67501 24.7063L13.8813 12.5L1.67501 0.293762L0.887505 1.08126L12.3063 12.5L0.887505 23.9188L1.67501 24.7063Z"
+                    fill="#444444" />
+                </svg>
+              </div>
+              <div class="sw-btn-prev swiper-button-prev3">
+                <svg width="14" height="25" viewBox="0 0 14 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12.325 24.7063L0.118744 12.5L12.325 0.293762L13.1125 1.08126L1.69374 12.5L13.1125 23.9188L12.325 24.7063Z"
+                    fill="#444444" />
+                </svg>
               </div>
             </div>
             <div class="cout_prd visible-xs">
@@ -585,13 +603,14 @@
           </div>
 
           <div class="clear"></div>
-
+          <!-- 5 -->
           <div id="products_menu_tabs">
             <div class="nav-tabs">
               <div class="item_tabs l_tab">
-                <a href="" title="iPhone">
+                <a title="Điện thoại trả góp">
                   <h2>
-                    <!-- <img width="42" height="36" src="index.html" alt="icon"  > -->
+                    <img width="42" height="36"
+                      src="https://didongthongminh.vn/images/products/cat/original/dienthoai_1637814357.svg" alt="icon">
                     <span>Điện thoại trả góp</span>
                   </h2>
                 </a>
@@ -607,15 +626,16 @@
           </div>
 
           <div id="products_item_list" class="mt5 list-cate list-cate4">
-            <div id="box_product_185" class="products_item_content box_prd swiper productSwiper4">
+            <div id="box_product_2" class="products_item_content box_prd swiper productSwiper4">
               <div class="list-slide swiper-wrapper">
-                <!-- <div class="item item-slide swiper-slide" > -->
-                  <div class="col-sm-5ths swiper-slide" *ngFor="let item of debitProducts.slice(0, 5); let i = index">
+                <div class="item item-slide swiper-slide" *ngFor="let item of debitProducts.slice(0, 7); let i = index">
+
+                  <div class="col-sm-5ths">
                     <div class="frame cat_item">
                       <a [routerLink]="['/dien-thoai/xem-chi-tiet/' + item.id]">
                         <div class="frame_inner">
                           <div class="product_image sticky">
-                            <img width="210" height="210" class="img-responsive"
+                            <img width="210" height="210" class="img-responsive img_org prdimg lazy-loaded"
                               [src]="item.avatar" alt="{{ item.name }}" />
                             <span class="is-gift"></span>
                           </div>
@@ -655,7 +675,22 @@
                       </a>
                     </div>
                   </div>
-                <!-- </div> -->
+                </div>
+              </div>
+
+              <div class="sw-btn-next swiper-button-next4">
+                <svg width="14" height="25" viewBox="0 0 14 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M1.67501 24.7063L13.8813 12.5L1.67501 0.293762L0.887505 1.08126L12.3063 12.5L0.887505 23.9188L1.67501 24.7063Z"
+                    fill="#444444" />
+                </svg>
+              </div>
+              <div class="sw-btn-prev swiper-button-prev4">
+                <svg width="14" height="25" viewBox="0 0 14 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12.325 24.7063L0.118744 12.5L12.325 0.293762L13.1125 1.08126L1.69374 12.5L13.1125 23.9188L12.325 24.7063Z"
+                    fill="#444444" />
+                </svg>
               </div>
             </div>
           </div>

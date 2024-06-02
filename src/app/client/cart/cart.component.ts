@@ -20,9 +20,9 @@ import Swal from 'sweetalert2';
     '../assets/libraries/jquery/owlcarousel/assets/owl.carousel.min.css',
     '../assets/libraries/jquery/owlcarousel/assets/owl.theme.default.min.css',
     '../assets/blocks/mainmenu/assets/css/moby.min.css',
-    '../assets/blocks/mainmenu/assets/css/menu_mobile.css',
+
     '../assets/blocks/search/assets/css/search_simple.css',
-    '../assets/blocks/mainmenu/assets/css/bottom_menu_mobile.css',
+
     '../assets/cart/cart.css',
     '../assets/cart/cart.scss',
     '../assets/cart/select2.min.css',

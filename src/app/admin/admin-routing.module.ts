@@ -23,38 +23,44 @@ import { AdminOrderDetailComponent } from './admin-order-detail/admin-order-deta
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminReportComponent } from './admin-report/admin-report.component';
 import { AdminSlideComponent } from './admin-slide/admin-slide.component';
+import { AdminSlideCreateComponent } from './admin-slide-create/admin-slide-create.component';
 
 
 const routes: Routes = [
   {
-    path:'admin',
+    path: 'admin',
     component: AdminComponent,
-    children:[
-      {path:'', component: AdminDashboardComponent},
-      {path:'home', component: AdminDashboardComponent},
-      {path:'report', component: AdminReportComponent},
-      {path:'product', component: AdminProductComponent},
-      { path:'product/create', component: AdminProductCreateComponent},
-      { path:'product/update/:id', component: AdminProductUpdateComponent},
-      { path:'product/detail/:id', component: AdminProductDetailComponent},
-      { path:'news', component: AdminNewsComponent},
-      { path:'news/create', component: AdminNewsCreateComponent},
-      { path:'news/update/:id', component: AdminNewsUpdateComponent},
-      { path:'news/detail/:id', component: AdminNewsDetailComponent},
-      { path:'category', component: AdminCateggoryComponent},
-      { path:'category/create', component: AdminCategoryCreateComponent},
-      { path:'category/update/:id', component: AdminCategoryUpdateComponent},
-      { path:'category/detail/:id', component: AdminCategoryDetailComponent},
-      { path:'user', component: AdminUserComponent},
+    children: [
+      { path: '', component: AdminDashboardComponent },
+      { path: 'home', component: AdminDashboardComponent },
+      { path: 'report', component: AdminReportComponent },
+
+      { path: 'product', component: AdminProductComponent },
+      { path: 'product/create', component: AdminProductCreateComponent },
+      { path: 'product/update/:id', component: AdminProductUpdateComponent },
+      { path: 'product/detail/:id', component: AdminProductDetailComponent },
+
+      { path: 'news', component: AdminNewsComponent },
+      { path: 'news/create', component: AdminNewsCreateComponent },
+      { path: 'news/update/:id', component: AdminNewsUpdateComponent },
+      { path: 'news/detail/:id', component: AdminNewsDetailComponent },
+
+      { path: 'category', component: AdminCateggoryComponent },
+      { path: 'category/create', component: AdminCategoryCreateComponent },
+      { path: 'category/update/:id', component: AdminCategoryUpdateComponent },
+      { path: 'category/detail/:id', component: AdminCategoryDetailComponent },
+
+      { path: 'user', component: AdminUserComponent },
       // { path:'user/create', component: AdminUserDetailComponent},
-      { path:'user/update/:id', component: AdminUserUpdateComponent},
-      { path:'user/detail/:id', component: AdminUserDetailComponent},
+      { path: 'user/update/:id', component: AdminUserUpdateComponent },
+      { path: 'user/detail/:id', component: AdminUserDetailComponent },
 
-      { path:'order', component: AdminOrderComponent},
-      { path:'order/update/:id', component: AdminOrderUpdateComponent},
-      { path:'order/detail/:id', component: AdminOrderDetailComponent},
+      { path: 'order', component: AdminOrderComponent },
+      { path: 'order/update/:id', component: AdminOrderUpdateComponent },
+      { path: 'order/detail/:id', component: AdminOrderDetailComponent },
 
-      { path:'slide', component: AdminSlideComponent},
+      { path: 'slide', component: AdminSlideComponent },
+      { path: 'slide/create', component: AdminSlideCreateComponent },
     ]
   }
 ];

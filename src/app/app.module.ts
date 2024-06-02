@@ -11,7 +11,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-import { GalleriaModule } from 'primeng/galleria';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { ClientHomeComponent } from './client/home/home.component';
 import { ClientDetailComponent } from './client/client-detail/client-detail.component';
@@ -71,6 +71,8 @@ import { UserAddressComponent } from './client/user-address/user-address.compone
 import { AdminReportComponent } from './admin/admin-report/admin-report.component';
 import { AdminSlideComponent } from './admin/admin-slide/admin-slide.component';
 import { PaymentComponent } from './client/payment/payment.component';
+import { AdminSlideCreateComponent } from './admin/admin-slide-create/admin-slide-create.component';
+import { AdminSlideUpdateComponent } from './admin/admin-slide-update/admin-slide-update.component';
 
 
 
@@ -117,7 +119,9 @@ import { PaymentComponent } from './client/payment/payment.component';
     UserAddressComponent,
     AdminReportComponent,
     AdminSlideComponent,
-    PaymentComponent
+    PaymentComponent,
+    AdminSlideCreateComponent,
+    AdminSlideUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -136,7 +140,7 @@ import { PaymentComponent } from './client/payment/payment.component';
     ConfirmDialogModule,
     CKEditorModule,
     CommonModule,
-    GalleriaModule
+    CarouselModule.forRoot(),
   ],
   providers: [CookieService, ToastService, DialogService, DynamicDialogRef, ConfirmationService, MessageService],
   bootstrap: [AppComponent]

@@ -22,7 +22,7 @@ import { DialogService, DynamicDialogComponent, DynamicDialogRef } from 'primeng
   
   '../assets/detail/modules/products/assets/css/slide.css',
   '../assets/detail/blocks/mainmenu/assets/css/moby.min.css',
-  '../assets/detail/blocks/mainmenu/assets/css/menu_mobile.css',
+
   '../assets/blocks/search/assets/css/search_simple.css',
   '../assets/detail/blocks/mainmenu/assets/css/icon.css',
   '../assets/detail/blocks/breadcrumbs/assets/css/breadcrumbs_simple.css',]

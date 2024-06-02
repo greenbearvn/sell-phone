@@ -1,6 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { HomeService } from 'src/app/services/client/home/home.service';
-
+import { CarouselComponent } from 'ngx-bootstrap/carousel';
 
 @Component({
   selector: 'app-home',
@@ -20,9 +20,7 @@ import { HomeService } from 'src/app/services/client/home/home.service';
 
     '../assets/blocks/products_sale/assets/css/default.css',
     '../assets/blocks/mainmenu/assets/css/moby.min.css',
-    '../assets/blocks/mainmenu/assets/css/menu_mobile.css',
 
-    '../assets/blocks/mainmenu/assets/css/bottom_menu_mobile.css',
     '../assets/home/default.css',
     '../assets/home/default.scss',
     '../assets/home/swiper-bundle.min.css',
@@ -32,26 +30,24 @@ import { HomeService } from 'src/app/services/client/home/home.service';
   ]
 })
 export class ClientHomeComponent {
-
+  @ViewChild('carousel', { static: true }) carousel!: CarouselComponent;
 
   constructor(
     private homeService: HomeService,
     // private cookieService: CookieService,
     // private toastService: ToastService,
-    // private route: ActivatedRoute
+    // private route: ActivatedRoute,
 
   ) { }
 
+  iphones: any[] = [];
   bestSale: any[] = [];
   newProducts: any[] = [];
   minProduct: any[] = [];
   debitProducts: any[] = [];
-
-
   images: any | undefined;
 
   ngOnInit() {
-
     this.getBestSale();
     this.getNewProducts();
     this.getMinProducts();
@@ -61,28 +57,26 @@ export class ClientHomeComponent {
 
   getSlide() {
     this.homeService.getSlide().subscribe((data) => {
-
       if (data.status === "SUCCESS") {
         this.images = data.data;
         // console.log(this.images);
       }
-
     });
   }
+
   onGalleriaValueChange(event: any) {
     // Update the property value
     this.images = event;
   }
-
 
   getBestSale() {
     this.homeService.getSaleProduct().subscribe((data) => {
 
       if (data.status === "SUCCESS") {
         this.bestSale = data.data;
-
-        console.log(this.bestSale);
-        console.log(this.bestSale[0].productOptionDtos[0].newPrice);
+        this.iphones = data.data;
+        // console.log(this.bestSale);
+        // console.log(this.bestSale[0].productOptionDtos[0].newPrice);
       }
 
     });
@@ -119,6 +113,15 @@ export class ClientHomeComponent {
 
     });
   }
+
+  nextSlide() {
+    this.carousel.nextSlide();
+  }
+
+  previousSlide() {
+    this.carousel.previousSlide();
+  }
+  
   formatCurrencyVND(amount: number): string {
     return amount.toLocaleString('vi-VN', {
       style: 'currency',
