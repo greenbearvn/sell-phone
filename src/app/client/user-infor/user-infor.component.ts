@@ -63,7 +63,6 @@ export class UserInforComponent {
 
     Swal.fire({
       title: 'Bạn muốn đăng xuất?',
-      // text: 'Một khi bạn xóa, bạn sẽ không thể khôi phục lại thông tin này!',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',

@@ -16,7 +16,7 @@ import { ClientNewsService } from 'src/app/services/client/news/client-news.serv
 
   '../assets/blocks/products_sale/assets/css/default.css',
   '../assets/blocks/mainmenu/assets/css/moby.min.css',
-
+  '../assets/detail/blocks/breadcrumbs/assets/css/breadcrumbs_simple.css',
   '../assets/blocks/search/assets/css/search_simple.css',
 
   '../assets/news/breadcrumbs_simple.css',
@@ -54,12 +54,10 @@ export class ClientNewsComponent {
 
   getNews(){
     this.clientNewsService.getNews(this.token).subscribe((data) => {
-
       if(data.status === 'SUCCESS'){
         this.news = data.data;
-        console.log(this.news);
-      }
-    
+        // console.log(this.news);
+      }    
     });
   }
 

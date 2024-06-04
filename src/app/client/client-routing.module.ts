@@ -21,12 +21,14 @@ const routes: Routes = [
     component: ClientComponent,
     children:[
       {path:'', component: ClientHomeComponent},
+      {path:'dien-thoai', component: CategoryComponent},
       {path:'dien-thoai/xem-chi-tiet/:id', component: ClientDetailComponent},
       {path:'cart', component: CartComponent},
+
       {path:'tin-tuc', component: ClientNewsComponent},
-      {path:'tin-tuc/:id', component: DetailNewsComponent},
-      {path:'login', component: LoginComponent},
-      {path:'dien-thoai', component: CategoryComponent},
+      {path:'tin-tuc/xem-tin-tuc/:id', component: DetailNewsComponent},
+
+      {path:'login', component: LoginComponent},      
       {path:'register', component: RegisterComponent},
       {path:'forgot-password', component: ForgotPasswordComponent},
       {path:'trang-ca-nhan', component: UserInforComponent},

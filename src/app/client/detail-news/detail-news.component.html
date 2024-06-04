@@ -11,7 +11,9 @@
                   </a>
                   <meta itemprop="position" content="1" />
                </div>
-               <div class='breadcrumbs_sepa'><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+               <div class='breadcrumbs_sepa'>
+                  <i class="fa fa-angle-right" aria-hidden="true"></i>
+               </div>
                <div class="fl-left" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                   <a itemprop="item" [routerLink]="['/tin-tuc']" title="Tin tức & Sự kiện">
                      <span itemprop="name">Tin tức & Sự kiện</span>
@@ -138,31 +140,26 @@
                   </div>
                   <div class="col-md-3">
                      <div class="block_newslist">
-                        <div class="Đánh giá chi tiết Redmi K60 5G: Đánh giá THẬT sau 3 tháng sử dụng?">
+                        <div>
                            <input type="text" value="" class="form-control" name="news_search" id="news_search"
                               placeholder="Tìm kiếm từ khóa...">
-                           <input type="hidden" id="link_news_search"
-                              value="https://didongthongminh.vn/tim-kiem-tin-tuc">
+                           <input type="hidden" id="link_news_search" [routerLink]="['/tin-tuc']">
                            <!-- <a href="javascript:void(0)" id="btn_search_news" class="btn_search_news"><i
                                  class="fa fa-search"></i></a> -->
                         </div>
                         <div class="news_list_body">
                            <h3 class="title_sale title_tags">Chủ đề hot</h3>
-                           <div class="hot-tags">
-                              <a href="https://didongthongminh.vn/iphone-11-gia-re" title="iPhone 11 giá rẻ">
-                                 <span></span>
-                                 <span>iPhone 11 giá rẻ</span>
-                              </a>
-                              <a href="https://didongthongminh.vn/iphone-13-iphone-2021"
+                           <div class="hot-tags">                              
+                              <a 
                                  title="iPhone 13 (iPhone 2021)">
                                  <span></span>
                                  <span>iPhone 13 (iPhone 2021)</span>
                               </a>
-                              <a href="https://didongthongminh.vn/iphone-14-gia-re" title="iPhone 14 giá rẻ">
+                              <a title="iPhone 14 giá rẻ">
                                  <span></span>
                                  <span>iPhone 14 giá rẻ</span>
                               </a>
-                              <a href="https://didongthongminh.vn/iphone-15-co-gi-moi" title="iPhone 15 có gì mới">
+                              <a  title="iPhone 15 có gì mới">
                                  <span></span>
                                  <span>iPhone 15 có gì mới</span>
                               </a>
@@ -170,81 +167,75 @@
                         </div>
                         <div class='news_list_body'>
                            <h3 class="block_title"><span>Tin xem nhiều</span></h3>
-
-                        </div>
-                     </div>
-
-                     <div class='news_list_body'>
-                        <h3 class="title_sale title_recruitment">Tin tuyển dụng</h3>
-                        <div class="row">
-                           <div class='news-recruitment col-sm-12'>
-                              <a href='https://didongthongminh.vn/tuyen-dung-chuyen-vien-seo-nganh-hang-dien-thoai-ha-noi'
-                                 title=" Tuyển Dụng Chuyên Viên SEO Ngành Hàng Điện Thoại Tại Hà Nội">
-                                 <div class="title-news">
-                                    <span>Tuyển Dụng Chuyên Viên SEO Ngành Hàng Điện Thoại Tại Hà Nội</span>
-                                    <span class="gray"></span>
-                                 </div>
-                                 <div class="end-time">
-                                    <span class="gray">Hạn nộp</span>
-                                    <span>18/03/2022</span>
-                                 </div>
-                              </a>
-                           </div>
-                           <div class='news-recruitment col-sm-12'>
-                              <a href='https://didongthongminh.vn/tuyen-dung-nhan-vien-ban-hang-thu-nhap-hap-dan-6-12-tr-di-dong-thong-minh'
-                                 title=" Khởi Nghiệp Công Việc Chuyên Viên Tư Vấn Bán Hàng Di Động Thông Minh">
-                                 <div class="title-news">
-                                    <span>Khởi Nghiệp Công Việc Chuyên Viên Tư Vấn Bán Hàng Di Động Thông Minh</span>
-                                    <span class="gray">119 Thái Thịnh, Đống Đa Hà Nội</span>
-                                 </div>
-                                 <div class="end-time">
-                                    <span class="gray">Hạn nộp</span>
-                                    <span>31/03/2022</span>
-                                 </div>
-                              </a>
-                           </div>
-                           <div class='news-recruitment col-sm-12'>
-                              <a href='https://didongthongminh.vn/tuyen-dung-nhan-vien-thiet-ke-di-dong-thong-minh'
-                                 title=" Tuyển dụng nhân viên thiết kế - Di Động Thông Minh">
-                                 <div class="title-news">
-                                    <span>Tuyển dụng nhân viên thiết kế - Di Động Thông Minh</span>
-                                    <span class="gray"></span>
-                                 </div>
-                                 <div class="end-time">
-                                    <span class="gray">Hạn nộp</span>
-                                    <span>01/01/1970</span>
-                                 </div>
-                              </a>
-                           </div>
-                           <div class='news-recruitment col-sm-12'>
-                              <a href='https://didongthongminh.vn/di-dong-thong-minh-tuyen-dung-marketing-content-wiriter'
-                                 title=" Di Động Thông Minh Tuyển Dụng MARKETING - CONTENT WIRITER">
-                                 <div class="title-news">
-                                    <span>Di Động Thông Minh Tuyển Dụng MARKETING - CONTENT WIRITER</span>
-                                    <span class="gray">Hà Nội</span>
-                                 </div>
-                                 <div class="end-time">
-                                    <span class="gray">Hạn nộp</span>
-                                    <span>30/11/2021</span>
-                                 </div>
-                              </a>
-                           </div>
-                           <div class='news-recruitment col-sm-12'>
-                              <a href='https://didongthongminh.vn/di-dong-thong-minh-tuyen-dung-nhieu-vi-tri-voi-thu-nhap-cao-co-hoi-thang-tien-di-dong-thong-minh'
-                                 title=" Di Động Thông Minh tuyển dụng nhiều vị trí với Thu Nhập Cao, Cơ Hội Thăng Tiến - Di Động Thông Minh">
-                                 <div class="title-news">
-                                    <span>Di Động Thông Minh tuyển dụng nhiều vị trí với Thu Nhập Cao, Cơ Hội Thăng Tiến
-                                       - Di Động Thông Minh</span>
-                                    <span class="gray"></span>
-                                 </div>
-                                 <div class="end-time">
-                                    <span class="gray">Hạn nộp</span>
-                                    <span>04/10/2022</span>
-                                 </div>
-                              </a>
+                           <div class="row">
+                              <div class='news-recruitment col-sm-12'>
+                                 <a 
+                                    title="iPhone 15 mới ra mắt">
+                                    <div class="title-news">
+                                       <span>iPhone 15 mới ra mắt</span>
+                                       <span class="gray"></span>
+                                    </div>
+                                    <div class="end-time">
+                                       <span class="gray">Thời gian</span>
+                                       <span>18/03/2024</span>
+                                    </div>
+                                 </a>
+                              </div>
+                              <div class='news-recruitment col-sm-12'>
+                                 <a 
+                                    title="Đánh giá sản phẩm mới đến từ Apple">
+                                    <div class="title-news">
+                                       <span>Đánh giá sản phẩm mới đến từ Apple</span>                                       
+                                    </div>
+                                    <div class="end-time">
+                                       <span class="gray">Thời gian</span>
+                                       <span>31/03/2024</span>
+                                    </div>
+                                 </a>
+                              </div>
+                              <div class='news-recruitment col-sm-12'>
+                                 <a 
+                                    title="Đánh giá các sản phẩm phù hợp học sinh sinh viên">
+                                    <div class="title-news">
+                                       <span>Đánh giá các sản phẩm phù hợp học sinh sinh viên</span>
+                                       <span class="gray"></span>
+                                    </div>
+                                    <div class="end-time">
+                                       <span class="gray">Thời gian</span>
+                                       <span>01/01/2024</span>
+                                    </div>
+                                 </a>
+                              </div>
+                              <div class='news-recruitment col-sm-12'>
+                                 <a href='Những game đáng chơi năm 2024'
+                                    title=" Di Động Thông Minh Tuyển Dụng MARKETING - CONTENT WIRITER">
+                                    <div class="title-news">
+                                       <span>Những game đáng chơi năm 2024</span>
+                                       <span class="gray"></span>
+                                    </div>
+                                    <div class="end-time">
+                                       <span class="gray">Thời gian</span>
+                                       <span>30/11/2023</span>
+                                    </div>
+                                 </a>
+                              </div>
+                              <div class='news-recruitment col-sm-12'>
+                                 <a href='https://didongthongminh.vn/di-dong-thong-minh-tuyen-dung-nhieu-vi-tri-voi-thu-nhap-cao-co-hoi-thang-tien-di-dong-thong-minh'
+                                    title=" Di Động Thông Minh tuyển dụng nhiều vị trí với Thu Nhập Cao, Cơ Hội Thăng Tiến - Di Động Thông Minh">
+                                    <div class="title-news">
+                                       <span>Di Động Thông Minh tuyển dụng nhiều vị trí với Thu Nhập Cao, Cơ Hội Thăng Tiến
+                                          - Di Động Thông Minh</span>
+                                       <span class="gray"></span>
+                                    </div>
+                                    <div class="end-time">
+                                       <span class="gray">Hạn nộp</span>
+                                       <span>04/10/2022</span>
+                                    </div>
+                                 </a>
+                              </div>
                            </div>
                         </div>
-                     </div>
+                     </div>                     
                   </div>
                </div>
             </div>

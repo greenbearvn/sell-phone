@@ -9,7 +9,10 @@
                   </a>
                   <meta itemprop="position" content="1" />
                </div>
-               <div class='breadcrumbs_sepa'><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+               
+               <div class='breadcrumbs_sepa'>
+                  <i class="fa fa-angle-right" aria-hidden="true"></i>
+               </div>
                <div class="fl-left" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                   <a itemprop="item" [routerLink]="['/tin-tuc']" title="Tin tức & Sự kiện">
                   <span itemprop="name" >Tin tức & Sự kiện</span>
@@ -34,18 +37,20 @@
                   <div class="col-sm-12 item-full" *ngFor="let item of news| paginate : { itemsPerPage: itemPerPage, currentPage: p }">
                      <div class="item-news">
                         <div class="row">
-                           <a class="item-images col-sm-4" [routerLink]="['/tin-tuc/' + item.id]" >
+                           <a class="item-images col-sm-4" [routerLink]="['/tin-tuc/xem-tin-tuc/' + item.id]" >
                               <img [src]="item.avatar">
                            </a>
                            <div class="col-sm-8">
-                              <a class="title title1" [routerLink]="['/tin-tuc/' + item.id]">{{item.title}}</a>
+                              <a class="title title1" [routerLink]="['/tin-tuc/xem-tin-tuc/' + item.id]">{{item.title}}</a>
                               <div class="time-hits">
                                  <span>
-                                 <i class="fa fa-calendar" aria-hidden="true"></i>
-                                 {{item.createdDate}}                             </span>
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                    {{item.createdDate}}                             
+                                 </span>
                                  <span>
-                                 <i class="fa fa-eye" aria-hidden="true"></i>
-                                 {{item.view}}                                </span>
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                    {{item.view}}                                
+                                 </span>
                               </div>
                               <p class="summary">{{item.summary}}</p>
                            </div>

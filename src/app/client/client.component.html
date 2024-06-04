@@ -5,16 +5,16 @@
 <head id="Head1" prefix="og: http://ogp.me/ns# fb:http://ogp.me/ns/fb# article:http://ogp.me/ns/article#">
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
    <meta http-equiv="Cache-control" content="public" />
-   <meta name="robots" content="index,follow" />   
+   <meta name="robots" content="index,follow" />
    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
    <link type='image/x-icon' href='https://didongthongminh.vn/images/favicon.ico' rel='icon' />
    <meta property="og:site_name" content="didongthongminh.vn" />
    <meta property="og:type" content="website" />
-   <meta property="og:locale" content="vi_VN" />   
+   <meta property="og:locale" content="vi_VN" />
    <meta property="og:url" content="https://didongthongminh.vn/" />
    <meta property="og:type" content="article" />
-   
+
    <link rel="canonical" href="https://didongthongminh.vn/" hreflang="vi-vn" />
    <meta name="distribution" content="Global" />
    <meta name="RATING" content="GENERAL" />
@@ -72,7 +72,7 @@
                </div>
                <div class="menu_center">
 
-                  <a class="cate-btn" [routerLink]="['/tin-tuc']">
+                  <a class="cate-btn" [routerLink]="['/dien-thoai']">
                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                            d="M16.6666 0.833332H3.33325C1.95254 0.833332 0.833252 1.95262 0.833252 3.33333V16.6667C0.833252 18.0474 1.95254 19.1667 3.33325 19.1667H16.6666C18.0473 19.1667 19.1666 18.0474 19.1666 16.6667V3.33333C19.1666 1.95262 18.0473 0.833332 16.6666 0.833332Z"
@@ -86,38 +86,20 @@
                         <path d="M9.1665 14.1667H14.9998" stroke="white" stroke-linecap="round"
                            stroke-linejoin="round" />
                      </svg>
+                     Điện thoại
+                  </a>
+
+                  <a class="cate-btn" [routerLink]="['/tin-tuc']">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-newspaper" viewBox="0 0 16 16">
+                        <path
+                           d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5z" />
+                        <path
+                           d="M2 3h10v2H2zm0 3h4v3H2zm0 4h4v1H2zm0 2h4v1H2zm5-6h2v1H7zm3 0h2v1h-2zM7 8h2v1H7zm3 0h2v1h-2zm-3 2h2v1H7zm3 0h2v1h-2zm-3 2h2v1H7zm3 0h2v1h-2z" />
+                     </svg>
                      Tin tức
                   </a>
 
-                  <div class="address_pc">
-                     <div class="dropdown select_city">
-
-                        <button class="btn-drop" type="button" id="dropdownMenu1" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="true">
-                           <span class="title title-pc">Xem giá, tồn kho tại:</span>
-                           <span class="title title-mb">Xem giá tại:</span>
-                           <span class="click_drop">
-                              Hà Nội <i class="fa fa-caret-down"></i>
-                           </span>
-                        </button>
-
-                        <div class="dropdown-menu list_location" aria-labelledby="dropdownMenu1">
-                           <p>Chọn tỉnh thành để xem chính xác giá và khuyến mãi</p>
-                           <ul class="list">
-                              <li><a class="drop_city" href="javascript:void(0)" data-name="Hà Nội" data-id="1">Hà
-                                    Nội</a></li>
-                              <!-- <li><a class="drop_city" href="javascript:void(0)" data-name="Hải Dương" data-id="30">Hải
-                                    Dương</a></li>
-                              <li><a class="drop_city" href="javascript:void(0)" data-name="Hải Phòng" data-id="3">Hải
-                                    Phòng</a></li>
-                              <li><a class="drop_city" href="javascript:void(0)" data-name="Cần Thơ" data-id="47">Cần
-                                    Thơ</a></li>
-                              <li><a class="drop_city" href="javascript:void(0)" data-name="TP HCM" data-id="2">TP
-                                    HCM</a></li> -->
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
                   <div id="search_simple" class="search_simple">
                      <div class="search_simple_content">
                         <form action="tim-kiem.html" name="search_form" id="search_form_simple" method="get"
@@ -169,16 +151,16 @@
                   <!--<div class="bottom-nav">-->
                   <ul class="bottom-nav">
                      <li class='  level0 first-item'>
-                        <a href='gioi-thieu-di-dong-thong-minh.html' rel="nofollow"> Giới thiệu công ty </a>
+                        <a [routerLink]="['/']" rel="nofollow"> Giới thiệu công ty </a>
                      </li>
                      <li class='  level0menu-item'>
-                        <a href='he-thong-cua-hang.html' rel="nofollow"> Hệ thống cửa hàng </a>
+                        <a [routerLink]="['/']" rel="nofollow"> Hệ thống cửa hàng </a>
                      </li>
                      <li class='  level0menu-item'>
-                        <a href='chinh-sach.html' rel="nofollow"> Chính sách bảo mật </a>
+                        <a [routerLink]="['/']" rel="nofollow"> Chính sách bảo mật </a>
                      </li>
                      <li class='  level0menu-item'>
-                        <span> Email: mobilecity@mc.vn </span>
+                        <span> Email: mobilecity@gmail.com </span>
                      </li>
                   </ul>
                   <!--</div>-->
@@ -205,27 +187,25 @@
                   <!--<div class="bottom-nav">-->
                   <ul class="bottom-nav">
                      <li class='  level0 first-item'>
-                        <a href='doi-tra-len-den-45-ngay-tang-them-qua-neu-khong-may-san-pham-loi-di-dong-thong-minh.html'
-                           rel="nofollow"> Chính sách đổi trả </a>
+                        <a [routerLink]="['/']" rel="nofollow"> Chính sách đổi trả </a>
                      </li>
                      <li class='  level0menu-item'>
-                        <a href='quy-che-hoat-dong.html' rel="nofollow"> Quy chế hoạt động </a>
+                        <a [routerLink]="['/']" rel="nofollow"> Quy chế hoạt động </a>
                      </li>
                      <li class='  level0menu-item'>
-                        <a href='chinh-sach-bao-hanh.html' rel="nofollow"> Chính sách Bảo hành </a>
+                        <a [routerLink]="['/']" rel="nofollow"> Chính sách Bảo hành </a>
                      </li>
                      <li class='  level0menu-item'>
-                        <a href='tuyen-dung.html' rel="nofollow"> Tuyển dụng </a>
+                        <a [routerLink]="['/']" rel="nofollow"> Tuyển dụng </a>
                      </li>
                      <li class='  level0menu-item'>
-                        <a href='uu-dai-cho-khach-hang-doanh-nghiep-chiet-khau-cao-thuong-hoa.html' rel="nofollow">
-                           Khách hàng Doanh nghiệp </a>
+                        <a [routerLink]="['/']" rel="nofollow"> Khách hàng Doanh nghiệp </a>
                      </li>
                      <li class='  level0menu-item'>
-                        <a href='blogs/all.html' rel="follow"> Tin tức </a>
+                        <a [routerLink]="['/']" rel="follow"> Tin tức </a>
                      </li>
                      <li class='  level0menu-item'>
-                        <a href='thu-cu-doi-moi.html' rel="nofollow"> Trade-in thu cũ lên đời </a>
+                        <a [routerLink]="['/']" rel="nofollow"> Trade-in thu cũ lên đời </a>
                      </li>
                   </ul>
                   <!--</div>-->
@@ -235,26 +215,23 @@
                   <!--<div class="bottom-nav">-->
                   <ul class="bottom-nav">
                      <li class='  level0 first-item'>
-                        <a href='tuyen-dung.html' rel="nofollow"> Tuyển Dụng </a>
+                        <a [routerLink]="['/']" rel="nofollow"> Tuyển Dụng </a>
                      </li>
                      <li class='  level0menu-item'>
-                        <a href='huong-dan-mua-hang-online-tren-website-di-dong-thong-minh.html' rel="nofollow"> Mua
-                           hàng và thanh toán Online </a>
+                        <a [routerLink]="['/']" rel="nofollow"> Mua hàng và thanh toán Online </a>
                      </li>
                      <li class='  level0menu-item'>
-                        <a href='huong-dan-mua-dien-thoai-tra-gop-online-tren-website-di-dong.html' rel="nofollow"> Mua
-                           hàng trả góp Online </a>
+                        <a [routerLink]="['/']" rel="nofollow"> Mua hàng trả góp Online </a>
                      </li>
                      <li class='  level0menu-item'>
                         <span> Trung tâm bảo hành chính hãng </span>
                      </li>
                      <li class='  level0menu-item'>
-                        <a href='quy-dinh-ve-viec-sao-luu-du-lieu.html' rel="nofollow"> Quy định về việc sao lưu dữ liệu
+                        <a [routerLink]="['/']" rel="nofollow"> Quy định về việc sao lưu dữ liệu
                         </a>
                      </li>
                      <li class='  level0menu-item'>
-                        <a href='huong-dan-thanh-toan-chuyen-khoan.html' rel="nofollow"> Hướng dẫn thanh toán chuyển
-                           khoản </a>
+                        <a [routerLink]="['/']" rel="nofollow"> Hướng dẫn thanh toán chuyển khoản </a>
                      </li>
                      <li class='  level0menu-item'>
                         <span> Dịch vụ bảo hành điện thoại </span>
@@ -272,13 +249,12 @@
                   <div class="box_hotro">
                      <h3 class="title_item">Kết nối với chúng tôi</h3>
                      <a class="facebook" href="https://www.facebook.com/phanduoggh10" target="_blank">
-                        <img src="https://img.icons8.com/?size=100&id=118497&format=png&color=000000" width="38" height="33"
-                           alt="facebook" class="img-responsive">
+                        <img src="https://img.icons8.com/?size=100&id=118497&format=png&color=000000" width="38"
+                           height="33" alt="facebook" class="img-responsive">
                      </a>
-                     <a class="youtube_home" target="_blank"
-                        style="margin-left: 10px">
-                        <img src="https://img.icons8.com/?size=100&id=0m71tmRjlxEe&format=png&color=000000" width="42" height="36"
-                           alt="zalo" class="img-responsive">
+                     <a class="youtube_home" target="_blank" style="margin-left: 10px">
+                        <img src="https://img.icons8.com/?size=100&id=0m71tmRjlxEe&format=png&color=000000" width="42"
+                           height="36" alt="zalo" class="img-responsive">
                      </a>
                   </div>
                </div>
@@ -292,7 +268,7 @@
       </div>
       <div class="copyright">
          <div class="container" style="max-width: 1200px !important;">
-            @ Bản quyền thuộc về MobileCity
+            @ Bản quyền thuộc về Mobile City
          </div>
       </div>
       <div class="clearfix"></div>
