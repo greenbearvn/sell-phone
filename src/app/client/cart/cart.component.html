@@ -1,172 +1,148 @@
+<lib-toastify-toast-container          
+   [transition]="'bounce'" 
+   [autoClose]="3000" 
+   [hideProgressBar]="true"
+   [newestOnTop]="true"
+   [closeOnClick]="true"
+   [pauseOnHover]="true"
+   [pauseOnVisibilityChange]="true"
+   [preventDuplicates]="true"
+></lib-toastify-toast-container>
+
 <div class='breadcrumbs'>
-  <div class="container">
-     <div class="row">
-        <div class="col-xs-12">
-           <div class='breadcrumb index.php'   itemscope itemtype="https://schema.org/BreadcrumbList" >
-              <div class='breadcumbs-first flever_12 fl-left' itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" >
-                 <a itemprop="item" title='didongthongminh.vn' href="https://didongthongminh.vn/" >
-                 <span itemprop="name" >Trang chủ</span>
-                 </a>
-                 <meta itemprop="position" content="1" />
-              </div>
-              <div class='breadcrumbs_sepa'><i class="fa fa-angle-right" aria-hidden="true"></i></div>
-              <div class="fl-left" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                 <a itemprop="item" href="" title="Giỏ hàng">
-                 <span itemprop="name" >Giỏ hàng</span>
-                 </a>
-                 <meta itemprop="position" content="2" />
-              </div>
-              <div class="clear"></div>
-           </div>
-        </div>
-     </div>
-  </div>
-</div>  
+   <div class="container">
+      <div class="row">
+         <div class="col-xs-12">
+            <div class='breadcrumb index.php' itemscope itemtype="https://schema.org/BreadcrumbList">
+               <div class='breadcumbs-first flever_12 fl-left' itemprop="itemListElement" itemscope
+                  itemtype="https://schema.org/ListItem">
+                  <a itemprop="item" title='didongthongminh.vn' href="https://didongthongminh.vn/">
+                     <span itemprop="name">Trang chủ</span>
+                  </a>
+                  <meta itemprop="position" content="1" />
+               </div>
+               <div class='breadcrumbs_sepa'><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+               <div class="fl-left" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                  <a itemprop="item" href="" title="Giỏ hàng">
+                     <span itemprop="name">Giỏ hàng</span>
+                  </a>
+                  <meta itemprop="position" content="2" />
+               </div>
+               <div class="clear"></div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
 
 <div class="body_container ">
-  <div class=" container">
-     <div id="main_container" class="row">
-        <div class="col-md-12 col-sm-12 main-column">
-           <input type="hidden" id="paycode" value='["<i class=\"fa fa-exclamation-circle\"><\/i> M\u00e3 khuy\u1ebfn m\u1ea1i kh\u00f4ng h\u1ee3p l\u1ec7","<i class=\"fa fa-exclamation-circle\"><\/i> \u00c1p d\u1ee5ng th\u00e0nh c\u00f4ng"]'/>
-           <input type="hidden" id="alert_info" value='["B\u1ea1n ch\u01b0a nh\u1eadp h\u1ecd t\u00ean","B\u1ea1n ch\u01b0a nh\u1eadp s\u1ed1 \u0111i\u1ec7n tho\u1ea1i","S\u1ed1 \u0111i\u1ec7n tho\u1ea1i kh\u00f4ng \u0111\u00fang \u0111\u1ecbnh d\u1ea1ng","S\u1ed1 \u0111i\u1ec7n tho\u1ea1i t\u1eeb 10 \u0111\u1ebfn 12 s\u1ed1","B\u1ea1n ch\u01b0a ch\u1ecdn T\u1ec9nh\/ Th\u00e0nh ph\u1ed1","B\u1ea1n ch\u01b0a nh\u1eadp t\u00ean c\u00f4ng ty","B\u1ea1n ch\u01b0a nh\u1eadp \u0111\u1ecba ch\u1ec9","B\u1ea1n ch\u01b0a nh\u1eadp m\u00e3 s\u1ed1 thu\u1ebf"]'/>
-           <div id="preloader">
-              <div class="spinner"></div>
-           </div>
-           <main>
-              <div class="container">
-                 <div class="container-cart">
-                    <div class="nav-cart">
-                       <a [routerLink]="['/dien-thoai']" class="buy-more">
-                       <i class="fa fa-angle-left"></i>
-                       Mua thêm sản phẩm khác                </a>
-                       <a class="user" href="https://didongthongminh.vn/account/login"
-                          title="Đăng nhập">
-                          <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                             <path d="M8 0.285706C3.58036 0.285706 0 3.86606 0 8.28571C0 12.6875 3.57143 16.2857 8 16.2857C12.4375 16.2857 16 12.6786 16 8.28571C16 3.86606 12.4196 0.285706 8 0.285706ZM13.5268 12.3482C13.2054 10.75 12.4286 9.42856 10.7946 9.42856C10.0714 10.1339 9.08929 10.5714 8 10.5714C6.91071 10.5714 5.92857 10.1339 5.20536 9.42856C3.57143 9.42856 2.79464 10.75 2.47321 12.3482C1.64286 11.2053 1.14286 9.80356 1.14286 8.28571C1.14286 4.50892 4.22321 1.42856 8 1.42856C11.7768 1.42856 14.8571 4.50892 14.8571 8.28571C14.8571 9.80356 14.3571 11.2053 13.5268 12.3482ZM11.4286 6.57142C11.4286 8.46428 9.89286 9.99999 8 9.99999C6.10714 9.99999 4.57143 8.46428 4.57143 6.57142C4.57143 4.67856 6.10714 3.14285 8 3.14285C9.89286 3.14285 11.4286 4.67856 11.4286 6.57142Z"
-                                fill="#FF6700"/>
-                          </svg>
-                                    
-                       </a>
-                    </div>
-                    <div class="content-cart">
-                       <div class="list-products">
-                          <div class="product-cart1" *ngFor="let item of cartItems">
-                             <div class="product-cart">
-                                <div class="product-image text-center">
-                                   <a href="https://didongthongminh.vn/iphone-xs-max-cu-64gb-nguyen-ban-dep-nhu-moi" title="iPhone XS Max 64GB Cũ Nguyên Bản Đẹp như mới">
-                                   <img [src]="item.productOptionDto.image" alt="iphone-xs-max-cu-64gb-nguyen-ban-dep-nhu-moi"
-                                      class="img-responsive"
-                                      onerror="javascript:this.src='https://didongthongminh.vn/images/not_picture.png'"/>
-                                   </a>
-                                   <a class="del-pro-link" data-id="8867" (click)="deleteBtn(item.id)"
-                                      title="Xóa">
-                                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
-                                         viewBox="0 0 15 15">
-                                         <path d="M12.8,2.2A7.5,7.5,0,0,0,2.2,12.8,7.5,7.5,0,0,0,12.8,2.2Zm-.621,9.985A6.621,6.621,0,0,1,2.818,2.818a6.621,6.621,0,1,1,9.364,9.364Z"
-                                            transform="translate(0)"/>
-                                         <path d="M145.494,144.873l-2.685-2.685,2.685-2.685a.439.439,0,0,0-.622-.621l-2.685,2.685-2.685-2.685a.439.439,0,0,0-.621.621l2.685,2.685-2.685,2.685a.439.439,0,1,0,.621.621l2.685-2.685,2.685,2.685a.439.439,0,1,0,.621-.621Z"
-                                            transform="translate(-134.668 -134.668)"/>
-                                      </svg>
-                                      Xóa                                    
-                                   </a>
-                                   <a class="del-pro-link" data-id="8867"
-                                   title="Xóa">
-                                   
-                                  <input type="checkbox" name="" id="" style="margin-left: 10px;" (click)="addItemMem(item)" >                                    
-                                </a>
-                                </div>
-                                <div class="product-detail">
-                                   <div class="top_detail">
-                                      <a class="product-name" 
-                                         title="iPhone XS Max 64GB Cũ Nguyên Bản Đẹp như mới">
-                                      {{item.productOptionDto.productName}}                                       </a>
-                                      <div class="fee visible-xs">
-                                         <p class="price-item">
-                                          {{item.productOptionDto.newPrice}}                                          
-                                         </p>
-                                         <del class="old-price">{{item.productOptionDto.price}} </del>
-                                      </div>
-                                   </div>
-                                  
-                                   <div class="price_detail">
-                                      <div class="box_color">
-                                         <span class="select_color"
-                                           >Màu: {{item.productOptionDto.color}} </span>
-                                           <br>
-                                           <span class="select_color"
-                                           >Dung lượng: {{item.productOptionDto.storageCapacity}} </span>
-                                           <br>
-                                           <span class="select_color"
-                                           >Ram: {{item.productOptionDto.ram}} </span>
-                                      </div>
-                                      <div class="quan visible-xs">
-                                         <span class="number-input">
-                                         <button type="button"
-                                            onclick="down_quantity(8867)"
-                                            class="down"></button>
-                                         <input type="number"
-                                            name="quantity_8867"
-                                            id="quantity_8867"
-                                            class="numbersOnly1"
-                                            maxlength="5"
-                                            onblur="change_quantity(8867)"
-                                       value="{{item.quantity}}"/>
-                                         <button type="button"
-                                            onclick="up_quantity(8867)"
-                                            class="plus"></button>
-                                         </span>
-                                      </div>
-                                   </div>
-                                </div>
-                                <div class="product-price hidden-xs">
-                                   <div class="fee">
-                                      <p class="price-item">
-                                       {{item.productOptionDto.newPrice | currency : "VND"}}                                         
-                                      </p>
-                                      <del class="old-price">{{item.productOptionDto.price | currency : "VND"}}</del>
-                                   </div>
-                                   <div class="quan">
-                                      <span class="number-input">
-                                      <button type="button"
-                                         onclick="down_quantity(8867)"
-                                         class="down"></button>
-                                      <input type="number"
-                                         name="quantity_8867"
-                                         id="quantity_8867"
-                                         class="numbersOnly1"
-                                         maxlength="5"
-                                         onblur="change_quantity(8867)"
-                                         [value]="item.quantity"/>
-                                      <button type="button"
-                                         onclick="up_quantity(8867)"
-                                         class="plus"></button>
-                                      </span>
-                                   </div>
-                                </div>
-                             </div>
-                          </div>
-                          <input type="hidden" id="list_product_gift_8867"
-                             value="">
-                       </div>
-                       <div class="total-price-products">
-                          <p class="">Tạm tính sản phẩm:
-                             <span class="price_tam">{{totalMoney| currency : "VND"}}</span>
-                          </p>
-                          <p class="">Phí vận chuyển:
-                             <span>Miễn phí</span>
-                          </p>
-                       
-                       </div>
-                       <div class="payment" style="padding: 20px; background-color: #FF6700;text-align: center;">
-                          <a [routerLink]="['/thanh-toan']"> Đi trang thanh toán</a>
-                       </div>
-                    </div>
-                    <span class="agree">Bằng cách đặt hàng, bạn đồng ý với Điều khoản sử dụng của MobileCity</span>
-                 </div>
-              </div>
-              
-           </main>
-        </div>
-     </div>
-  </div>
+   <div class=" container">
+      <div id="main_container" class="row">
+         <div class="col-md-12 col-sm-12 main-column">
+            <input type="hidden" id="paycode"
+               value='["<i class=\"fa fa-exclamation-circle\"><\/i> M\u00e3 khuy\u1ebfn m\u1ea1i kh\u00f4ng h\u1ee3p l\u1ec7","<i class=\"fa fa-exclamation-circle\"><\/i> \u00c1p d\u1ee5ng th\u00e0nh c\u00f4ng"]' />
+            <input type="hidden" id="alert_info"
+               value='["B\u1ea1n ch\u01b0a nh\u1eadp h\u1ecd t\u00ean","B\u1ea1n ch\u01b0a nh\u1eadp s\u1ed1 \u0111i\u1ec7n tho\u1ea1i","S\u1ed1 \u0111i\u1ec7n tho\u1ea1i kh\u00f4ng \u0111\u00fang \u0111\u1ecbnh d\u1ea1ng","S\u1ed1 \u0111i\u1ec7n tho\u1ea1i t\u1eeb 10 \u0111\u1ebfn 12 s\u1ed1","B\u1ea1n ch\u01b0a ch\u1ecdn T\u1ec9nh\/ Th\u00e0nh ph\u1ed1","B\u1ea1n ch\u01b0a nh\u1eadp t\u00ean c\u00f4ng ty","B\u1ea1n ch\u01b0a nh\u1eadp \u0111\u1ecba ch\u1ec9","B\u1ea1n ch\u01b0a nh\u1eadp m\u00e3 s\u1ed1 thu\u1ebf"]' />
+            <div id="preloader">
+               <div class="spinner"></div>
+            </div>
+            <main>
+               <div class="container">
+                  <div class="container-cart">
+                     <div class="nav-cart">
+                        <a [routerLink]="['/dien-thoai']" class="buy-more">
+                           <i class="fa fa-angle-left"></i>
+                           Mua thêm sản phẩm khác 
+                        </a>
+                        
+                     </div>
+                     <div class="content-cart">
+                        <div class="list-products">
+                           <div class="product-cart1" *ngFor="let item of cartItems">
+                              <div class="product-cart">
+                                 <div class="product-image text-center">
+                                    <a [routerLink]="['/dien-thoai/xem-chi-tiet/'+ item.productOptionDto.productId]"
+                                       title="{{item.productOptionDto.productName}}">
+                                       <img [src]="item.productOptionDto.image"
+                                          alt="iphone-xs-max-cu-64gb-nguyen-ban-dep-nhu-moi" class="img-responsive"
+                                          onerror="javascript:this.src='https://didongthongminh.vn/images/not_picture.png'" />
+                                    </a>
+                                    <a class="del-pro-link" data-id="8867" (click)="deleteBtn(item.id)" title="Xóa">
+                                       <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                                          viewBox="0 0 15 15">
+                                          <path
+                                             d="M12.8,2.2A7.5,7.5,0,0,0,2.2,12.8,7.5,7.5,0,0,0,12.8,2.2Zm-.621,9.985A6.621,6.621,0,0,1,2.818,2.818a6.621,6.621,0,1,1,9.364,9.364Z"
+                                             transform="translate(0)" />
+                                          <path
+                                             d="M145.494,144.873l-2.685-2.685,2.685-2.685a.439.439,0,0,0-.622-.621l-2.685,2.685-2.685-2.685a.439.439,0,0,0-.621.621l2.685,2.685-2.685,2.685a.439.439,0,1,0,.621.621l2.685-2.685,2.685,2.685a.439.439,0,1,0,.621-.621Z"
+                                             transform="translate(-134.668 -134.668)" />
+                                       </svg>
+                                       Xóa
+                                    </a>
+                                    <a class="del-pro-link" data-id="8867" title="Chọn">
+                                       <input type="checkbox" name="" id="" style="margin-left: 10px;"
+                                          (click)="addItemMem(item)">
+                                    </a>
+                                 </div>
+
+                                 <div class="product-detail">
+                                    <div class="top_detail">
+                                       <a class="product-name" title="{{item.productOptionDto.productName}}">
+                                          {{item.productOptionDto.productName}} 
+                                       </a>
+                                       <div class="fee visible-xs">
+                                          <p class="price-item">
+                                             {{item.productOptionDto.newPrice}}
+                                          </p>
+                                          <del class="old-price">{{item.productOptionDto.price}} </del>
+                                       </div>
+                                    </div>
+
+                                    <div class="price_detail">
+                                       <div class="box_color">
+                                          <span class="select_color">Màu: {{item.productOptionDto.color}} </span>
+                                          <br>                                          
+                                          <span class="select_color">Ram: {{item.productOptionDto.ram}} GB</span>
+                                          <br>
+                                          <span class="select_color">Bộ nhớ trong:
+                                             {{item.productOptionDto.storageCapacity}} GB</span>
+                                       </div>                                       
+                                    </div>
+                                 </div>
+
+                                 <div class="product-price hidden-xs">
+                                    <div class="fee">
+                                       <p class="price-item">
+                                          {{formatCurrencyVND(item.productOptionDto.newPrice)}}
+                                       </p>
+                                       <del class="old-price">{{formatCurrencyVND(item.productOptionDto.price)}}</del>
+                                    </div>
+                                    <div class="quan">
+                                       <span class="number-input">
+                                          <button type="button" (click)="updateQuantity(item.id, item.quantity - 1)" class="down"></button>
+                                          <input type="number" name="quantity_8867" id="{{item.id}}"
+                                             class="numbersOnly1" maxlength="5" value="{{item.quantity}}" />
+                                          <button type="button" (click)="updateQuantity(item.id, item.quantity + 1)" class="plus"></button>
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <input type="hidden" id="list_product_gift_8867" value="">
+                        </div>
+                        
+                        <div class="btn-area">                           
+                           <a [routerLink]="['/thanh-toan']" id="cod-btn" class="payment-btn" title="Đặt hàng">
+                              Đặt hàng                          
+                           </a>
+                        </div>
+                     </div>
+                     
+                  </div>
+               </div>
+
+            </main>
+         </div>
+      </div>
+   </div>
 </div>

@@ -19,7 +19,7 @@ export class ClientComponent {
     private cookieService: CookieService,
     private router: Router,
     private cartService: CartService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getToken();
@@ -35,20 +35,25 @@ export class ClientComponent {
 
   checkLogin() {
     const token = this.getToken(); // Assuming getToken() returns the token
-   
+
 
     if (token.length < 10) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/dang-nhap']);
     } else {
       this.router.navigate(['/trang-ca-nhan']);
     }
   }
 
   countItemCart() {
-    this.cartService.countItem(this.token).subscribe((data) => {
-      if (data.status === 'SUCCESS') {
-        this.countCartItem = data.data;
-      }
-    });
+    this.getToken();
+    if (this.token != null && this.token.length != 0) {
+      this.cartService.countItem(this.token).subscribe((data) => {
+        if (data.status === 'SUCCESS') {
+          this.countCartItem = data.data;
+        }
+      });
+    } else {
+      this.countCartItem = null;
+    }
   }
 }

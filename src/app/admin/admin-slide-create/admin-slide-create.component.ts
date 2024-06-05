@@ -4,6 +4,7 @@ import { ToastService } from 'angular-toastify';
 import { NgForm } from '@angular/forms';
 import { AdminSlideService } from 'src/app/services/admin/slide/admin-slide.service';
 import { Slide } from 'src/app/models/Slide';
+import { LoadingOverlayServiceService } from 'src/app/services/loading-overlay-service.service';
 
 @Component({
   selector: 'app-admin-slide-create',
@@ -26,10 +27,10 @@ export class AdminSlideCreateComponent {
   };
 
   constructor(
-
     private adminSlideService: AdminSlideService,
     private cookieService: CookieService,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private loadingOverlayServiceService: LoadingOverlayServiceService,
   ) {
     this.formData = new FormData()
   }
@@ -72,17 +73,21 @@ export class AdminSlideCreateComponent {
 
   create() {
     try {
+      this.loadingOverlayServiceService.show();
       this.adminSlideService.create(this.formData, this.token).subscribe(
         (data: any) => {
           if (data && data.status === 'SUCCESS') {
-            this.toastService.success("Thêm thành công!");          
+            this.toastService.success("Thêm thành công!");     
+            this.loadingOverlayServiceService.hide();     
           }
         },
         (error) => {
           this.toastService.error(error.error.message);
+          this.loadingOverlayServiceService.hide();
         }
       );
     } catch (error) {
+      this.loadingOverlayServiceService.hide(); 
       this.toastService.error("Đã xảy ra lỗi. Vui lòng thử lại sau!");
     }
   }

@@ -1,4 +1,14 @@
-<lib-toastify-toast-container></lib-toastify-toast-container>
+<lib-toastify-toast-container          
+   [transition]="'bounce'" 
+   [autoClose]="3000" 
+   [hideProgressBar]="true"
+   [newestOnTop]="true"
+   [closeOnClick]="true"
+   [pauseOnHover]="true"
+   [pauseOnVisibilityChange]="true"
+   [preventDuplicates]="true"
+></lib-toastify-toast-container>
+
 <div class="body_container ">
    <div class=" container">
       <div id="main_container" class="row">
@@ -49,8 +59,8 @@
                   </div>
                   <div class="grid-item">
                      <div class="top-title">
-                        <a [routerLink]="['/login']" title="Đăng nhập" class="active">Đăng nhập</a>
-                        <a [routerLink]="['/register']" title="Đăng ký">Đăng ký</a>
+                        <a [routerLink]="['/dang-nhap']" title="Đăng nhập" class="active">Đăng nhập</a>
+                        <a [routerLink]="['/dang-ky']" title="Đăng ký">Đăng ký</a>
                      </div>
                      <form action="" method="post" class="frmLogin" id="frmLogin">
                         <div class="box">
@@ -62,7 +72,7 @@
                               placeholder="Mật khẩu*" [(ngModel)]="loginData.password">
                         </div>
                         <div class="box box-right">
-                           <a [routerLink]="['/forgot-password']" title="Quên mật khẩu?" class="forgot-password">
+                           <a [routerLink]="['/quen-mat-khau']" title="Quên mật khẩu?" class="forgot-password">
                               Quên mật khẩu? </a>
                         </div>
                         <div class="box">
