@@ -31,7 +31,9 @@
               "node_modules/primeng/resources/primeng.min.css"
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/gasparesganga-jquery-loading-overlay/dist/loadingoverlay.js"
             ]
           },
           "configurations": {

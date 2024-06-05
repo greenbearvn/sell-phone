@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { HomeService } from 'src/app/services/client/home/home.service';
 import { CarouselComponent } from 'ngx-bootstrap/carousel';
+import { LoadingOverlayServiceService } from 'src/app/services/loading-overlay-service.service';
 
 @Component({
   selector: 'app-home',
@@ -37,6 +38,7 @@ export class ClientHomeComponent {
     // private cookieService: CookieService,
     // private toastService: ToastService,
     // private route: ActivatedRoute,
+    private loadingOverlayServiceService: LoadingOverlayServiceService,
 
   ) { }
 
@@ -48,11 +50,13 @@ export class ClientHomeComponent {
   images: any | undefined;
 
   ngOnInit() {
+    this.loadingOverlayServiceService.show();
     this.getBestSale();
     this.getNewProducts();
     this.getMinProducts();
     this.getDebitProducts();
     this.getSlide();
+    this.loadingOverlayServiceService.hide();
   }
 
   getSlide() {

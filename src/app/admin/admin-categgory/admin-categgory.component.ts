@@ -4,6 +4,7 @@ import { ToastService } from 'angular-toastify';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AdminCategoryService } from 'src/app/services/admin/category/admin-category.service';
 import Swal from 'sweetalert2';
+import { LoadingOverlayServiceService } from 'src/app/services/loading-overlay-service.service';
 
 @Component({
   selector: 'app-admin-categgory',
@@ -18,6 +19,7 @@ export class AdminCateggoryComponent {
     private toastService: ToastService,
     private dialogService: DialogService,
     private ref: DynamicDialogRef,
+    private loadingOverlayServiceService: LoadingOverlayServiceService,
   ) { }
 
   list: any;
@@ -26,8 +28,10 @@ export class AdminCateggoryComponent {
   itemPerPage: number = 10;
 
   ngOnInit() {
+    this.loadingOverlayServiceService.show();
     this.getToken();
     this.getList();
+    this.loadingOverlayServiceService.hide();
   }
 
   getToken() {

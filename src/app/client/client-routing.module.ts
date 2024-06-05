@@ -28,9 +28,9 @@ const routes: Routes = [
       {path:'tin-tuc', component: ClientNewsComponent},
       {path:'tin-tuc/xem-tin-tuc/:id', component: DetailNewsComponent},
 
-      {path:'login', component: LoginComponent},      
-      {path:'register', component: RegisterComponent},
-      {path:'forgot-password', component: ForgotPasswordComponent},
+      {path:'dang-nhap', component: LoginComponent},      
+      {path:'dang-ky', component: RegisterComponent},
+      {path:'quen-mat-khau', component: ForgotPasswordComponent},
       {path:'trang-ca-nhan', component: UserInforComponent},
       {path:'dia-chi', component: UserAddressComponent},
       {path:'thanh-toan', component: PaymentComponent},

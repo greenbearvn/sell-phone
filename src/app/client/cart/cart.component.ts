@@ -3,6 +3,8 @@ import { CartService } from 'src/app/services/client/cart/cart.service';
 import { CookieService } from 'ngx-cookie-service';
 import { ToastService } from 'angular-toastify';
 import Swal from 'sweetalert2';
+import { LoadingOverlayServiceService } from 'src/app/services/loading-overlay-service.service';
+import { ClientComponent } from '../client.component';
 
 @Component({
   selector: 'app-cart',
@@ -32,19 +34,18 @@ export class CartComponent {
   constructor(
     private cartService: CartService,
     private cookieService: CookieService,
-    private toastService: ToastService
-  ) {}
+    private toastService: ToastService,
+    private clientComponent: ClientComponent,
+    private loadingOverlayServiceService: LoadingOverlayServiceService,
+  ) { }
 
   cartItems: any;
   token: any;
-  totalMoney: any;
-
   cartMem: any;
 
   ngOnInit() {
     this.getToken();
     this.getCart();
-    this.calTotalMoney();
   }
 
   getToken() {
@@ -52,50 +53,59 @@ export class CartComponent {
   }
 
   getCart() {
-    this.cartService.getAll(this.token).subscribe((data) => {
-      if (data.status === 'SUCCESS') {
-        this.cartItems = data.data;
-        console.log(data.data);
-        console.log(this.cartItems);
-        this.calTotalMoney();
-      } else {
-      }
-    });
+    try {
+      this.loadingOverlayServiceService.show();
+      this.cartService.getAll(this.token).subscribe((data) => {
+        if (data.status === 'SUCCESS') {
+          this.cartItems = data.data;
+        }
+        this.loadingOverlayServiceService.hide();
+      },
+        (error) => {
+          this.loadingOverlayServiceService.hide();
+          this.toastService.error(error.error.message);
+        }
+      );
+    } catch (error) {
+      this.loadingOverlayServiceService.hide();
+      this.toastService.error("Đã xảy ra lỗi. Vui lòng thử lại sau!");
+    }
   }
 
   deleteBtn(id: any) {
     Swal.fire({
-      title: 'Bạn có chắc không?',
-      text: 'Một khi bạn xóa, bạn sẽ không thể khôi phục lại thông tin này!',
+      title: 'Bạn có chắc muốn xóa khỏi giỏ hàng?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Có, xóa đi!',
+      confirmButtonText: 'Xóa',
       cancelButtonText: 'Hủy',
     }).then((result) => {
       if (result.isConfirmed) {
         this.deleteItem(id);
+        this.clientComponent.countItemCart();
       }
     });
   }
 
   deleteItem(id: any) {
-    this.cartService.delete(id, this.token).subscribe((data) => {
-      if (data.status === 'SUCCESS') {
-        this.getCart();
-        this.toastService.success('Xóa thành công');
-      } else {
-        this.toastService.success('Xóa không thành công');
-      }
-    });
-  }
-
-  calTotalMoney() {
-    this.totalMoney = 0; // Initialize totalMoney to zero before summing up
-    for (let i of this.cartItems) {
-      // Use 'of' instead of 'in' to iterate over values
-      this.totalMoney += i.productOptionDto.newPrice * i.quantity;
+    try {
+      this.loadingOverlayServiceService.show();
+      this.cartService.delete(id, this.token).subscribe((data) => {
+        if (data.status === 'SUCCESS') {
+          this.getCart();
+          this.toastService.success('Xóa thành công');
+        }
+        this.loadingOverlayServiceService.hide();
+      },
+        (error) => {
+          this.loadingOverlayServiceService.hide();
+          this.toastService.error(error.error.message);
+        });
+    } catch (error) {
+      this.loadingOverlayServiceService.hide();
+      this.toastService.error("Đã xảy ra lỗi. Vui lòng thử lại sau!");
     }
   }
 
@@ -103,25 +113,55 @@ export class CartComponent {
     let existingCartItems: any[] = [];
     let cartData = localStorage.getItem('cart');
     if (cartData !== null) {
-        existingCartItems = JSON.parse(cartData);
+      existingCartItems = JSON.parse(cartData);
     }
 
     let itemExists = false;
 
     for (let item of existingCartItems) {
-        if (item.id === cartItem.id) {
-            itemExists = true;
-            break;
-        }
+      if (item.id === cartItem.id) {
+        itemExists = true;
+        break;
+      }
     }
 
     if (!itemExists) {
-        existingCartItems.push(cartItem);
-        localStorage.setItem('cart', JSON.stringify(existingCartItems));
-        this.toastService.error("Sản phẩm đã được thêm vào thanh toán !!!");
+      existingCartItems.push(cartItem);
+      localStorage.setItem('cart', JSON.stringify(existingCartItems));
+      this.toastService.error("Sản phẩm đã được thêm vào thanh toán !");
     } else {
-        this.toastService.error("Sản phẩm đã được thêm vào thanh toán !!!");
+      this.toastService.error("Sản phẩm đã được thêm vào thanh toán !");
     }
-}
+  }
+
+  updateQuantity(id: any, quantity: any) {
+    try {
+      this.loadingOverlayServiceService.show();
+      this.cartService.updateCart(id, quantity, this.token).subscribe((data) => {
+        if (data.status === 'SUCCESS') {
+          this.getCart();
+          this.toastService.success('Cập nhật thành công');
+        }
+        this.loadingOverlayServiceService.hide();
+      },
+        (error) => {
+          this.loadingOverlayServiceService.hide();
+          console.log("Lỗi: " + error.error.message);          
+          this.toastService.error(error.error.message);
+        });
+    } catch (error) {
+      this.loadingOverlayServiceService.hide();
+      this.toastService.error("Đã xảy ra lỗi. Vui lòng thử lại sau!");
+    }
+  }
+
+  formatCurrencyVND(amount: number): string {
+    return amount.toLocaleString('vi-VN', {
+      style: 'currency',
+      currency: 'VND',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    });
+  }
 
 }

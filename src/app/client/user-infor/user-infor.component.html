@@ -1,3 +1,14 @@
+<lib-toastify-toast-container          
+   [transition]="'bounce'" 
+   [autoClose]="3000" 
+   [hideProgressBar]="true"
+   [newestOnTop]="true"
+   [closeOnClick]="true"
+   [pauseOnHover]="true"
+   [pauseOnVisibilityChange]="true"
+   [preventDuplicates]="true"
+></lib-toastify-toast-container>
+
 <div class='breadcrumbs'>
     <div class="container">
        <div class="row">
@@ -32,7 +43,7 @@
                    <div class="grid-item">
                       <div class="user-menu-side">
                          <div class="user-name">
-                            <img src="https://didongthongminh.vn/https://lh3.googleusercontent.com/a-/ALV-UjVHrOd7RW-54tG7dIgLC8NKBZhW8HoCQMy3qP9zsHpE6C9WLg=s96-c" alt="avatar" class="img-responsive">
+                            <img [src]="user.avatar ? user.avatar : 'https://res.cloudinary.com/dgyqh297t/image/upload/v1717311124/avatar_lgo1y1.jpg'" alt="avatar" class="img-responsive">
                             <div class="name">
                                Xin chào, <span>{{user.username}}</span>
                             </div>
@@ -44,12 +55,12 @@
                                Thông tin tài khoản        </a>
                             </li>
                             <li class="" >
-                               <a [routerLink]="['/dia-chi']">
+                               <a [routerLink]="['/don-hang']">
                                <i class="fa fa-wpforms" aria-hidden="true"></i>
                                Quản lý đơn hàng        </a>
                             </li>
                             <li class="" >
-                               <a [routerLink]="['/dia-chi']">
+                               <a [routerLink]="['/doi-mat-khau']">
                                <i class="fa fa-lock" aria-hidden="true"></i>
                                Đổi mật khẩu        </a>
                             </li>
