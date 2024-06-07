@@ -14,6 +14,7 @@ import { UserInforComponent } from './user-infor/user-infor.component';
 import { UserAddressComponent } from './user-address/user-address.component';
 import { PaymentComponent } from './payment/payment.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
 
 
 const routes: Routes = [
@@ -33,7 +34,8 @@ const routes: Routes = [
       {path:'dang-ky', component: RegisterComponent},
       {path:'quen-mat-khau', component: ForgotPasswordComponent},
       {path:'trang-ca-nhan', component: UserInforComponent},
-      {path:'dia-chi', component: UserAddressComponent},
+      // {path:'dia-chi', component: UserAddressComponent},
+      {path:'lich-su-don-hang', component: OrderHistoryComponent},
 
       {path:'dat-hang', component: PaymentComponent},
       {path:'don-hang/:id', component: OrderDetailComponent},

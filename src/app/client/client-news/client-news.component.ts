@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { ClientNewsService } from 'src/app/services/client/news/client-news.service';
+import { ToastService } from 'angular-toastify';
+import { LoadingOverlayServiceService } from 'src/app/services/loading-overlay-service.service';
 
 @Component({
   selector: 'app-client-news',
@@ -32,7 +34,8 @@ export class ClientNewsComponent {
   constructor(
     private clientNewsService: ClientNewsService,
     private cookieService: CookieService,
-
+    private toastService: ToastService,
+    private loadingOverlayServiceService: LoadingOverlayServiceService,
   ) { }
 
   news:any;
@@ -53,11 +56,16 @@ export class ClientNewsComponent {
   }
 
   getNews(){
+    this.loadingOverlayServiceService.show();
     this.clientNewsService.getNews(this.token).subscribe((data) => {
       if(data.status === 'SUCCESS'){
         this.news = data.data;
-        // console.log(this.news);
+        this.loadingOverlayServiceService.hide();
       }    
+    },
+    (error) => {
+      this.loadingOverlayServiceService.hide();
+      this.toastService.error(error.error.message);
     });
   }
 

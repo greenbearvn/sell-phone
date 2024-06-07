@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { HomeService } from 'src/app/services/client/home/home.service';
 import { CarouselComponent } from 'ngx-bootstrap/carousel';
+import { Router } from '@angular/router';
 import { LoadingOverlayServiceService } from 'src/app/services/loading-overlay-service.service';
 
 @Component({
@@ -37,7 +38,7 @@ export class ClientHomeComponent {
     private homeService: HomeService,
     // private cookieService: CookieService,
     // private toastService: ToastService,
-    // private route: ActivatedRoute,
+    private router: Router,
     private loadingOverlayServiceService: LoadingOverlayServiceService,
 
   ) { }
@@ -79,8 +80,6 @@ export class ClientHomeComponent {
       if (data.status === "SUCCESS") {
         this.bestSale = data.data;
         this.iphones = data.data;
-        // console.log(this.bestSale);
-        // console.log(this.bestSale[0].productOptionDtos[0].newPrice);
       }
 
     });
@@ -109,12 +108,9 @@ export class ClientHomeComponent {
 
   getDebitProducts() {
     this.homeService.getDebitProducts().subscribe((data) => {
-
       if (data.status === "SUCCESS") {
         this.debitProducts = data.data;
-
       }
-
     });
   }
 
@@ -125,8 +121,15 @@ export class ClientHomeComponent {
   previousSlide() {
     this.carousel.previousSlide();
   }
+
+  navigateToCategory(categoryId: number) {
+    this.router.navigate(['/dien-thoai'], { queryParams: { categoryId: categoryId } });
+  }
   
   formatCurrencyVND(amount: number): string {
+    if (!amount) {
+      amount = 0;
+    }
     return amount.toLocaleString('vi-VN', {
       style: 'currency',
       currency: 'VND',

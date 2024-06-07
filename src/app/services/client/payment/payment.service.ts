@@ -32,6 +32,13 @@ export class PaymentService {
     return this.http.get('/api/v1/order/' + id, { headers });
   }
 
+  getAllByUser(token: any): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+    return this.http.get('/api/v1/order/my', { headers });
+  }
+
   getOrderDetail(token: any, orderId: any): Observable<any> {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,

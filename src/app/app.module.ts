@@ -74,6 +74,7 @@ import { PaymentComponent } from './client/payment/payment.component';
 import { AdminSlideCreateComponent } from './admin/admin-slide-create/admin-slide-create.component';
 import { AdminSlideUpdateComponent } from './admin/admin-slide-update/admin-slide-update.component';
 import { OrderDetailComponent } from './client/order-detail/order-detail.component';
+import { OrderHistoryComponent } from './client/order-history/order-history.component';
 
 
 
@@ -123,7 +124,8 @@ import { OrderDetailComponent } from './client/order-detail/order-detail.compone
     PaymentComponent,
     AdminSlideCreateComponent,
     AdminSlideUpdateComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    OrderHistoryComponent
   ],
   imports: [
     BrowserModule,

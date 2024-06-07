@@ -162,6 +162,9 @@ export class ClientDetailComponent {
           }
         }
         this.loadingOverlayServiceService.hide();
+      }, (error) => {
+        this.loadingOverlayServiceService.hide();
+        this.toastService.error(error.error.message);
       });
     } catch (error) {
       this.loadingOverlayServiceService.hide();
