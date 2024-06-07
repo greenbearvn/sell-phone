@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CartService } from 'src/app/services/client/cart/cart.service';
 import { CookieService } from 'ngx-cookie-service';
 import { ToastService } from 'angular-toastify';
+import { Router, NavigationEnd } from '@angular/router';
 import Swal from 'sweetalert2';
 import { LoadingOverlayServiceService } from 'src/app/services/loading-overlay-service.service';
 import { ClientComponent } from '../client.component';
@@ -32,6 +33,7 @@ import { ClientComponent } from '../client.component';
 })
 export class CartComponent {
   constructor(
+    private router: Router,
     private cartService: CartService,
     private cookieService: CookieService,
     private toastService: ToastService,
@@ -44,6 +46,7 @@ export class CartComponent {
   cartMem: any;
 
   ngOnInit() {
+    localStorage.clear();
     this.getToken();
     this.getCart();
   }
@@ -111,6 +114,7 @@ export class CartComponent {
 
   addItemMem(cartItem: any) {
     let existingCartItems: any[] = [];
+    console.log("SP: " + cartItem);
     let cartData = localStorage.getItem('cart');
     if (cartData !== null) {
       existingCartItems = JSON.parse(cartData);
@@ -127,10 +131,16 @@ export class CartComponent {
 
     if (!itemExists) {
       existingCartItems.push(cartItem);
-      localStorage.setItem('cart', JSON.stringify(existingCartItems));
-      this.toastService.error("Sản phẩm đã được thêm vào thanh toán !");
+      localStorage.setItem('cart', JSON.stringify(existingCartItems));      
+    }
+  }
+
+  checkOrder() {
+    let cartData = localStorage.getItem('cart');
+    if (cartData == null) {
+      this.toastService.error("Bạn hãy chọn ít nhất 1 sản phẩm để đặt hàng!");
     } else {
-      this.toastService.error("Sản phẩm đã được thêm vào thanh toán !");
+      this.router.navigate(['/dat-hang']);
     }
   }
 

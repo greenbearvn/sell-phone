@@ -1,0 +1,4 @@
+.custom-select-lg {
+    height: calc(2.875rem + 2px); /* Tăng chiều cao của ô chọn */
+    font-size: 1.25rem; /* Tăng kích thước chữ bên trong ô chọn */
+}

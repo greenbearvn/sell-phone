@@ -11,38 +11,45 @@
                   <a rel="follow" [routerLink]="['/dien-thoai']" class="lv_0">
                     <span> iPhone</span><i class="fa fa-angle-right"></i></a>
                 </li>
+
+                <li class="" id="pr_817">
+                  <a rel="follow" [routerLink]="['/dien-thoai']" class="lv_0">
+                    <span> Samsung</span><i class="fa fa-angle-right"></i></a>
+                </li>                
+
                 <li class="" id="pr_813">
                   <a rel="follow" [routerLink]="['/dien-thoai']" class="lv_0">
                     <span> Xiaomi</span><i class="fa fa-angle-right"></i></a>
                 </li>
+
                 <li class="" id="pr_814">
                   <a rel="follow" [routerLink]="['/dien-thoai']" class="lv_0">
                     <span> Oppo</span><i class="fa fa-angle-right"></i></a>
                 </li>
+               
                 <li class="" id="pr_815">
                   <a rel="follow" [routerLink]="['/dien-thoai']" class="lv_0">
                     <span> Realme</span><i class="fa fa-angle-right"></i></a>
                 </li>
-                <li class="" id="pr_812">
-                  <a rel="follow" [routerLink]="['/dien-thoai']" class="lv_0">
-                    <span> Poco</span><i class="fa fa-angle-right"></i></a>
-                </li>
-                <li class="" id="pr_865">
-                  <a rel="follow" [routerLink]="['/dien-thoai']" class="lv_0">
-                    <span> Techno</span><i class="fa fa-angle-right"></i></a>
-                </li>
-                <li class="" id="pr_817">
-                  <a rel="follow" [routerLink]="['/dien-thoai']" class="lv_0">
-                    <span> Samsung</span><i class="fa fa-angle-right"></i></a>
-                </li>
+
                 <li class="" id="pr_816">
                   <a rel="follow" [routerLink]="['/dien-thoai']" class="lv_0">
                     <span> Nokia</span><i class="fa fa-angle-right"></i></a>
                 </li>
 
+                <li class="" id="pr_812">
+                  <a rel="follow" [routerLink]="['/dien-thoai']" class="lv_0">
+                    <span> Oneplus</span><i class="fa fa-angle-right"></i></a>
+                </li>
+
+                <li class="" id="pr_865">
+                  <a rel="follow" [routerLink]="['/dien-thoai']" class="lv_0">
+                    <span> Infinix</span><i class="fa fa-angle-right"></i></a>
+                </li>               
+                
                 <li class="" id="pr_820">
-                  <a rel="follow" [routerLink]="['/tin-tuc']" class="lv_0">
-                    <span> Tin công nghệ</span><i class="fa fa-angle-right"></i></a>
+                  <a rel="follow" [routerLink]="['/dien-thoai']" class="lv_0">
+                    <span>Vivo</span><i class="fa fa-angle-right"></i></a>
                 </li>
               </ul>
             </div>
@@ -155,7 +162,7 @@
                             -{{ item.promotionValue }}%
                           </div>
                           <div class="discount" *ngIf="item.promotionValue > 100">
-                            -{{ item.promotionValue | currency : "VND" }}
+                            -{{ formatCurrencyVND(item.promotionValue)}}
                           </div>
                           <div class="product_image sticky">
                             <img width="210" height="210" class="img-responsive img_org prdimg lazy-loaded"
@@ -181,6 +188,7 @@
                               }}
                             </span>
                             <div class="clearfix"></div>
+
                             <div class="button_bot">
                               <div>
                                 <span class="green_cl bt_cl">{{
@@ -254,6 +262,13 @@
                               '/dien-thoai/xem-chi-tiet/' + item.id
                             ]">
                         <div class="frame_inner">
+                          <div class="discount" *ngIf="item.promotionValue <= 100">
+                            -{{ item.promotionValue }}%
+                          </div>
+                          <div class="discount" *ngIf="item.promotionValue > 100">
+                            -{{ formatCurrencyVND(item.promotionValue)}}
+                          </div>
+
                           <div class="product_image sticky">
                             <img width="210" height="210" class="img-responsive img_org prdimg lazy-loaded"
                               [src]="item.avatar" alt="{{ item.name }}" />
@@ -352,6 +367,13 @@
                                 '/dien-thoai/xem-chi-tiet/' + item.id
                               ]">
                         <div class="frame_inner">
+                          <div class="discount" *ngIf="item.promotionValue <= 100">
+                            -{{ item.promotionValue }}%
+                          </div>
+                          <div class="discount" *ngIf="item.promotionValue > 100">
+                            -{{ formatCurrencyVND(item.promotionValue)}}
+                          </div>
+
                           <div class="product_image sticky">
                             <img width="210" height="210" class="img-responsive img_org prdimg lazy-loaded"
                               [src]="item.avatar" alt="{{ item.name }}" />
@@ -448,6 +470,13 @@
                     <div class="frame cat_item">
                       <a [routerLink]="['/dien-thoai/xem-chi-tiet/' + item.id]">
                         <div class="frame_inner">
+                          <div class="discount" *ngIf="item.promotionValue <= 100">
+                            -{{ item.promotionValue }}%
+                          </div>
+                          <div class="discount" *ngIf="item.promotionValue > 100">
+                            -{{ formatCurrencyVND(item.promotionValue)}}
+                          </div>
+                          
                           <div class="product_image sticky">
                             <img width="210" height="210" class="img-responsive img_org prdimg lazy-loaded"
                               [src]="item.avatar" alt="{{ item.name }}" />
