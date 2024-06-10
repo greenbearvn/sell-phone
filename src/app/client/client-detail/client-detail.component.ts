@@ -99,7 +99,7 @@ export class ClientDetailComponent {
           this.options = data.data.productOptionDtos;
           this.getRecommendProduct();
           if (this.options.length > 0) {
-            this.oldPrice = this.options[0].oldPrice;
+            this.oldPrice = this.options[0].price;
             this.newPrice = this.options[0].newPrice;
           }
           else {
@@ -162,6 +162,9 @@ export class ClientDetailComponent {
           }
         }
         this.loadingOverlayServiceService.hide();
+      }, (error) => {
+        this.loadingOverlayServiceService.hide();
+        this.toastService.error(error.error.message);
       });
     } catch (error) {
       this.loadingOverlayServiceService.hide();
@@ -263,6 +266,9 @@ export class ClientDetailComponent {
   }
 
   formatCurrencyVND(amount: number): string {
+    if (!amount) {
+      amount = 0;
+    }
     return amount.toLocaleString('vi-VN', {
       style: 'currency',
       currency: 'VND',

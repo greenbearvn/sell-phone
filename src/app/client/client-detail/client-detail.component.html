@@ -213,8 +213,8 @@
                     </div>
                   </div>
                   <p class="top_prd">
-                    <span class="_price">{{newPrice | currency : "VND"}} </span>
-                    <span class="price_old"> {{oldPrice| currency : "VND"}} </span>
+                    <span class="_price">{{formatCurrencyVND(newPrice)}} </span>
+                    <span class="price_old"> {{formatCurrencyVND(oldPrice)}} </span>
                   </p>
 
                   <div class="edit-price">
@@ -278,7 +278,7 @@
               <div id="button-cart" class="row row5">
                 <div class="col-sm-12 col5">
                   <a id="buy-now" (click)="addCart()" class="btn-buy btn mt10" data-toggle="modal">
-                    Mua ngay
+                    Thêm vào giỏ hàng
                   </a>
                 </div>
                 <div class="col-sm-12 col5">

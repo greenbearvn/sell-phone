@@ -56,4 +56,17 @@ export class ClientComponent {
       this.countCartItem = null;
     }
   }
+
+  handleKeyDown(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      event.preventDefault(); // Ngăn chặn hành vi mặc định của phím Enter
+      this.onSubmit(); // Gọi phương thức để xử lý tìm kiếm
+    }
+  }
+
+  onSubmit() {
+    const inputElement = document.getElementById('inputSearch') as HTMLInputElement;
+    const searchText = inputElement.value;
+    window.location.href = `\dien-thoai?search=${searchText}`;
+  }
 }

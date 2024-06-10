@@ -1,0 +1,84 @@
+<lib-toastify-toast-container 
+    [transition]="'bounce'" 
+    [autoClose]="3000" 
+    [hideProgressBar]="true" 
+    [newestOnTop]="true"
+    [closeOnClick]="true" 
+    [pauseOnHover]="true" 
+    [pauseOnVisibilityChange]="true"
+    [preventDuplicates]="true">
+</lib-toastify-toast-container>
+
+<div class="single-product-area" style="margin-top: 0px; padding: 20px">
+    <div class="container" style="margin-top: 0px">
+        <div>
+            <h3 style="align-items: center;">Xem đơn hàng</h3>
+        </div>
+
+        <div class="row" style="margin-top: 0px">
+            <div class="col-md-4" style="width: 750px; margin-top: 0px">
+                <div id="order_review" style="position: relative; margin-top: 0px">
+                    <div style="margin: 10px;">
+                        <h4> Mã đơn hàng: {{order.orderCode}}</h4>
+                        <h4> Khách hàng: {{order.customerName}}</h4>
+                        <h4> Số điện thoại: {{order.phone}}</h4>
+                        <h4> Địa chỉ: {{order.address}}</h4>
+                    </div>
+                    <table class="shop_table" style="border: 1; margin: 10px">
+                        <thead>
+                            <tr>
+                                <th class="product-name">Tên sản phẩm</th>
+                                <th class="product-name">Số lượng</th>
+                                <th class="product-name">Đơn giá</th>
+                                <th class="product-name">Thành tiền</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="itemCard" style="border: 1">
+                            <tr *ngFor="let item of orderDetail">
+                                <td class="product-name">
+                                    {{ item.productOptionDto.productName }},
+                                    {{item.productOptionDto.ram}} GB - {{item.productOptionDto.storageCapacity}} GB,
+                                    {{item.productOptionDto.color}}
+                                </td>
+                                <td class="product-name">{{ item.quantity }}</td>
+                                <td class="product-name">
+                                    {{formatCurrencyVND(item.netPrice)}}
+                                </td>
+                                <td class="product-name">
+                                    {{ formatCurrencyVND(item.quantity * item.netPrice)}}
+                                </td>
+                            </tr>
+                        </tbody>
+
+                        <tfoot style="border: 1">
+                            <tr class="shipping">
+                                <th>Tổng tiền hàng</th>
+                                <td colspan="3">
+                                    <strong><span id="sum-total"
+                                            class="amount">{{formatCurrencyVND(order.netPriceTotal)}}</span></strong>
+                                </td>
+                            </tr>
+                            <tr class="shipping">
+                                <th>Phí giao hàng</th>
+                                <td colspan="3">
+                                    <strong><span id="ship-total"
+                                            class="amount">{{formatCurrencyVND(0)}}</span></strong>
+
+                                </td>
+                            </tr>
+                            <tr class="order-total">
+                                <th>Tổng tiền phải trả</th>
+                                <td colspan="3">
+                                    <strong><span id="amount"
+                                            class="amount">{{formatCurrencyVND(order.netPriceTotal)}}</span></strong>
+
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -8,6 +8,7 @@ import { ChangeEvent } from '@ckeditor/ckeditor5-angular/ckeditor.component';
 
 import { AdminCategoryService } from 'src/app/services/admin/category/admin-category.service';
 import { CategoryReq } from 'src/app/dto/CategoryReq';
+import { LoadingOverlayServiceService } from 'src/app/services/loading-overlay-service.service';
 
 @Component({
   selector: 'app-admin-category-create',
@@ -36,7 +37,8 @@ export class AdminCategoryCreateComponent {
 
     private adminCateoryService: AdminCategoryService,
     private cookieService: CookieService,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private loadingOverlayServiceService: LoadingOverlayServiceService,
   ) {
     this.formData = new FormData()
   }
@@ -80,13 +82,22 @@ export class AdminCategoryCreateComponent {
   }
 
   create() {
-    this.adminCateoryService.create(this.formData, this.token).subscribe((data: any) => {
-      if (data.status === 'SUCCESS') {
-        this.toastService.success("Thêm thành công!")
-      } else {
-        this.toastService.error("Đã xảy ra lỗi. Vui lòng thử lại.");
+    try {
+      this.loadingOverlayServiceService.show();
+      this.adminCateoryService.create(this.formData, this.token).subscribe((data: any) => {
+        if (data.status === 'SUCCESS') {
+          this.toastService.success("Thêm thành công!")
+        }
+        this.loadingOverlayServiceService.hide();
+      }, (error) => {
+        this.loadingOverlayServiceService.hide();
+        this.toastService.error(error.error.message);
       }
-    });
+      );
+    } catch (error) {
+      this.loadingOverlayServiceService.hide();
+      this.toastService.error("Đã xảy ra lỗi. Vui lòng thử lại sau!");
+    }
   }
 
   public onChange({ editor }: ChangeEvent) {

@@ -2,7 +2,8 @@
 <aside class="app-sidebar">
       <div class="app-sidebar__user">
             <img class="app-sidebar__user-avatar" alt="User Image"
-                  [src]="object.avatar ? object.avatar : 'https://res.cloudinary.com/dgyqh297t/image/upload/v1717311124/avatar_lgo1y1.jpg'" width="50px">
+                  [src]="object.avatar ? object.avatar : 'https://res.cloudinary.com/dgyqh297t/image/upload/v1717311124/avatar_lgo1y1.jpg'"
+                  style="height: 70px !important; width: 70px !important; border-radius: 50%; object-fit: cover;">
             <div>
                   <p class="app-sidebar__user-name"><b>{{object.username}}</b></p>
                   <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
@@ -20,7 +21,7 @@
 
             <li><a class="app-menu__item" [routerLink]="['/admin/report']"><i
                               class='app-menu__icon bx bx-pie-chart-alt-2'></i>
-                              <span class="app-menu__label">Báo cáo doanh thu</span></a>
+                        <span class="app-menu__label">Báo cáo doanh thu</span></a>
             </li>
 
             <li><a class="app-menu__item" [routerLink]="['/admin/category']"><i

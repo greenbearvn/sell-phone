@@ -8,41 +8,48 @@
             <div class="position-relative menu">
               <ul class="menu-product-hover menu-categories">
                 <li class=" first-item" id="pr_811">
-                  <a rel="follow" [routerLink]="['/dien-thoai']" class="lv_0">
+                  <a rel="follow" (click)="navigateToCategory(1)" class="lv_0">
                     <span> iPhone</span><i class="fa fa-angle-right"></i></a>
                 </li>
+
+                <li class="" id="pr_817">
+                  <a rel="follow" (click)="navigateToCategory(2)" class="lv_0">
+                    <span> Samsung</span><i class="fa fa-angle-right"></i></a>
+                </li>                
+
                 <li class="" id="pr_813">
-                  <a rel="follow" [routerLink]="['/dien-thoai']" class="lv_0">
+                  <a rel="follow" (click)="navigateToCategory(3)" class="lv_0">
                     <span> Xiaomi</span><i class="fa fa-angle-right"></i></a>
                 </li>
+
                 <li class="" id="pr_814">
-                  <a rel="follow" [routerLink]="['/dien-thoai']" class="lv_0">
+                  <a rel="follow" (click)="navigateToCategory(4)" class="lv_0">
                     <span> Oppo</span><i class="fa fa-angle-right"></i></a>
                 </li>
+               
                 <li class="" id="pr_815">
-                  <a rel="follow" [routerLink]="['/dien-thoai']" class="lv_0">
+                  <a rel="follow" (click)="navigateToCategory(5)" class="lv_0">
                     <span> Realme</span><i class="fa fa-angle-right"></i></a>
                 </li>
-                <li class="" id="pr_812">
-                  <a rel="follow" [routerLink]="['/dien-thoai']" class="lv_0">
-                    <span> Poco</span><i class="fa fa-angle-right"></i></a>
-                </li>
-                <li class="" id="pr_865">
-                  <a rel="follow" [routerLink]="['/dien-thoai']" class="lv_0">
-                    <span> Techno</span><i class="fa fa-angle-right"></i></a>
-                </li>
-                <li class="" id="pr_817">
-                  <a rel="follow" [routerLink]="['/dien-thoai']" class="lv_0">
-                    <span> Samsung</span><i class="fa fa-angle-right"></i></a>
-                </li>
+
                 <li class="" id="pr_816">
-                  <a rel="follow" [routerLink]="['/dien-thoai']" class="lv_0">
+                  <a rel="follow" (click)="navigateToCategory(6)" class="lv_0">
                     <span> Nokia</span><i class="fa fa-angle-right"></i></a>
                 </li>
 
+                <li class="" id="pr_812">
+                  <a rel="follow" (click)="navigateToCategory(7)" class="lv_0">
+                    <span> Oneplus</span><i class="fa fa-angle-right"></i></a>
+                </li>
+
+                <li class="" id="pr_865">
+                  <a rel="follow" (click)="navigateToCategory(8)" class="lv_0">
+                    <span> Infinix</span><i class="fa fa-angle-right"></i></a>
+                </li>               
+                
                 <li class="" id="pr_820">
-                  <a rel="follow" [routerLink]="['/tin-tuc']" class="lv_0">
-                    <span> Tin công nghệ</span><i class="fa fa-angle-right"></i></a>
+                  <a rel="follow" (click)="navigateToCategory(9)" class="lv_0">
+                    <span>Vivo</span><i class="fa fa-angle-right"></i></a>
                 </li>
               </ul>
             </div>
@@ -54,7 +61,7 @@
 
                   <carousel [interval]="5000" [noPause]="true" [noWrap]="false">
                     <slide *ngFor="let image of images">
-                      <img [src]="image.avatar" alt="Image" style="display: block; width: 100%; height: 300px;">
+                      <img [src]="image.avatar" alt="Image" style="display: block; width: 100%; height: 320px;">
                     </slide>
                   </carousel>
                 </div>
@@ -73,25 +80,21 @@
             <h3>Tin hot: </h3>
           </div>
           <div class="list_">
-            <div class="list_newhot owl-carousel owl-theme">
+            <div class="list_newhot owl-carousel owl-theme">              
               <h4>
-                <a href="https://didongthongminh.vn/dia-chi-mua-ban-iphone-12-pro-max-cu-tai-hai-phong-uy-tin-nhat">Địa
-                  chỉ mua bán iPhone 12 Pro Max cũ tại Hải Phòng uy tín nhất</a>
-              </h4>
-              <h4>
-                <a href="https://didongthongminh.vn/danh-gia-ipad-pro-10-5">Đánh giá iPad Pro 10.5
+                <a [routerLink]="['/tin-tuc']">Đánh giá iPad Pro 10.5
                   sau 7 năm ra mắt – Hài lòng đến những người dùng khó tính nhất</a>
               </h4>
               <h4>
-                <a href="https://didongthongminh.vn/tuan-le-vang-xa-apple-sap-san">Tuần lễ vàng, xả
+                <a [routerLink]="['/dien-thoai?categoryId=1']">Tuần lễ vàng, xả
                   Apple sập sàn</a>
               </h4>
               <h4>
-                <a href="https://didongthongminh.vn/bang-gia-iphone-13-series-cu-nam-2024">Bảng giá
+                <a [routerLink]="['/dien-thoai']">Bảng giá
                   iPhone 13 Series cũ năm 2024</a>
               </h4>
               <h4>
-                <a href="https://didongthongminh.vn/top-dien-thoai-choi-game-xiaomi-gia-re-cau-hinh-cao">Top
+                <a [routerLink]="['/tin-tuc']">Top
                   điện thoại chơi game Xiaomi giá rẻ cấu hình cao</a>
               </h4>
             </div>
@@ -99,22 +102,23 @@
         </div>
 
         <div class="clear"></div>
+
         <!-- Ảnh -->
-        <div class="banners-home row row5">
-          <div class="col-sm-6 col5">
-            <a href="https://didongthongminh.vn/may-tinh-bang" title="iPhone năm mới 2024">
+        <div class="banners-home row row5" style="height: 200px; width: 100%;">
+          <div class="col-sm-12 col5">
+            <a title="Samsung S23">
               <img class="img-responsive img_org prdimg lazy-loaded"
-                src="https://didongthongminh.vn/images/banners/resized/orange-and-blue-playful-summer-activity-presentation-3_1710742731.webp"
-                width="590" height="120" onerror="this.style.display='none'" alt="iPhone năm mới 2024" />
+                src="https://res.cloudinary.com/dgyqh297t/image/upload/v1717782129/infinix-note-30-chuyen-muc_638498078453971425_wugyvn.jpg"
+                width="590" height="120" onerror="this.style.display='none'" alt="Samsung S23" />
             </a>
           </div>
-          <div class="col-sm-6 col5">
+          <!-- <div class="col-sm-6 col5">
             <a href="https://didongthongminh.vn/redmi" title="iPad cũ">
               <img class="img-responsive img_org prdimg lazy-loaded" style="display:contents;"
                 src="https://didongthongminh.vn/images/banners/resized/orange-and-blue-playful-summer-activity-presentation-1_1710742425.webp"
                 width="590" height="120" onerror="this.style.display='none'" alt="iPad cũ" />
             </a>
-          </div>
+          </div> -->
         </div>
 
         <div class="clear"></div>
@@ -155,7 +159,7 @@
                             -{{ item.promotionValue }}%
                           </div>
                           <div class="discount" *ngIf="item.promotionValue > 100">
-                            -{{ item.promotionValue | currency : "VND" }}
+                            -{{ formatCurrencyVND(item.promotionValue)}}
                           </div>
                           <div class="product_image sticky">
                             <img width="210" height="210" class="img-responsive img_org prdimg lazy-loaded"
@@ -181,6 +185,7 @@
                               }}
                             </span>
                             <div class="clearfix"></div>
+
                             <div class="button_bot">
                               <div>
                                 <span class="green_cl bt_cl">{{
@@ -254,6 +259,13 @@
                               '/dien-thoai/xem-chi-tiet/' + item.id
                             ]">
                         <div class="frame_inner">
+                          <div class="discount" *ngIf="item.promotionValue <= 100">
+                            -{{ item.promotionValue }}%
+                          </div>
+                          <div class="discount" *ngIf="item.promotionValue > 100">
+                            -{{ formatCurrencyVND(item.promotionValue)}}
+                          </div>
+
                           <div class="product_image sticky">
                             <img width="210" height="210" class="img-responsive img_org prdimg lazy-loaded"
                               [src]="item.avatar" alt="{{ item.name }}" />
@@ -352,6 +364,13 @@
                                 '/dien-thoai/xem-chi-tiet/' + item.id
                               ]">
                         <div class="frame_inner">
+                          <div class="discount" *ngIf="item.promotionValue <= 100">
+                            -{{ item.promotionValue }}%
+                          </div>
+                          <div class="discount" *ngIf="item.promotionValue > 100">
+                            -{{ formatCurrencyVND(item.promotionValue)}}
+                          </div>
+
                           <div class="product_image sticky">
                             <img width="210" height="210" class="img-responsive img_org prdimg lazy-loaded"
                               [src]="item.avatar" alt="{{ item.name }}" />
@@ -448,6 +467,13 @@
                     <div class="frame cat_item">
                       <a [routerLink]="['/dien-thoai/xem-chi-tiet/' + item.id]">
                         <div class="frame_inner">
+                          <div class="discount" *ngIf="item.promotionValue <= 100">
+                            -{{ item.promotionValue }}%
+                          </div>
+                          <div class="discount" *ngIf="item.promotionValue > 100">
+                            -{{ formatCurrencyVND(item.promotionValue)}}
+                          </div>
+                          
                           <div class="product_image sticky">
                             <img width="210" height="210" class="img-responsive img_org prdimg lazy-loaded"
                               [src]="item.avatar" alt="{{ item.name }}" />

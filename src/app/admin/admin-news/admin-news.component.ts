@@ -4,6 +4,7 @@ import { ToastService } from 'angular-toastify';
 import { AdminNewsService } from 'src/app/services/admin/news/admin-news.service';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import Swal from 'sweetalert2';
+import { LoadingOverlayServiceService } from 'src/app/services/loading-overlay-service.service';
 
 @Component({
   selector: 'app-admin-news',
@@ -19,6 +20,7 @@ export class AdminNewsComponent {
     private toastService: ToastService,
     private dialogService: DialogService,
     private ref: DynamicDialogRef,
+    private loadingOverlayServiceService: LoadingOverlayServiceService,
   ) { }
 
   news: any;
@@ -38,11 +40,21 @@ export class AdminNewsComponent {
   }
 
   getNews() {
-    this.adminNewsService.getNews(this.token).subscribe((data) => {
-      if (data.status === 'SUCCESS') {
-        this.news = data.data;
-      }
-    });
+    try {
+      this.loadingOverlayServiceService.show();
+      this.adminNewsService.getNews(this.token).subscribe((data) => {
+        if (data.status === 'SUCCESS') {
+          this.news = data.data;
+        }
+        this.loadingOverlayServiceService.hide();
+      }, (error) => {
+        this.loadingOverlayServiceService.hide();
+        this.toastService.error(error.error.message);
+      });
+    } catch (error) {
+      this.loadingOverlayServiceService.hide();
+      this.toastService.error("Đã xảy ra lỗi. Vui lòng thử lại sau!");
+    }
   }
 
   deleteNews(id: any) {

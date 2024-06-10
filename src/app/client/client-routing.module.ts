@@ -13,6 +13,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { UserInforComponent } from './user-infor/user-infor.component';
 import { UserAddressComponent } from './user-address/user-address.component';
 import { PaymentComponent } from './payment/payment.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
 
 
 const routes: Routes = [
@@ -23,7 +25,7 @@ const routes: Routes = [
       {path:'', component: ClientHomeComponent},
       {path:'dien-thoai', component: CategoryComponent},
       {path:'dien-thoai/xem-chi-tiet/:id', component: ClientDetailComponent},
-      {path:'cart', component: CartComponent},
+      {path:'gio-hang', component: CartComponent},
 
       {path:'tin-tuc', component: ClientNewsComponent},
       {path:'tin-tuc/xem-tin-tuc/:id', component: DetailNewsComponent},
@@ -32,8 +34,11 @@ const routes: Routes = [
       {path:'dang-ky', component: RegisterComponent},
       {path:'quen-mat-khau', component: ForgotPasswordComponent},
       {path:'trang-ca-nhan', component: UserInforComponent},
-      {path:'dia-chi', component: UserAddressComponent},
-      {path:'thanh-toan', component: PaymentComponent},
+      // {path:'dia-chi', component: UserAddressComponent},
+      {path:'lich-su-don-hang', component: OrderHistoryComponent},
+
+      {path:'dat-hang', component: PaymentComponent},
+      {path:'don-hang/:id', component: OrderDetailComponent},
     ]
   }
 ];

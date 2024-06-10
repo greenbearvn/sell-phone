@@ -73,7 +73,9 @@
     display: grid;
     grid-template-columns: 160px auto;
     margin-bottom: 20px; }
-    .user-content-side .box-user input[type=text], .user-content-side .box-user input[type=password] {
+    .user-content-side .box-user input[type=text], .user-content-side .box-user input[type=password]
+    , .user-content-side .box-user input[type=file], .user-content-side .box-user input[type=date], 
+    .user-content-side .box-user select {
       width: 390px;
       height: 40px;
       background: #fff;

@@ -9,6 +9,7 @@ import { ChangeEvent } from '@ckeditor/ckeditor5-angular/ckeditor.component';
 import { NewsReq } from 'src/app/dto/NewsReq';
 import { AdminNewsService } from 'src/app/services/admin/news/admin-news.service';
 import { AdminNewsTypeService } from 'src/app/services/admin/news/admin-news-type.service';
+import { LoadingOverlayServiceService } from 'src/app/services/loading-overlay-service.service';
 
 @Component({
   selector: 'app-admin-news-create',
@@ -40,7 +41,9 @@ export class AdminNewsCreateComponent {
     private adminNewsService: AdminNewsService,
     private cookieService: CookieService,
     private toastService: ToastService,
-    private adminNewsTypeService: AdminNewsTypeService) {
+    private adminNewsTypeService: AdminNewsTypeService,
+    private loadingOverlayServiceService: LoadingOverlayServiceService,
+  ) {
     this.formData = new FormData()
   }
 
@@ -93,12 +96,21 @@ export class AdminNewsCreateComponent {
 
 
   create() {
-    this.adminNewsService.create(this.formData, this.token).subscribe((data: any) => {
-      if (data.status === 'SUCCESS') {
-        this.toastService.success("Thêm tin tức thành công!")
-
-      }
-    });
+    try {
+      this.loadingOverlayServiceService.show();
+      this.adminNewsService.create(this.formData, this.token).subscribe((data: any) => {
+        if (data.status === 'SUCCESS') {
+          this.toastService.success("Thêm tin tức thành công!")
+        }
+        this.loadingOverlayServiceService.hide();
+      }, (error) => {
+        this.loadingOverlayServiceService.hide();
+        this.toastService.error(error.error.message);
+      });
+    } catch (error) {
+      this.loadingOverlayServiceService.hide();
+      this.toastService.error("Đã xảy ra lỗi. Vui lòng thử lại sau!");
+    }
   }
 
   getAdminNewsTypes() {

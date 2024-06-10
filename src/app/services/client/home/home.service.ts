@@ -9,6 +9,11 @@ export class HomeService {
 
   constructor(private http: HttpClient) { }
 
+  searchProduct(param : any): Observable<any> {
+
+    return this.http.get('/api/v1/product/search?' + param) ;
+  }
+
   getSaleProduct(): Observable<any> {
 
     return this.http.get('/api/v1/product/all?promotionId='+ 1);
@@ -30,7 +35,6 @@ export class HomeService {
   }
 
   getSlide(): Observable<any> {
-
     return this.http.get('/api/v1/slide');
   }
 }

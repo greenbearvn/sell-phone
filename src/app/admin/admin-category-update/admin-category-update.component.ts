@@ -9,6 +9,7 @@ import { CKEditorComponent } from '@ckeditor/ckeditor5-angular';
 import { AdminCategoryService } from 'src/app/services/admin/category/admin-category.service';
 import { CategoryReq } from 'src/app/dto/CategoryReq';
 import { ActivatedRoute } from '@angular/router';
+import { LoadingOverlayServiceService } from 'src/app/services/loading-overlay-service.service';
 
 @Component({
   selector: 'app-admin-category-update',
@@ -37,6 +38,7 @@ export class AdminCategoryUpdateComponent {
     private cookieService: CookieService,
     private toastService: ToastService,
     private route: ActivatedRoute,
+    private loadingOverlayServiceService: LoadingOverlayServiceService,
   ) {
     this.formData = new FormData()
   }
@@ -91,11 +93,21 @@ export class AdminCategoryUpdateComponent {
   }
 
   update() {
-    this.adminCateoryService.update(this.id, this.formData, this.token).subscribe((data: any) => {
-      if (data.status === 'SUCCESS') {
-        this.toastService.success("Cập nhật thành công!")
-      }
-    });
+    try {
+      this.loadingOverlayServiceService.show();
+      this.adminCateoryService.update(this.id, this.formData, this.token).subscribe((data: any) => {
+        if (data.status === 'SUCCESS') {
+          this.toastService.success("Cập nhật thành công!")
+        }
+        this.loadingOverlayServiceService.hide();
+      }, (error) => {
+        this.loadingOverlayServiceService.hide();
+        this.toastService.error(error.error.message);
+      });
+    } catch (error) {
+      this.loadingOverlayServiceService.hide();
+      this.toastService.error("Đã xảy ra lỗi. Vui lòng thử lại sau!");
+    }
   }
 
   public onChange({ editor }: ChangeEvent) {

@@ -45,13 +45,14 @@
                               Xin chào, <span>{{user.username}}</span>
                            </div>
                         </div>
+
                         <ul>
-                           <li class="selected">
+                           <li>
                               <a [routerLink]="['/trang-ca-nhan']">
                                  <i class="fa fa-user" aria-hidden="true"></i>
                                  Thông tin tài khoản </a>
                            </li>
-                           <li class="">
+                           <li class="selected">
                               <a [routerLink]="['/lich-su-don-hang']">
                                  <i class="fa fa-wpforms" aria-hidden="true"></i>
                                  Quản lý đơn hàng </a>
@@ -76,61 +77,43 @@
                   </div>
                   <div class="grid-item">
                      <div class="user-content-side">
-                        <h2 class="member-title">Thông tin tài khoản</h2>
-                        <form action="" method="post" name="frmUser" id="frmUser" enctype="multipart/form-data">
-                           <div class="box-user">
-                              <label class="label-input" for="u_username">Tài khoản*</label>
-                              <input type="text" name="u_name" id="u_username" [value]="user.username" [(ngModel)]="user.username" placeholder=""
-                                 class="form-control" required>
-                           </div>
+                        <h2 class="member-title">Lịch sử đơn hàng</h2>
+                        <table class="shop_table" style="border: 1; margin: 10px">
+                            <thead>
+                                <tr>
+                                    <th class="product-name">Mã đơn hàng</th>                                                                       
+                                    <th class="product-name">Phí vận chuyển</th>
+                                    <th class="product-name">Tổng tiền</th>
+                                    <th class="product-name">Trạng thái</th>
+                                    <th class="product-name">Thanh toán</th>
+                                </tr>
+                            </thead>
+    
+                            <tbody id="itemCard" style="border: 1">
+                                <tr *ngFor="let item of orders">
+                                    <td class="product-name">
+                                        {{ item.orderCode }}
+                                    </td>                                   
 
-                           <div class="box-user">
-                              <label class="label-input" for="u_avatar">Avatar</label>
-                              <input class="form-control col-md-6" type="file" name="u_avatar" id="uploadfile"
-                                 accept="image/*" (change)="onFileSelected($event)" style="height: auto;">
-                              
-                              <label class="label-input" for="u_avatarOld"></label>
-                              <img [src]="imageUrl" alt="Ảnh xem trước" class="mt-2" width="auto" height="150"
-                                 *ngIf="imageUrl">
-                           </div>
+                                    <td class="product-name">
+                                        {{formatCurrencyVND(item.shippingFee)}}
+                                    </td>
 
-                           <div class="box-user">
-                              <label class="label-input" for="u_fullName">Họ và tên</label>
-                              <input type="text" name="u_fullName" [value]="user.fullName" [(ngModel)]="user.fullName" placeholder=""
-                                 class="form-control">
-                           </div>
+                                    <td class="product-name">
+                                        {{ formatCurrencyVND(item.netPriceTotal)}}
+                                    </td>
 
-                           <div class="box-user">
-                              <label class="label-input" for="u_email">Email*</label>
-                              <input type="text" name="u_email" id="u_email" [value]="user.email" [(ngModel)]="user.email" placeholder=""
-                                 class="form-control" required>
-                           </div>
+                                    <td class="product-name">
+                                        {{ item.orderStatusName}}
+                                    </td>
 
-                           <div class="box-user">
-                              <label class="label-input" for="u_tel">Điện thoại*</label>
-                              <input type="text" name="u_tel" [value]="user.phone" [(ngModel)]="user.phone" placeholder=""
-                                 class="form-control" required>
-                           </div>
-
-                           <div class="box-user">
-                              <label class="label-input" for="u_birthday">Ngày sinh</label>
-                              <input type="date" name="u_birthday" [value]="user.birthday" [(ngModel)]="user.birthday" placeholder=""
-                                 class="form-control">
-                           </div>
-
-                           <div class="box-user">
-                              <label class="label-input" for="u_gender">Giới tính</label>
-                              <select class="form-control" id="u_gender" name="u_gender"
-                                 [(ngModel)]="user.gender">
-                                 <option value="" required></option>
-                                 <option value="true">Nam</option>
-                                 <option value="false">Nữ</option>
-                              </select>
-                           </div>
-                           <div class="box-user box-submit">
-                              <a class="submit-btn" (click)="checkUpdateUser()">Cập nhật</a>
-                           </div>
-                        </form>
+                                    <td class="product-name">
+                                        {{ item.paymentStatus==true ? "Đã thanh toán" : "Chưa thanh toán"}}
+                                    </td>
+                                </tr>
+                            </tbody>   
+                            
+                        </table>
                      </div>
                   </div>
                </div>

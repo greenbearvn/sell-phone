@@ -9,6 +9,7 @@ import { NewsReq } from 'src/app/dto/NewsReq';
 import { AdminNewsService } from 'src/app/services/admin/news/admin-news.service';
 import { AdminNewsTypeService } from 'src/app/services/admin/news/admin-news-type.service';
 import { ActivatedRoute } from '@angular/router';
+import { LoadingOverlayServiceService } from 'src/app/services/loading-overlay-service.service';
 
 @Component({
   selector: 'app-admin-news-update',
@@ -40,7 +41,9 @@ export class AdminNewsUpdateComponent {
     private cookieService: CookieService,
     private toastService: ToastService,
     private adminNewsTypeService: AdminNewsTypeService,
-    private route: ActivatedRoute,) {
+    private route: ActivatedRoute,
+    private loadingOverlayServiceService: LoadingOverlayServiceService,
+  ) {
     this.formData = new FormData()
   }
   ngOnInit() {
@@ -103,11 +106,21 @@ export class AdminNewsUpdateComponent {
   }
 
   update() {
-    this.adminNewsService.update(this.newsId, this.formData, this.token).subscribe((data: any) => {
-      if (data.status === 'SUCCESS') {
-        this.toastService.success("Cập nhật bài viết thành công!!!")
-      }
-    });
+    try {
+      this.loadingOverlayServiceService.show();
+      this.adminNewsService.update(this.newsId, this.formData, this.token).subscribe((data: any) => {
+        if (data.status === 'SUCCESS') {
+          this.toastService.success("Cập nhật bài viết thành công!!!")
+        }
+        this.loadingOverlayServiceService.hide();
+      }, (error) => {
+        this.loadingOverlayServiceService.hide();
+        this.toastService.error(error.error.message);
+      });
+    } catch (error) {
+      this.loadingOverlayServiceService.hide();
+      this.toastService.error("Đã xảy ra lỗi. Vui lòng thử lại sau!");
+    }
   }
 
   getAdminNewsTypes() {

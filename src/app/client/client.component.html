@@ -102,9 +102,9 @@
 
                   <div id="search_simple" class="search_simple">
                      <div class="search_simple_content">
-                        <form name="search_form" id="search_form_simple" method="get">
-                           <input type="text" value="" placeholder="Rẻ mà bền..." id="keyword_simple"
-                              name="keyword_simple" class="keyword_simple input-text" />                           
+                        <form name="search_form" id="search_form_simple" method="get" (ngSubmit)="onSubmit()">
+                           <input type="text" value="" placeholder="Rẻ mà bền..." id="inputSearch"
+                              name="keyword_simple" class="keyword_simple input-text" (keydown)="handleKeyDown($event)"/>                           
                         </form>
                      </div>
                   </div>
@@ -114,11 +114,11 @@
                      <span>Gọi mua hàng</span>
                      <span>0363 639 931</span>
                   </a>
-                  <a href="he-thong-cua-hang.html" class="address">
+                  <a class="address">
                      Cửa hàng<br>
                      Gần bạn
                   </a>
-                  <a [routerLink]="['/cart']" class="cart_dd" title="Giỏ hàng">
+                  <a [routerLink]="['/gio-hang']" class="cart_dd" title="Giỏ hàng">
                      <span *ngIf="countCartItem !== null && countCartItem !== ''" class="nbc">{{countCartItem}}</span>
                   </a>
                   <a (click)="checkLogin()" title="Thành viên - Đăng ký - Đăng nhập" class="member-btn">
