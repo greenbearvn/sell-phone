@@ -57,7 +57,7 @@ export class LoginComponent {
         this.data = response;
         if (this.data.status === "SUCCESS") {
           this.toastService.success("Đăng nhập thành công");         
-          this.token = this.data.data.accessToken;
+          this.token = response.data.accessToken;
           this.cookieService.set('jwt_token', this.token);
           if (response.data.authorities[0]?.authority === "ROLE_ADMIN") {
             window.location.href = '/admin/home';

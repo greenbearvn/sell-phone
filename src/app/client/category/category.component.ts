@@ -83,6 +83,9 @@ export class CategoryComponent {
   }
 
   formatCurrencyVND(amount: number): string {
+    if (!amount) {
+      amount = 0;
+    }
     return amount.toLocaleString('vi-VN', {
       style: 'currency',
       currency: 'VND',

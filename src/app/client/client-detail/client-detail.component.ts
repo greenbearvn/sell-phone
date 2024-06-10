@@ -99,7 +99,7 @@ export class ClientDetailComponent {
           this.options = data.data.productOptionDtos;
           this.getRecommendProduct();
           if (this.options.length > 0) {
-            this.oldPrice = this.options[0].oldPrice;
+            this.oldPrice = this.options[0].price;
             this.newPrice = this.options[0].newPrice;
           }
           else {
@@ -266,6 +266,9 @@ export class ClientDetailComponent {
   }
 
   formatCurrencyVND(amount: number): string {
+    if (!amount) {
+      amount = 0;
+    }
     return amount.toLocaleString('vi-VN', {
       style: 'currency',
       currency: 'VND',

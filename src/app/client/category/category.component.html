@@ -150,21 +150,21 @@
                               <select class="form-control form-control-lg custom-select-lg" id="slectPrice" (change)="onChange()" 
                                  [(ngModel)]="selectedPrice">
                                  <option value="" required>-- Chọn giá --</option>
-                                 <option value="&priceTo=2000000">Dưới 2 triệu</option>
+                                 <option value="&priceTo=1999999">Dưới 2 triệu</option>
                                  <option value="&priceFrom=2000000&priceTo=4000000">Từ 2 - 4 triệu</option>
                                  <option value="&priceFrom=4000000&priceTo=7000000">Từ 4 - 7 triệu</option>
-                                 <option value="&priceFrom=7000000">Trên 7 triệu</option>
+                                 <option value="&priceFrom=7000001">Trên 7 triệu</option>
                               </select>
                            </div>
 
                            <div class="form-group col-md-3 mr-3 mb-2">
                               <label class="control-label"><h4><b>Dung lượng RAM</b></h4></label>
                               <select class="form-control form-control-lg custom-select-lg" id="slectRam" (change)="onChange()" [(ngModel)]="selectedRam">
-                                 <option value="" required>-- Chọn RAM --</option>
-                                 <option value="&ramTo=4" required> Dưới 4GB</option>
-                                 <option value="&ramFrom=4&ramTo=6" required> 4GB - 6GB </option>
-                                 <option value="&ramFrom=8&ramTo=12" required> 8GB - 12GB </option>
-                                 <option value="&ramFrom=12" required> Trên 12GB </option>
+                                 <option value="">-- Chọn RAM --</option>
+                                 <option value="&ramTo=3"> Dưới 4GB</option>
+                                 <option value="&ramFrom=4&ramTo=6"> 4GB - 6GB </option>
+                                 <option value="&ramFrom=8&ramTo=12"> 8GB - 12GB </option>
+                                 <option value="&ramFrom=13"> Trên 12GB </option>
                               </select>
                            </div>
 
@@ -172,10 +172,10 @@
                               <label class="control-label"><h4><b>Bộ nhớ trong</b></h4></label>
                               <select class="form-control form-control-lg custom-select-lg" id="slectRom" (change)="onChange()" [(ngModel)]="selectedRom">
                                  <option value="" required>-- Chọn bộ nhớ trong --</option>
-                                 <option value="&romTo=32" required> Dưới 32GB</option>
-                                 <option value="&romFrom=32&romTo=64" required> 32GB - 64GB </option>
-                                 <option value="&romFrom=128&romTo=256" required> 128GB - 256GB </option>
-                                 <option value="&romFrom=512" required> Trên 512GB </option>
+                                 <option value="&romTo=31"> Dưới 32GB</option>
+                                 <option value="&romFrom=32&romTo=64"> 32GB - 64GB </option>
+                                 <option value="&romFrom=128&romTo=256"> 128GB - 256GB </option>
+                                 <option value="&romFrom=257"> Trên 256GB </option>
                               </select>
                            </div>
 

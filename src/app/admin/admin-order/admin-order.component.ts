@@ -54,7 +54,8 @@ export class AdminOrderComponent {
       1: 'bg-info',
       2: 'bg-success',
       3: 'bg-success',
-      4: 'bg-warning',
+      4: 'bg-success',
+      5: 'bg-warning',
     };
     return classMap[paymentId] || 'badge-default';
   }
